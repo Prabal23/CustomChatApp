@@ -189,7 +189,7 @@ class GroupPageState extends State<GroupPage> {
                   padding: EdgeInsets.only(left: 10, right: 10),
                   sliver: SliverGrid(
                     gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-                      maxCrossAxisExtent: 190.0,
+                      maxCrossAxisExtent: 200.0,
                       mainAxisSpacing: 0.0,
                       crossAxisSpacing: 0.0,
                       childAspectRatio: 1.0,

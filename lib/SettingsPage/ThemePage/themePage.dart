@@ -203,7 +203,7 @@ class ThemePageState extends State<ThemePage> {
                                         children: <Widget>[
                                           Container(
                                               padding: EdgeInsets.only(left: 0),
-                                              height: 150,
+                                              height: 125,
                                               width: MediaQuery.of(context)
                                                   .size
                                                   .width,
