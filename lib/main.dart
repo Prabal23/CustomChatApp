@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'StartingPage/startingPage.dart';
+import 'MainScreens/StartingPage/startingPage.dart';
 
 void main() => runApp(MyApp());
 
@@ -16,6 +16,16 @@ Color chat_back = Color(0xFFEAE7E2);
 Color my_chat = Color(0xFF01AFF4);
 Color person_chat = Color(0xFFE9EBED);
 Color chat_page_back = Color(0xFFFFFFFF);
+
+var friendname = List<String>();
+List<String> user = [];
+List<String> name = [
+  "John Smith",
+  "David Ryan",
+  "Simon Wright",
+  "Mike Johnson",
+  "Daniel Smith"
+];
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
