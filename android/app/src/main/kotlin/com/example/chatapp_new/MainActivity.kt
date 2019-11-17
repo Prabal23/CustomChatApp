@@ -1,4 +1,4 @@
-package com.example.chatapp_new
+package com.theme.chatapp
 
 import android.os.Bundle
 
