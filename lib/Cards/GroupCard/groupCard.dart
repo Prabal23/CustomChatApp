@@ -74,14 +74,14 @@ class _GroupCardState extends State<GroupCard> {
                             margin: EdgeInsets.only(top: 5),
                             child: Text(
                               widget.index == 0
-                                  ? "Group 1"
+                                  ? "Flutter Rajjo"
                                   : widget.index == 1
-                                      ? "Group 2"
+                                      ? "Flutter & Dart"
                                       : widget.index == 2
-                                          ? "Group 3"
+                                          ? "Friends"
                                           : widget.index == 3
-                                              ? "Group 4"
-                                              : "Group 5",
+                                              ? "School Friends"
+                                              : "Colleagues",
                               overflow: TextOverflow.ellipsis,
                               maxLines: 1,
                               style: TextStyle(

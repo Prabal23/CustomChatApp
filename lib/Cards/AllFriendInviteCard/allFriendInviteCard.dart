@@ -106,7 +106,7 @@ class AllFriendInviteCardState extends State<AllFriendInviteCard> {
                       padding: EdgeInsets.only(
                           left: 10, right: 10, top: 5, bottom: 5),
                       decoration: BoxDecoration(
-                          color: header.withOpacity(0.7),
+                          color: header,
                           borderRadius: BorderRadius.circular(10),
                           border: Border.all(color: header, width: 0.5)),
                       child: Text("Invite",

@@ -147,7 +147,7 @@ class FriendsPageState extends State<FriendsPage> {
                               margin: EdgeInsets.only(
                                   top: 12, left: 20, bottom: 10),
                               child: Text(
-                                "45 requests",
+                                "2 requests",
                                 textAlign: TextAlign.start,
                                 style: TextStyle(
                                     color: Colors.white70,
@@ -241,18 +241,9 @@ class FriendsPageState extends State<FriendsPage> {
                                               backgroundColor: Colors.white,
                                               backgroundImage: index == 0
                                                   ? AssetImage(
-                                                      'assets/images/man.png')
-                                                  : index == 1
-                                                      ? AssetImage(
-                                                          'assets/images/man2.jpg')
-                                                      : index == 2
-                                                          ? AssetImage(
-                                                              'assets/images/man.png')
-                                                          : index == 3
-                                                              ? AssetImage(
-                                                                  'assets/images/man2.jpg')
-                                                              : AssetImage(
-                                                                  'assets/images/man.png'),
+                                                      'assets/images/man2.png')
+                                                  : AssetImage(
+                                                      'assets/images/man3.png'),
                                             ),
                                             decoration: new BoxDecoration(
                                               color: Colors
@@ -267,14 +258,8 @@ class FriendsPageState extends State<FriendsPage> {
                                               children: <Widget>[
                                                 Text(
                                                   index == 0
-                                                      ? "John Smith"
-                                                      : index == 1
-                                                          ? "David Ryan"
-                                                          : index == 2
-                                                              ? "Simon Wright"
-                                                              : index == 3
-                                                                  ? "Mike Johnson"
-                                                                  : "Daniel Smith",
+                                                      ? "Richard"
+                                                      : "Mark Louis",
                                                   overflow:
                                                       TextOverflow.ellipsis,
                                                   maxLines: 1,
@@ -291,13 +276,7 @@ class FriendsPageState extends State<FriendsPage> {
                                                   child: Text(
                                                     index == 0
                                                         ? "6 mutual friends"
-                                                        : index == 1
-                                                            ? "16 mutual friends"
-                                                            : index == 2
-                                                                ? "26 mutual friends"
-                                                                : index == 3
-                                                                    ? "32 mutual friends"
-                                                                    : "34 mutual friends",
+                                                        : "34 mutual friends",
                                                     maxLines: 1,
                                                     overflow:
                                                         TextOverflow.ellipsis,
@@ -437,7 +416,7 @@ class FriendsPageState extends State<FriendsPage> {
                               ),
                             ),
                     );
-                  }, childCount: 5),
+                  }, childCount: 2),
                 ),
                 SliverToBoxAdapter(
                   child: Column(
@@ -498,7 +477,7 @@ class FriendsPageState extends State<FriendsPage> {
                               margin: EdgeInsets.only(
                                   top: 12, left: 20, bottom: 10),
                               child: Text(
-                                "38 suggestions",
+                                "1 suggestion",
                                 textAlign: TextAlign.start,
                                 style: TextStyle(
                                     color: Colors.white70,
@@ -590,20 +569,8 @@ class FriendsPageState extends State<FriendsPage> {
                                             child: CircleAvatar(
                                               radius: 20.0,
                                               backgroundColor: Colors.white,
-                                              backgroundImage: index == 0
-                                                  ? AssetImage(
-                                                      'assets/images/man.png')
-                                                  : index == 1
-                                                      ? AssetImage(
-                                                          'assets/images/man2.jpg')
-                                                      : index == 2
-                                                          ? AssetImage(
-                                                              'assets/images/man.png')
-                                                          : index == 3
-                                                              ? AssetImage(
-                                                                  'assets/images/man2.jpg')
-                                                              : AssetImage(
-                                                                  'assets/images/man.png'),
+                                              backgroundImage: AssetImage(
+                                                  'assets/images/user.png'),
                                             ),
                                             decoration: new BoxDecoration(
                                               color: Colors
@@ -617,15 +584,7 @@ class FriendsPageState extends State<FriendsPage> {
                                                   CrossAxisAlignment.start,
                                               children: <Widget>[
                                                 Text(
-                                                  index == 0
-                                                      ? "John Smith"
-                                                      : index == 1
-                                                          ? "David Ryan"
-                                                          : index == 2
-                                                              ? "Simon Wright"
-                                                              : index == 3
-                                                                  ? "Mike Johnson"
-                                                                  : "Daniel Smith",
+                                                  "Mark Richardson",
                                                   overflow:
                                                       TextOverflow.ellipsis,
                                                   maxLines: 1,
@@ -640,15 +599,7 @@ class FriendsPageState extends State<FriendsPage> {
                                                   margin:
                                                       EdgeInsets.only(top: 3),
                                                   child: Text(
-                                                    index == 0
-                                                        ? "6 mutual friends"
-                                                        : index == 1
-                                                            ? "16 mutual friends"
-                                                            : index == 2
-                                                                ? "26 mutual friends"
-                                                                : index == 3
-                                                                    ? "32 mutual friends"
-                                                                    : "34 mutual friends",
+                                                    "4 mutual friends",
                                                     maxLines: 1,
                                                     overflow:
                                                         TextOverflow.ellipsis,
@@ -791,7 +742,7 @@ class FriendsPageState extends State<FriendsPage> {
                               ),
                             ),
                     );
-                  }, childCount: 5),
+                  }, childCount: 1),
                 ),
                 SliverToBoxAdapter(
                   child: Column(
@@ -852,7 +803,7 @@ class FriendsPageState extends State<FriendsPage> {
                               margin: EdgeInsets.only(
                                   top: 12, left: 20, bottom: 10),
                               child: Text(
-                                "450 friends",
+                                "3 friends",
                                 textAlign: TextAlign.start,
                                 style: TextStyle(
                                     color: Colors.white70,
@@ -952,18 +903,12 @@ class FriendsPageState extends State<FriendsPage> {
                                                         Colors.white,
                                                     backgroundImage: index == 0
                                                         ? AssetImage(
-                                                            'assets/images/man.png')
+                                                            'assets/images/user.png')
                                                         : index == 1
                                                             ? AssetImage(
-                                                                'assets/images/man2.jpg')
-                                                            : index == 2
-                                                                ? AssetImage(
-                                                                    'assets/images/man.png')
-                                                                : index == 3
-                                                                    ? AssetImage(
-                                                                        'assets/images/man2.jpg')
-                                                                    : AssetImage(
-                                                                        'assets/images/man.png'),
+                                                                'assets/images/man4.jpg')
+                                                            : AssetImage(
+                                                                        'assets/images/user.png'),
                                                   ),
                                                   decoration: new BoxDecoration(
                                                     color: Colors.grey[
@@ -997,14 +942,10 @@ class FriendsPageState extends State<FriendsPage> {
                                                 children: <Widget>[
                                                   Text(
                                                     index == 0
-                                                        ? "John Smith"
+                                                        ? "John Louis"
                                                         : index == 1
-                                                            ? "David Ryan"
-                                                            : index == 2
-                                                                ? "Simon Wright"
-                                                                : index == 3
-                                                                    ? "Mike Johnson"
-                                                                    : "Daniel Smith",
+                                                            ? "David King"
+                                                            :"Daniel Ryan",
                                                     overflow:
                                                         TextOverflow.ellipsis,
                                                     maxLines: 1,
@@ -1023,11 +964,7 @@ class FriendsPageState extends State<FriendsPage> {
                                                           ? "6 mutual friends"
                                                           : index == 1
                                                               ? "16 mutual friends"
-                                                              : index == 2
-                                                                  ? "26 mutual friends"
-                                                                  : index == 3
-                                                                      ? "32 mutual friends"
-                                                                      : "34 mutual friends",
+                                                              : "34 mutual friends",
                                                       maxLines: 1,
                                                       overflow:
                                                           TextOverflow.ellipsis,
@@ -1171,7 +1108,7 @@ class FriendsPageState extends State<FriendsPage> {
                                 ),
                               ),
                       );
-                    }, childCount: 5),
+                    }, childCount: 3),
                   ),
                 ),
               ],

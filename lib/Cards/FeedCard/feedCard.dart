@@ -190,7 +190,7 @@ class _FeedCardState extends State<FeedCard> {
                                 backgroundColor: Colors.white,
                                 backgroundImage: widget.index % 2 == 0
                                     ? AssetImage('assets/images/man.png')
-                                    : AssetImage('assets/images/man2.jpg'),
+                                    : AssetImage('assets/images/user.jpg'),
                               ),
                               decoration: new BoxDecoration(
                                 color: Colors.grey[300], // border color

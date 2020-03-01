@@ -49,48 +49,27 @@ class _FriendSugCardState extends State<FriendSugCard> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: <Widget>[
-                            ////// <<<<< Pic start >>>>> //////
                             Container(
                               margin: EdgeInsets.only(right: 10),
+                              //transform: Matrix4.translationValues(0.0, 0.0, 0.0),
                               padding: EdgeInsets.all(1.0),
                               child: CircleAvatar(
                                 radius: 20.0,
                                 backgroundColor: Colors.white,
-                                backgroundImage: widget.index == 0
-                                    ? AssetImage('assets/images/man.png')
-                                    : widget.index == 1
-                                        ? AssetImage('assets/images/man2.jpg')
-                                        : widget.index == 2
-                                            ? AssetImage(
-                                                'assets/images/man.png')
-                                            : widget.index == 3
-                                                ? AssetImage(
-                                                    'assets/images/man2.jpg')
-                                                : AssetImage(
-                                                    'assets/images/man.png'),
+                                backgroundImage:
+                                    AssetImage('assets/images/user.png'),
                               ),
                               decoration: new BoxDecoration(
                                 color: Colors.grey[300], // border color
                                 shape: BoxShape.circle,
                               ),
                             ),
-                            ////// <<<<< Pic end >>>>> //////
-
                             Expanded(
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: <Widget>[
-                                  ////// <<<<< Name start >>>>> //////
                                   Text(
-                                    widget.index == 0
-                                        ? "John Smith"
-                                        : widget.index == 1
-                                            ? "David Ryan"
-                                            : widget.index == 2
-                                                ? "Simon Wright"
-                                                : widget.index == 3
-                                                    ? "Mike Johnson"
-                                                    : "Daniel Smith",
+                                    "Mark Richardson",
                                     overflow: TextOverflow.ellipsis,
                                     maxLines: 1,
                                     style: TextStyle(
@@ -99,21 +78,10 @@ class _FriendSugCardState extends State<FriendSugCard> {
                                         fontFamily: 'Oswald',
                                         fontWeight: FontWeight.w400),
                                   ),
-                                  ////// <<<<< Name end >>>>> //////
-
-                                  ////// <<<<< Mutual start >>>>> //////
                                   Container(
                                     margin: EdgeInsets.only(top: 3),
                                     child: Text(
-                                      widget.index == 0
-                                          ? "6 mutual friends"
-                                          : widget.index == 1
-                                              ? "16 mutual friends"
-                                              : widget.index == 2
-                                                  ? "26 mutual friends"
-                                                  : widget.index == 3
-                                                      ? "32 mutual friends"
-                                                      : "34 mutual friends",
+                                      "4 mutual friends",
                                       maxLines: 1,
                                       overflow: TextOverflow.ellipsis,
                                       style: TextStyle(
@@ -123,7 +91,6 @@ class _FriendSugCardState extends State<FriendSugCard> {
                                           color: Colors.white54),
                                     ),
                                   ),
-                                  ////// <<<<< Mutual end >>>>> //////
                                 ],
                               ),
                             ),
@@ -131,7 +98,6 @@ class _FriendSugCardState extends State<FriendSugCard> {
                         ),
                       ),
                     ),
-                    ////// <<<<< Add start >>>>> //////
                     Row(
                       children: <Widget>[
                         Container(
@@ -145,9 +111,23 @@ class _FriendSugCardState extends State<FriendSugCard> {
                               color: Colors.black,
                               size: 15,
                             )),
+                        // Container(
+                        //     margin: EdgeInsets.only(right: 15),
+                        //     padding: EdgeInsets.only(
+                        //         left: 10, right: 10, top: 5, bottom: 5),
+                        //     decoration: BoxDecoration(
+                        //         borderRadius: BorderRadius.circular(15),
+                        //         border: Border.all(
+                        //             color: back_new, width: 0.3)),
+                        //     child: Text("Cancel",
+                        //         textAlign: TextAlign.center,
+                        //         style: TextStyle(
+                        //             fontFamily: 'Oswald',
+                        //             fontWeight: FontWeight.w300,
+                        //             color: back_new,
+                        //             fontSize: 12))),
                       ],
                     ),
-                    ////// <<<<< Add end >>>>> //////
                   ],
                 ),
               )

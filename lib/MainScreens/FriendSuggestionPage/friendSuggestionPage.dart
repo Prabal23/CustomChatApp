@@ -177,7 +177,7 @@ class _FriendSuggestionPageState extends State<FriendSuggestionPage> {
                               margin: EdgeInsets.only(
                                   top: 12, left: 20, bottom: 10),
                               child: Text(
-                                "38 suggestions",
+                                "1 suggestion",
                                 textAlign: TextAlign.start,
                                 style: TextStyle(
                                     color: Colors.white70,
@@ -194,7 +194,7 @@ class _FriendSuggestionPageState extends State<FriendSuggestionPage> {
                   delegate: SliverChildBuilderDelegate(
                       (BuildContext context, int index) {
                     return FriendSugCard(loading, index);
-                  }, childCount: 15),
+                  }, childCount: 1),
                 ),
               ],
             ),

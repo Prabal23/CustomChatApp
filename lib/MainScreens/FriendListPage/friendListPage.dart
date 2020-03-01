@@ -195,7 +195,7 @@ class _FriendListPageState extends State<FriendListPage> {
                               margin: EdgeInsets.only(
                                   top: 12, left: 20, bottom: 10),
                               child: Text(
-                                "450 friends",
+                                "3 friends",
                                 textAlign: TextAlign.start,
                                 style: TextStyle(
                                     color: Colors.white70,
@@ -214,7 +214,7 @@ class _FriendListPageState extends State<FriendListPage> {
                     delegate: SliverChildBuilderDelegate(
                         (BuildContext context, int index) {
                       return FriendListCard(index, loading);
-                    }, childCount: 15),
+                    }, childCount: 3),
                   ),
                 ),
               ],

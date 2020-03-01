@@ -147,7 +147,7 @@ class _GroupDetailsPageState extends State<GroupDetailsPage> {
                             width: MediaQuery.of(context).size.width,
                             decoration: BoxDecoration(
                                 image: DecorationImage(
-                                  image: AssetImage("assets/images/f9.jpg"),
+                                  image: AssetImage("assets/images/f4.jpg"),
                                   fit: BoxFit.cover,
                                 ),
                                 borderRadius: BorderRadius.only(
@@ -214,7 +214,7 @@ class _GroupDetailsPageState extends State<GroupDetailsPage> {
                                   ////// <<<<< Group Members >>>>> //////
                                   Container(
                                     child: Text(
-                                      "Secret Group - 25 Memeber",
+                                      "Secret Group - 6 Memeber",
                                       style: TextStyle(
                                           color: Colors.white70,
                                           fontSize: 15,
@@ -257,7 +257,7 @@ class _GroupDetailsPageState extends State<GroupDetailsPage> {
                                                   shape: BoxShape.circle),
                                               child: CircleAvatar(
                                                 backgroundImage:
-                                                    AssetImage("assets/images/user.png"),
+                                                    AssetImage("assets/images/man3.png"),
                                               )),
                                         ),
                                       ),
@@ -274,7 +274,7 @@ class _GroupDetailsPageState extends State<GroupDetailsPage> {
                                                     shape: BoxShape.circle),
                                                 child: CircleAvatar(
                                                   backgroundImage:
-                                                      AssetImage("assets/images/man2.jpg"),
+                                                      AssetImage("assets/images/user.jpg"),
                                                 )),
                                           ),
                                         ),
@@ -292,7 +292,7 @@ class _GroupDetailsPageState extends State<GroupDetailsPage> {
                                                     shape: BoxShape.circle),
                                                 child: CircleAvatar(
                                                   backgroundImage:
-                                                      AssetImage("assets/images/user.png"),
+                                                      AssetImage("assets/images/man2.png"),
                                                 )),
                                           ),
                                         ),
@@ -310,7 +310,7 @@ class _GroupDetailsPageState extends State<GroupDetailsPage> {
                                                     shape: BoxShape.circle),
                                                 child: CircleAvatar(
                                                   backgroundImage:
-                                                      AssetImage("assets/images/man2.jpg"),
+                                                      AssetImage("assets/images/man.png"),
                                                 )),
                                           ),
                                         ),

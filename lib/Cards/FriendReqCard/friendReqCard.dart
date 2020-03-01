@@ -43,52 +43,36 @@ class _FriendReqCardState extends State<FriendReqCard> {
                   children: <Widget>[
                     Expanded(
                       child: Container(
+                        //color: Colors.red,
                         margin: EdgeInsets.only(left: 20, right: 20, top: 0),
                         padding: EdgeInsets.only(right: 10),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: <Widget>[
-                            ////// <<<<< Pic start >>>>> //////
                             Container(
                               margin: EdgeInsets.only(right: 10),
+                              //transform: Matrix4.translationValues(0.0, 0.0, 0.0),
                               padding: EdgeInsets.all(1.0),
                               child: CircleAvatar(
                                 radius: 20.0,
                                 backgroundColor: Colors.white,
                                 backgroundImage: widget.index == 0
-                                    ? AssetImage('assets/images/man.png')
-                                    : widget.index == 1
-                                        ? AssetImage('assets/images/man2.jpg')
-                                        : widget.index == 2
-                                            ? AssetImage(
-                                                'assets/images/man.png')
-                                            : widget.index == 3
-                                                ? AssetImage(
-                                                    'assets/images/man2.jpg')
-                                                : AssetImage(
-                                                    'assets/images/man.png'),
+                                    ? AssetImage('assets/images/man2.png')
+                                    : AssetImage('assets/images/man3.png'),
                               ),
                               decoration: new BoxDecoration(
                                 color: Colors.grey[300], // border color
                                 shape: BoxShape.circle,
                               ),
                             ),
-                            ////// <<<<< Pic end >>>>> //////
                             Expanded(
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: <Widget>[
-                                  ////// <<<<< Name start >>>>> //////
                                   Text(
                                     widget.index == 0
-                                        ? "John Smith"
-                                        : widget.index == 1
-                                            ? "David Ryan"
-                                            : widget.index == 2
-                                                ? "Simon Wright"
-                                                : widget.index == 3
-                                                    ? "Mike Johnson"
-                                                    : "Daniel Smith",
+                                        ? "Richard"
+                                        : "Mark Louis",
                                     overflow: TextOverflow.ellipsis,
                                     maxLines: 1,
                                     style: TextStyle(
@@ -97,21 +81,12 @@ class _FriendReqCardState extends State<FriendReqCard> {
                                         fontFamily: 'Oswald',
                                         fontWeight: FontWeight.w400),
                                   ),
-                                  ////// <<<<< Name end >>>>> //////
-
-                                  ////// <<<<< Mutual start >>>>> //////
                                   Container(
                                     margin: EdgeInsets.only(top: 3),
                                     child: Text(
                                       widget.index == 0
                                           ? "6 mutual friends"
-                                          : widget.index == 1
-                                              ? "16 mutual friends"
-                                              : widget.index == 2
-                                                  ? "26 mutual friends"
-                                                  : widget.index == 3
-                                                      ? "32 mutual friends"
-                                                      : "34 mutual friends",
+                                          : "34 mutual friends",
                                       maxLines: 1,
                                       overflow: TextOverflow.ellipsis,
                                       style: TextStyle(
@@ -121,7 +96,6 @@ class _FriendReqCardState extends State<FriendReqCard> {
                                           color: Colors.white54),
                                     ),
                                   ),
-                                  ////// <<<<< Mutual end >>>>> //////
                                 ],
                               ),
                             ),
@@ -131,7 +105,6 @@ class _FriendReqCardState extends State<FriendReqCard> {
                     ),
                     Row(
                       children: <Widget>[
-                        ////// <<<<< Accept start >>>>> //////
                         Container(
                             decoration: BoxDecoration(
                                 color: back_new,
@@ -143,9 +116,6 @@ class _FriendReqCardState extends State<FriendReqCard> {
                               color: Colors.black,
                               size: 15,
                             )),
-                        ////// <<<<< Accept end >>>>> //////
-
-                        ////// <<<<< Reject start >>>>> //////
                         Container(
                             decoration: BoxDecoration(
                                 color: header,
@@ -157,7 +127,6 @@ class _FriendReqCardState extends State<FriendReqCard> {
                               color: Colors.white,
                               size: 15,
                             )),
-                        ////// <<<<< Reject end >>>>> //////
                       ],
                     ),
                   ],

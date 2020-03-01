@@ -145,7 +145,7 @@ class GroupPageState extends State<GroupPage> {
                               margin: EdgeInsets.only(
                                   top: 12, left: 20, bottom: 10),
                               child: Text(
-                                "8 groups",
+                                "5 groups",
                                 textAlign: TextAlign.start,
                                 style: TextStyle(
                                     color: Colors.white70,

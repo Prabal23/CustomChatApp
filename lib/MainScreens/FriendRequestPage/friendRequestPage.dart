@@ -177,7 +177,7 @@ class _FriendRequestPageState extends State<FriendRequestPage> {
                               margin: EdgeInsets.only(
                                   top: 12, left: 20, bottom: 10),
                               child: Text(
-                                "45 requests",
+                                "2 requests",
                                 textAlign: TextAlign.start,
                                 style: TextStyle(
                                     color: Colors.white70,
@@ -194,7 +194,7 @@ class _FriendRequestPageState extends State<FriendRequestPage> {
                   delegate: SliverChildBuilderDelegate(
                       (BuildContext context, int index) {
                     return FriendReqCard(index, loading);
-                  }, childCount: 15),
+                  }, childCount: 2),
                 ),
               ],
             ),

@@ -28,16 +28,16 @@ class _FeedStorycardState extends State<FeedStorycard> {
             ////// <<<<< Picture start >>>>> //////
             image: DecorationImage(
               image: widget.index == 0
-                  ? AssetImage("assets/images/man.png")
+                  ? AssetImage("assets/images/man2.jpg")
                   : widget.index == 1
-                      ? AssetImage("assets/images/man2.jpg")
+                      ? AssetImage("assets/images/man.png")
                       : widget.index == 2
-                          ? AssetImage("assets/images/man.png")
+                          ? AssetImage("assets/images/man2.png")
                           : widget.index == 3
-                              ? AssetImage("assets/images/man2.jpg")
+                              ? AssetImage("assets/images/man3.png")
                               : widget.index == 4
-                                  ? AssetImage("assets/images/man.png")
-                                  : AssetImage("assets/images/man2.jpg"),
+                                  ? AssetImage("assets/images/user.jpg")
+                                  : AssetImage("assets/images/man4.jpg"),
               fit: BoxFit.cover,
             ),
             ////// <<<<< Picture end >>>>> //////

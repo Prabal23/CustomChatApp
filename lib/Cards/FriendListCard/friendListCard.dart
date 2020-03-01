@@ -52,65 +52,52 @@ class _FriendListCardState extends State<FriendListCard> {
                           children: <Widget>[
                             Stack(
                               children: <Widget>[
-                                ////// <<<<< Picture start >>>>> //////
                                 Container(
                                   margin: EdgeInsets.only(right: 10),
+                                  //transform: Matrix4.translationValues(0.0, 0.0, 0.0),
                                   padding: EdgeInsets.all(1.0),
                                   child: CircleAvatar(
                                     radius: 20.0,
                                     backgroundColor: Colors.white,
                                     backgroundImage: widget.index == 0
-                                        ? AssetImage('assets/images/man.png')
+                                        ? AssetImage('assets/images/user.png')
                                         : widget.index == 1
                                             ? AssetImage(
-                                                'assets/images/man2.jpg')
-                                            : widget.index == 2
-                                                ? AssetImage(
-                                                    'assets/images/man.png')
-                                                : widget.index == 3
-                                                    ? AssetImage(
-                                                        'assets/images/man2.jpg')
-                                                    : AssetImage(
-                                                        'assets/images/man.png'),
+                                                'assets/images/man4.jpg')
+                                            : AssetImage(
+                                                'assets/images/user.png'),
                                   ),
                                   decoration: new BoxDecoration(
                                     color: Colors.grey[300], // border color
                                     shape: BoxShape.circle,
                                   ),
                                 ),
-                                ////// <<<<< Picture end >>>>> //////
-                                
-                                ////// <<<<< Online start >>>>> //////
                                 Container(
                                   margin: EdgeInsets.only(left: 30),
+                                  //transform: Matrix4.translationValues(0.0, 0.0, 0.0),
                                   padding: EdgeInsets.all(1.0),
                                   child: CircleAvatar(
                                     radius: 5.0,
                                     backgroundColor: Colors.greenAccent,
+                                    //backgroundImage: AssetImage('assets/user.png'),
                                   ),
                                   decoration: new BoxDecoration(
-                                    color: Colors.greenAccent, 
+                                    color: Colors.greenAccent, // border color
                                     shape: BoxShape.circle,
                                   ),
                                 ),
-                                ////// <<<<< Online end >>>>> //////
                               ],
                             ),
                             Expanded(
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: <Widget>[
-                                  ////// <<<<< Name start >>>>> //////
                                   Text(
                                     widget.index == 0
-                                        ? "John Smith"
+                                        ? "John Louis"
                                         : widget.index == 1
-                                            ? "David Ryan"
-                                            : widget.index == 2
-                                                ? "Simon Wright"
-                                                : widget.index == 3
-                                                    ? "Mike Johnson"
-                                                    : "Daniel Smith",
+                                            ? "David King"
+                                            : "Daniel Ryan",
                                     overflow: TextOverflow.ellipsis,
                                     maxLines: 1,
                                     style: TextStyle(
@@ -119,9 +106,6 @@ class _FriendListCardState extends State<FriendListCard> {
                                         fontFamily: 'Oswald',
                                         fontWeight: FontWeight.w400),
                                   ),
-                                  ////// <<<<< Name end >>>>> //////
-                                  
-                                  ////// <<<<< Mutual friend start >>>>> //////
                                   Container(
                                     margin: EdgeInsets.only(top: 3),
                                     child: Text(
@@ -129,11 +113,7 @@ class _FriendListCardState extends State<FriendListCard> {
                                           ? "6 mutual friends"
                                           : widget.index == 1
                                               ? "16 mutual friends"
-                                              : widget.index == 2
-                                                  ? "26 mutual friends"
-                                                  : widget.index == 3
-                                                      ? "32 mutual friends"
-                                                      : "34 mutual friends",
+                                              : "34 mutual friends",
                                       maxLines: 1,
                                       overflow: TextOverflow.ellipsis,
                                       style: TextStyle(
@@ -143,7 +123,6 @@ class _FriendListCardState extends State<FriendListCard> {
                                           color: Colors.white54),
                                     ),
                                   ),
-                                  ////// <<<<< Mutual friend end >>>>> //////
                                 ],
                               ),
                             ),
@@ -151,7 +130,6 @@ class _FriendListCardState extends State<FriendListCard> {
                         ),
                       ),
                     ),
-                    ////// <<<<< Message button start >>>>> //////
                     GestureDetector(
                       onTap: () {
                         Navigator.push(
@@ -174,7 +152,6 @@ class _FriendListCardState extends State<FriendListCard> {
                                   color: back_new,
                                   fontSize: 12))),
                     ),
-                    ////// <<<<< Message button end >>>>> //////
                   ],
                 ),
               )
