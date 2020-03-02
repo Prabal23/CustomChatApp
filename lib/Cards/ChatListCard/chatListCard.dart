@@ -55,14 +55,16 @@ class _ChatListCardState extends State<ChatListCard> {
                           radius: 20.0,
                           backgroundColor: Colors.white,
                           backgroundImage: widget.index == 0
-                              ? AssetImage('assets/images/man.png')
-                              : widget.index == 1
-                                  ? AssetImage('assets/images/man2.jpg')
-                                  : widget.index == 2
-                                      ? AssetImage('assets/images/man.png')
-                                      : widget.index == 3
-                                          ? AssetImage('assets/images/man2.jpg')
-                                          : AssetImage('assets/images/man.png'),
+                                  ? AssetImage("assets/images/man.png")
+                                  : widget.index == 1
+                                      ? AssetImage("assets/images/man2.jpg")
+                                      : widget.index == 2
+                                          ? AssetImage("assets/images/man3.png")
+                                          : widget.index == 3
+                                              ? AssetImage(
+                                                  "assets/images/user.jpg")
+                                              : AssetImage(
+                                                  "assets/images/man2.jpg"),
                         ),
                         decoration: new BoxDecoration(
                           color: Colors.grey[300], // border color

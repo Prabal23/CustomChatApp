@@ -82,8 +82,14 @@ class GroupPageState extends State<GroupPage> {
                                             : theme == "8"
                                                 ? AssetImage(
                                                     "assets/images/f10.png")
-                                                : AssetImage(
-                                                    "assets/images/white.jpg"),
+                                                : theme == "9"
+                                                    ? AssetImage(
+                                                        "assets/images/pattern1.jpg")
+                                                    : theme == "10"
+                                                        ? AssetImage(
+                                                            "assets/images/pattern2.jpg")
+                                                        : AssetImage(
+                                                            "assets/images/white.jpg"),
                 fit: BoxFit.cover,
               ),
             ),
@@ -96,7 +102,9 @@ class GroupPageState extends State<GroupPage> {
           ),
           Container(
             decoration: BoxDecoration(
-                color: Colors.black.withOpacity(0.3),
+                color: color == "1"
+                    ? Colors.black.withOpacity(0.3)
+                    : Colors.white.withOpacity(0.2),
                 borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(0), topRight: Radius.circular(0))),
             margin: EdgeInsets.only(top: 0, left: 0, right: 0, bottom: 0),

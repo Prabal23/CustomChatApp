@@ -54,15 +54,18 @@ class _GroupDetailsPageState extends State<GroupDetailsPage> {
       ),
     );
   }
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      //backgroundColor: Colors.white,
       appBar: AppBar(
-        iconTheme: IconThemeData(color: Colors.white),
+        iconTheme:
+            IconThemeData(color: color == "1" ? Colors.white : Colors.black54),
         //automaticallyImplyLeading: false,
-        backgroundColor: Colors.black.withOpacity(0.5),
+        backgroundColor: color == "1"
+            ? Colors.black.withOpacity(0.5)
+            : Colors.white.withOpacity(0.7),
         title: Container(
           margin: EdgeInsets.only(top: 0),
           child: Row(
@@ -80,7 +83,7 @@ class _GroupDetailsPageState extends State<GroupDetailsPage> {
                       child: Text(
                         "Group Details",
                         style: TextStyle(
-                            color: Colors.white,
+                            color: color == "1" ? Colors.white : Colors.black54,
                             fontSize: 20,
                             fontFamily: 'Oswald',
                             fontWeight: FontWeight.normal),
@@ -115,8 +118,14 @@ class _GroupDetailsPageState extends State<GroupDetailsPage> {
                                             : theme == "8"
                                                 ? AssetImage(
                                                     "assets/images/f10.png")
-                                                : AssetImage(
-                                                    "assets/images/white.jpg"),
+                                                : theme == "9"
+                                                    ? AssetImage(
+                                                        "assets/images/pattern1.jpg")
+                                                    : theme == "10"
+                                                        ? AssetImage(
+                                                            "assets/images/pattern2.jpg")
+                                                        : AssetImage(
+                                                            "assets/images/white.jpg"),
                 fit: BoxFit.cover,
               ),
             ),
@@ -129,7 +138,9 @@ class _GroupDetailsPageState extends State<GroupDetailsPage> {
           ),
           Container(
             decoration: BoxDecoration(
-                color: Colors.black.withOpacity(0.3),
+                color: color == "1"
+                    ? Colors.black.withOpacity(0.3)
+                    : Colors.white.withOpacity(0.2),
                 borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(0), topRight: Radius.circular(0))),
             margin: EdgeInsets.only(top: 0, left: 0, right: 0, bottom: 0),
@@ -163,11 +174,16 @@ class _GroupDetailsPageState extends State<GroupDetailsPage> {
                           alignment: Alignment.centerLeft,
                           height: 30,
                           width: MediaQuery.of(context).size.width,
-                          decoration: BoxDecoration(color: Colors.grey[600]),
+                          decoration: BoxDecoration(
+                              color: color == "1"
+                                  ? Colors.grey[600]
+                                  : Colors.white.withOpacity(0.9)),
                           child: Text(
                             "Group by Bijoya Banik",
                             style: TextStyle(
-                                color: Colors.white,
+                                color: color == "1"
+                                    ? Colors.white
+                                    : Colors.black54,
                                 fontSize: 15,
                                 fontFamily: 'Oswald',
                                 fontWeight: FontWeight.w300),
@@ -189,7 +205,8 @@ class _GroupDetailsPageState extends State<GroupDetailsPage> {
                                   ////// <<<<< Group Title >>>>> //////
                                   Container(
                                     child: Row(
-                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
                                       children: <Widget>[
                                         Container(
                                           child: Text(
@@ -237,7 +254,8 @@ class _GroupDetailsPageState extends State<GroupDetailsPage> {
                                   Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) => GroupMemberPage()));
+                                          builder: (context) =>
+                                              GroupMemberPage()));
                                 },
                                 child: Container(
                                   width: 160,
@@ -252,12 +270,13 @@ class _GroupDetailsPageState extends State<GroupDetailsPage> {
                                           child: Container(
                                               decoration: BoxDecoration(
                                                   border: Border.all(
-                                                      color: Colors.grey.withOpacity(0.5),
+                                                      color: Colors.grey
+                                                          .withOpacity(0.5),
                                                       width: 1),
                                                   shape: BoxShape.circle),
                                               child: CircleAvatar(
-                                                backgroundImage:
-                                                    AssetImage("assets/images/man3.png"),
+                                                backgroundImage: AssetImage(
+                                                    "assets/images/man3.png"),
                                               )),
                                         ),
                                       ),
@@ -273,8 +292,8 @@ class _GroupDetailsPageState extends State<GroupDetailsPage> {
                                                         width: 1),
                                                     shape: BoxShape.circle),
                                                 child: CircleAvatar(
-                                                  backgroundImage:
-                                                      AssetImage("assets/images/user.jpg"),
+                                                  backgroundImage: AssetImage(
+                                                      "assets/images/user.jpg"),
                                                 )),
                                           ),
                                         ),
@@ -287,12 +306,13 @@ class _GroupDetailsPageState extends State<GroupDetailsPage> {
                                             child: Container(
                                                 decoration: BoxDecoration(
                                                     border: Border.all(
-                                                        color: Colors.grey.withOpacity(0.5),
+                                                        color: Colors.grey
+                                                            .withOpacity(0.5),
                                                         width: 1),
                                                     shape: BoxShape.circle),
                                                 child: CircleAvatar(
-                                                  backgroundImage:
-                                                      AssetImage("assets/images/man2.png"),
+                                                  backgroundImage: AssetImage(
+                                                      "assets/images/man2.png"),
                                                 )),
                                           ),
                                         ),
@@ -305,12 +325,13 @@ class _GroupDetailsPageState extends State<GroupDetailsPage> {
                                             child: Container(
                                                 decoration: BoxDecoration(
                                                     border: Border.all(
-                                                        color: Colors.grey.withOpacity(0.5),
+                                                        color: Colors.grey
+                                                            .withOpacity(0.5),
                                                         width: 1),
                                                     shape: BoxShape.circle),
                                                 child: CircleAvatar(
-                                                  backgroundImage:
-                                                      AssetImage("assets/images/man.png"),
+                                                  backgroundImage: AssetImage(
+                                                      "assets/images/man.png"),
                                                 )),
                                           ),
                                         ),
@@ -333,8 +354,13 @@ class _GroupDetailsPageState extends State<GroupDetailsPage> {
                                                     child: Container(
                                                         height: 40,
                                                         width: 40,
-                                                        color: Colors.black
-                                                            .withOpacity(0.3),
+                                                        color: color == "1"
+                                                            ? Colors.black
+                                                                .withOpacity(
+                                                                    0.3)
+                                                            : Colors.white
+                                                                .withOpacity(
+                                                                    0.4),
                                                         child: Icon(
                                                           Icons.more_horiz,
                                                           color: Colors.white,
@@ -364,12 +390,15 @@ class _GroupDetailsPageState extends State<GroupDetailsPage> {
                                 },
                                 child: Container(
                                     padding: EdgeInsets.only(
-                                        left: 10, right: 20, top: 10, bottom: 10),
+                                        left: 10,
+                                        right: 20,
+                                        top: 10,
+                                        bottom: 10),
                                     //margin: EdgeInsets.only(left: 20, right: 20),
                                     decoration: BoxDecoration(
                                         color: header,
-                                        borderRadius:
-                                            BorderRadius.all(Radius.circular(15))),
+                                        borderRadius: BorderRadius.all(
+                                            Radius.circular(15))),
                                     child: Row(
                                       children: <Widget>[
                                         Container(
@@ -396,141 +425,153 @@ class _GroupDetailsPageState extends State<GroupDetailsPage> {
                         ),
 
                         Container(
-                        //color: Colors.white,
-                        margin: EdgeInsets.only(top: 5),
-                        padding: EdgeInsets.only(top: 0, bottom: 0),
-                        decoration: BoxDecoration(
                           //color: Colors.white,
-                          borderRadius: BorderRadius.all(Radius.circular(0)),
-                          //border: Border.all(width: 0.5, color: Colors.grey[400]),
-                        ),
-                        child: Row(
-                          children: <Widget>[
-                            GestureDetector(
-                              onTap: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => ProfileNewPage()),
-                                );
-                              },
-                              child: Container(
-                                child: Stack(
-                                  children: <Widget>[
-                                    Container(
-                                      margin:
-                                          EdgeInsets.only(right: 0, left: 15),
-                                      //transform: Matrix4.translationValues(0.0, 0.0, 0.0),
-                                      padding: EdgeInsets.all(1.0),
-                                      child: CircleAvatar(
-                                        radius: 21.0,
-                                        backgroundColor: Colors.transparent,
-                                        backgroundImage: AssetImage(
-                                            'assets/images/man2.jpg'),
-                                      ),
-                                      decoration: new BoxDecoration(
-                                        color: Colors.grey[300], // border color
-                                        shape: BoxShape.circle,
-                                      ),
-                                    ),
-                                    Container(
-                                      margin: EdgeInsets.only(left: 45),
-                                      //transform: Matrix4.translationValues(0.0, 0.0, 0.0),
-                                      padding: EdgeInsets.all(1.0),
-                                      child: CircleAvatar(
-                                        radius: 5.0,
-                                        backgroundColor: Colors.greenAccent,
-                                        //backgroundImage: AssetImage('assets/user.png'),
-                                      ),
-                                      decoration: new BoxDecoration(
-                                        color:
-                                            Colors.greenAccent, // border color
-                                        shape: BoxShape.circle,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                            Expanded(
-                              child: GestureDetector(
+                          margin: EdgeInsets.only(top: 5),
+                          padding: EdgeInsets.only(top: 0, bottom: 0),
+                          decoration: BoxDecoration(
+                            //color: Colors.white,
+                            borderRadius: BorderRadius.all(Radius.circular(0)),
+                            //border: Border.all(width: 0.5, color: Colors.grey[400]),
+                          ),
+                          child: Row(
+                            children: <Widget>[
+                              GestureDetector(
                                 onTap: () {
                                   Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) => CreatePost()));
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => ProfileNewPage()),
+                                  );
                                 },
                                 child: Container(
-                                  margin: EdgeInsets.only(bottom: 10, top: 4),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    //mainAxisAlignment: MainAxisAlignment.center,
+                                  child: Stack(
                                     children: <Widget>[
                                       Container(
-                                          width:
-                                              MediaQuery.of(context).size.width,
-                                          padding: EdgeInsets.all(10),
-                                          margin: EdgeInsets.only(
-                                              left: 10, right: 10, top: 5),
-                                          decoration: BoxDecoration(
-                                              color:
-                                                  Colors.black.withOpacity(0.4),
-                                              border: Border.all(
-                                                  color: Colors.grey,
-                                                  width: 0.5),
-                                              borderRadius: BorderRadius.all(
-                                                  Radius.circular(25))),
-                                          child: TextField(
-                                            enabled: false,
-                                            //controller: phoneController,
-                                            style: TextStyle(
-                                              color: Colors.white,
-                                              fontFamily: 'Oswald',
-                                            ),
-                                            decoration: InputDecoration(
-                                              hintText: "What's in your mind?",
-                                              hintStyle: TextStyle(
-                                                  color: Colors.white70,
-                                                  fontSize: 15,
-                                                  fontFamily: 'Oswald',
-                                                  fontWeight: FontWeight.w300),
-                                              //labelStyle: TextStyle(color: Colors.white70),
-                                              contentPadding:
-                                                  EdgeInsets.fromLTRB(
-                                                      10.0, 1, 20.0, 1),
-                                              border: InputBorder.none,
-                                            ),
-                                          )),
+                                        margin:
+                                            EdgeInsets.only(right: 0, left: 15),
+                                        //transform: Matrix4.translationValues(0.0, 0.0, 0.0),
+                                        padding: EdgeInsets.all(1.0),
+                                        child: CircleAvatar(
+                                          radius: 21.0,
+                                          backgroundColor: Colors.transparent,
+                                          backgroundImage: AssetImage(
+                                              'assets/images/man2.jpg'),
+                                        ),
+                                        decoration: new BoxDecoration(
+                                          color:
+                                              Colors.grey[300], // border color
+                                          shape: BoxShape.circle,
+                                        ),
+                                      ),
+                                      Container(
+                                        margin: EdgeInsets.only(left: 45),
+                                        //transform: Matrix4.translationValues(0.0, 0.0, 0.0),
+                                        padding: EdgeInsets.all(1.0),
+                                        child: CircleAvatar(
+                                          radius: 5.0,
+                                          backgroundColor: Colors.greenAccent,
+                                          //backgroundImage: AssetImage('assets/user.png'),
+                                        ),
+                                        decoration: new BoxDecoration(
+                                          color: Colors
+                                              .greenAccent, // border color
+                                          shape: BoxShape.circle,
+                                        ),
+                                      ),
                                     ],
                                   ),
                                 ),
                               ),
-                            ),
-                            GestureDetector(
-                              onTap: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => CreatePost()),
-                                );
-                              },
-                              child: Container(
-                                decoration: BoxDecoration(
-                                    color: back_new,
-                                    borderRadius: BorderRadius.circular(25)),
-                                margin: EdgeInsets.only(right: 10),
-                                padding: EdgeInsets.all(11),
-                                child: Icon(
-                                  Icons.photo,
-                                  color: header,
-                                  size: 25,
+                              Expanded(
+                                child: GestureDetector(
+                                  onTap: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                CreatePost()));
+                                  },
+                                  child: Container(
+                                    margin: EdgeInsets.only(bottom: 10, top: 4),
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      //mainAxisAlignment: MainAxisAlignment.center,
+                                      children: <Widget>[
+                                        Container(
+                                            width: MediaQuery.of(context)
+                                                .size
+                                                .width,
+                                            padding: EdgeInsets.all(10),
+                                            margin: EdgeInsets.only(
+                                                left: 10, right: 10, top: 5),
+                                            decoration: BoxDecoration(
+                                                color: color == "1"
+                                                    ? Colors.black
+                                                        .withOpacity(0.4)
+                                                    : Colors.white
+                                                        .withOpacity(0.6),
+                                                border: Border.all(
+                                                    color: Colors.grey,
+                                                    width: 0.5),
+                                                borderRadius: BorderRadius.all(
+                                                    Radius.circular(25))),
+                                            child: TextField(
+                                              enabled: false,
+                                              //controller: phoneController,
+                                              style: TextStyle(
+                                                color: color == "1"
+                                                    ? Colors.white
+                                                    : Colors.black54,
+                                                fontFamily: 'Oswald',
+                                              ),
+                                              decoration: InputDecoration(
+                                                hintText:
+                                                    "What's in your mind?",
+                                                hintStyle: TextStyle(
+                                                    color: color == "1"
+                                                        ? Colors.white70
+                                                        : Colors.black54,
+                                                    fontSize: 15,
+                                                    fontFamily: 'Oswald',
+                                                    fontWeight:
+                                                        FontWeight.w300),
+                                                //labelStyle: TextStyle(color: Colors.white70),
+                                                contentPadding:
+                                                    EdgeInsets.fromLTRB(
+                                                        10.0, 1, 20.0, 1),
+                                                border: InputBorder.none,
+                                              ),
+                                            )),
+                                      ],
+                                    ),
+                                  ),
                                 ),
                               ),
-                            ),
-                          ],
+                              GestureDetector(
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => CreatePost()),
+                                  );
+                                },
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                      color: back_new,
+                                      borderRadius: BorderRadius.circular(25)),
+                                  margin: EdgeInsets.only(right: 10),
+                                  padding: EdgeInsets.all(11),
+                                  child: Icon(
+                                    Icons.photo,
+                                    color: header,
+                                    size: 25,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
-                      ),
                         ///////////// <<<<< END >>>>> ////////////
 
                         ////// <<<<< Divider 1 >>>>> //////
@@ -539,7 +580,8 @@ class _GroupDetailsPageState extends State<GroupDetailsPage> {
                             margin: EdgeInsets.only(
                                 top: 5, left: 25, right: 25, bottom: 10),
                             decoration: BoxDecoration(
-                                borderRadius: BorderRadius.all(Radius.circular(15.0)),
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(15.0)),
                                 color: header,
                                 boxShadow: [
                                   BoxShadow(

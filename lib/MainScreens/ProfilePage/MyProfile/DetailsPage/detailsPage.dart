@@ -1,5 +1,7 @@
 import 'package:chatapp_new/Cards/FeedCard/feedCard.dart';
+import 'package:chatapp_new/Cards/MyFeedCard/MyFeedCard.dart';
 import 'package:chatapp_new/MainScreens/CreatePost/createPost.dart';
+import 'package:chatapp_new/MainScreens/EditProfilePage/editProfilePage.dart';
 import 'package:chatapp_new/MainScreens/FriendListPage/friendListPage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -30,7 +32,7 @@ class _ProfilePageState extends State<ProfilePage> {
   int _start = 3;
   bool loading = true;
   PhotoCrop state;
-
+  Future<File> bannerFile;
   File imageFile;
 
   @override
@@ -76,6 +78,12 @@ class _ProfilePageState extends State<ProfilePage> {
         state = PhotoCrop.picked;
       });
     }
+  }
+
+  Future<Null> _pickBanner(ImageSource src) async {
+    setState(() {
+      bannerFile = ImagePicker.pickImage(source: src);
+    });
   }
 
   Future<Null> _cropImage() async {
@@ -155,8 +163,14 @@ class _ProfilePageState extends State<ProfilePage> {
                                               : theme == "8"
                                                   ? AssetImage(
                                                       "assets/images/f10.png")
-                                                  : AssetImage(
-                                                      "assets/images/white.jpg"),
+                                                  : theme == "9"
+                                                      ? AssetImage(
+                                                          "assets/images/pattern1.jpg")
+                                                      : theme == "10"
+                                                          ? AssetImage(
+                                                              "assets/images/pattern2.jpg")
+                                                          : AssetImage(
+                                                              "assets/images/white.jpg"),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -191,20 +205,65 @@ class _ProfilePageState extends State<ProfilePage> {
                               Stack(
                                 children: <Widget>[
                                   Container(
-                                      height: 200,
-                                      padding: const EdgeInsets.all(0.0),
-                                      margin: EdgeInsets.only(
-                                          top: 15, left: 15, right: 15),
-                                      decoration: BoxDecoration(
-                                          //color: header,
-                                          borderRadius: BorderRadius.only(
-                                              topLeft: Radius.circular(15),
-                                              topRight: Radius.circular(15)),
-                                          image: DecorationImage(
-                                              image: AssetImage(
-                                                  'assets/images/f8.jpg'),
-                                              fit: BoxFit.cover)),
-                                      child: null),
+                                    child: FutureBuilder<File>(
+                                      future: bannerFile,
+                                      builder: (BuildContext context,
+                                          AsyncSnapshot<File> snapshot) {
+                                        if (snapshot.connectionState ==
+                                                ConnectionState.done &&
+                                            snapshot.data != null) {
+                                          return Container(
+                                              height: 200,
+                                              padding:
+                                                  const EdgeInsets.all(0.0),
+                                              margin: EdgeInsets.only(
+                                                  top: 15, left: 15, right: 15),
+                                              decoration: BoxDecoration(
+                                                  //color: header,
+                                                  borderRadius:
+                                                      BorderRadius.only(
+                                                          topLeft:
+                                                              Radius.circular(
+                                                                  15),
+                                                          topRight:
+                                                              Radius.circular(
+                                                                  15)),
+                                                  image: DecorationImage(
+                                                      image: FileImage(
+                                                          snapshot.data),
+                                                      fit: BoxFit.cover)),
+                                              child: null);
+                                        } else if (snapshot.error != null) {
+                                          return const Text(
+                                            'Error Picking Image',
+                                            textAlign: TextAlign.center,
+                                          );
+                                        } else {
+                                          return Container(
+                                              height: 200,
+                                              padding:
+                                                  const EdgeInsets.all(0.0),
+                                              margin: EdgeInsets.only(
+                                                  top: 15, left: 15, right: 15),
+                                              decoration: BoxDecoration(
+                                                  //color: header,
+                                                  borderRadius:
+                                                      BorderRadius.only(
+                                                          topLeft:
+                                                              Radius.circular(
+                                                                  15),
+                                                          topRight:
+                                                              Radius.circular(
+                                                                  15)),
+                                                  image: DecorationImage(
+                                                      image: AssetImage(
+                                                          'assets/images/f8.jpg'),
+                                                      fit: BoxFit.cover)),
+                                              child: null);
+                                        }
+                                      },
+                                    ),
+                                  ),
                                   Container(
                                       height: 200,
                                       padding: const EdgeInsets.all(0.0),
@@ -217,23 +276,29 @@ class _ProfilePageState extends State<ProfilePage> {
                                             topRight: Radius.circular(15)),
                                       ),
                                       child: null),
-                                  Container(
-                                    height: 205,
-                                    width: MediaQuery.of(context).size.width,
-                                    margin: EdgeInsets.only(right: 10),
-                                    alignment: Alignment.bottomRight,
+                                  GestureDetector(
+                                    onTap: () {
+                                      _pickBanner(ImageSource.gallery);
+                                    },
                                     child: Container(
-                                        decoration: BoxDecoration(
-                                            color: back_new,
-                                            borderRadius:
-                                                BorderRadius.circular(5)),
-                                        padding: EdgeInsets.all(4),
-                                        margin: EdgeInsets.only(right: 15),
-                                        child: Icon(
-                                          Icons.photo_camera,
-                                          color: Colors.black.withOpacity(0.5),
-                                          size: 20,
-                                        )),
+                                      height: 205,
+                                      width: MediaQuery.of(context).size.width,
+                                      margin: EdgeInsets.only(right: 10),
+                                      alignment: Alignment.bottomRight,
+                                      child: Container(
+                                          decoration: BoxDecoration(
+                                              color: back_new,
+                                              borderRadius:
+                                                  BorderRadius.circular(5)),
+                                          padding: EdgeInsets.all(4),
+                                          margin: EdgeInsets.only(right: 15),
+                                          child: Icon(
+                                            Icons.photo_camera,
+                                            color:
+                                                Colors.black.withOpacity(0.5),
+                                            size: 20,
+                                          )),
+                                    ),
                                   ),
                                 ],
                               ),
@@ -419,7 +484,7 @@ class _ProfilePageState extends State<ProfilePage> {
                             margin:
                                 EdgeInsets.only(top: 10, right: 20, left: 20),
                             child: Text(
-                              "David Ryan",
+                              "Paul Brian",
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                   fontSize: 25,
@@ -430,7 +495,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         Container(
                             margin: EdgeInsets.only(top: 5),
                             child: Text(
-                              "Simple guy with a big heart",
+                              "Software Engineer at Appifylab",
                               style: TextStyle(
                                   color: Colors.white,
                                   fontWeight: FontWeight.w300,
@@ -745,20 +810,29 @@ class _ProfilePageState extends State<ProfilePage> {
                               Expanded(
                                 child: Column(
                                   children: <Widget>[
-                                    Container(
-                                      margin: EdgeInsets.only(left: 0),
-                                      height: 50,
-                                      //transform: Matrix4.translationValues(0.0, 0.0, 0.0),
-                                      padding: EdgeInsets.all(10.0),
-                                      child: Icon(
-                                        Icons.edit,
-                                        color: Colors.white.withOpacity(0.6),
-                                        size: 15,
-                                      ),
-                                      decoration: new BoxDecoration(
-                                        color: Colors.grey
-                                            .withOpacity(0.7), // border color
-                                        shape: BoxShape.circle,
+                                    GestureDetector(
+                                      onTap: () {
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    EditProfilePage()));
+                                      },
+                                      child: Container(
+                                        margin: EdgeInsets.only(left: 0),
+                                        height: 50,
+                                        //transform: Matrix4.translationValues(0.0, 0.0, 0.0),
+                                        padding: EdgeInsets.all(10.0),
+                                        child: Icon(
+                                          Icons.edit,
+                                          color: Colors.white.withOpacity(0.6),
+                                          size: 15,
+                                        ),
+                                        decoration: new BoxDecoration(
+                                          color: Colors.grey
+                                              .withOpacity(0.7), // border color
+                                          shape: BoxShape.circle,
+                                        ),
                                       ),
                                     ),
                                     Text("Edit Profile",
@@ -770,33 +844,33 @@ class _ProfilePageState extends State<ProfilePage> {
                                   ],
                                 ),
                               ),
-                              Expanded(
-                                child: Column(
-                                  children: <Widget>[
-                                    Container(
-                                      margin: EdgeInsets.only(left: 0),
-                                      height: 50,
-                                      //transform: Matrix4.translationValues(0.0, 0.0, 0.0),
-                                      padding: EdgeInsets.all(5.0),
-                                      child: Icon(
-                                        Icons.more_horiz,
-                                        color: Colors.white.withOpacity(0.6),
-                                      ),
-                                      decoration: new BoxDecoration(
-                                        color: Colors.grey
-                                            .withOpacity(0.7), // border color
-                                        shape: BoxShape.circle,
-                                      ),
-                                    ),
-                                    Text("More",
-                                        style: TextStyle(
-                                            color:
-                                                Colors.white.withOpacity(0.8),
-                                            fontFamily: "Oswald",
-                                            fontSize: 13))
-                                  ],
-                                ),
-                              ),
+                              // Expanded(
+                              //   child: Column(
+                              //     children: <Widget>[
+                              //       Container(
+                              //         margin: EdgeInsets.only(left: 0),
+                              //         height: 50,
+                              //         //transform: Matrix4.translationValues(0.0, 0.0, 0.0),
+                              //         padding: EdgeInsets.all(5.0),
+                              //         child: Icon(
+                              //           Icons.more_horiz,
+                              //           color: Colors.white.withOpacity(0.6),
+                              //         ),
+                              //         decoration: new BoxDecoration(
+                              //           color: Colors.grey
+                              //               .withOpacity(0.7), // border color
+                              //           shape: BoxShape.circle,
+                              //         ),
+                              //       ),
+                              //       Text("More",
+                              //           style: TextStyle(
+                              //               color:
+                              //                   Colors.white.withOpacity(0.8),
+                              //               fontFamily: "Oswald",
+                              //               fontSize: 13))
+                              //     ],
+                              //   ),
+                              // ),
                             ],
                           ),
                         ),
@@ -1243,7 +1317,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                             margin: EdgeInsets.only(
                                                 top: 12, left: 20, bottom: 0),
                                             child: Text(
-                                              "238 friends",
+                                              "3 friends",
                                               textAlign: TextAlign.start,
                                               style: TextStyle(
                                                   color: Colors.white70,
@@ -1327,20 +1401,10 @@ class _ProfilePageState extends State<ProfilePage> {
                             decoration: BoxDecoration(
                               image: DecorationImage(
                                 image: index == 0
-                                    ? AssetImage("assets/images/man.png")
+                                    ? AssetImage('assets/images/user.png')
                                     : index == 1
-                                        ? AssetImage("assets/images/man2.jpg")
-                                        : index == 2
-                                            ? AssetImage(
-                                                "assets/images/man.png")
-                                            : index == 3
-                                                ? AssetImage(
-                                                    "assets/images/man2.jpg")
-                                                : index == 4
-                                                    ? AssetImage(
-                                                        "assets/images/man.png")
-                                                    : AssetImage(
-                                                        "assets/images/man2.jpg"),
+                                        ? AssetImage('assets/images/man4.jpg')
+                                        : AssetImage('assets/images/user.png'),
                                 fit: BoxFit.cover,
                               ),
                               borderRadius:
@@ -1373,16 +1437,10 @@ class _ProfilePageState extends State<ProfilePage> {
                                         top: 10, left: 10, bottom: 5),
                                     child: Text(
                                       index == 0
-                                          ? "Jason Jordan"
+                                          ? "John Louis"
                                           : index == 1
-                                              ? "John Smith"
-                                              : index == 2
-                                                  ? "David Ryan"
-                                                  : index == 3
-                                                      ? "Simon Wright"
-                                                      : index == 4
-                                                          ? "Mike Johnson"
-                                                          : "Daniel Smith",
+                                              ? "David King"
+                                              : "Daniel Ryan",
                                       maxLines: 1,
                                       overflow: TextOverflow.ellipsis,
                                       style: TextStyle(
@@ -1395,7 +1453,7 @@ class _ProfilePageState extends State<ProfilePage> {
                             ),
                           ),
                         );
-                      }, childCount: loading ? 1 : 6),
+                      }, childCount: loading ? 1 : 3),
                     ),
                   ),
                   SliverToBoxAdapter(
@@ -1421,108 +1479,108 @@ class _ProfilePageState extends State<ProfilePage> {
                       ],
                     ),
                   ),
-                  SliverPadding(
-                    padding: EdgeInsets.only(right: 20, left: 5),
-                    sliver: SliverGrid(
-                      gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-                        maxCrossAxisExtent: 200.0,
-                        mainAxisSpacing: 0.0,
-                        crossAxisSpacing: 0.0,
-                        childAspectRatio: 1.0,
-                      ),
-                      delegate: SliverChildBuilderDelegate(
-                          (BuildContext context, int index) {
-                        return GestureDetector(
-                          onTap: () {
-                            // Navigator.push(
-                            //   context,
-                            //   MaterialPageRoute(
-                            //       builder: (context) => HotelSearchPage()),
-                            // );
-                          },
-                          child: new Container(
-                            margin: EdgeInsets.only(
-                                left: 15, right: 0, top: 5, bottom: 10),
-                            padding: EdgeInsets.only(left: 0),
-                            height: 100,
-                            width: 100,
-                            decoration: BoxDecoration(
-                              image: DecorationImage(
-                                image: index == 0
-                                    ? AssetImage("assets/images/f6.jpg")
-                                    : AssetImage("assets/images/f7.jpg"),
-                                fit: BoxFit.cover,
-                              ),
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(5.0)),
-                              color: Colors.white,
-                              boxShadow: [
-                                BoxShadow(
-                                  blurRadius: 3.0,
-                                  color: Colors.black.withOpacity(.5),
-                                  //offset: Offset(6.0, 7.0),
-                                ),
-                              ],
-                              // border: Border.all(width: 0.2, color: Colors.grey)
-                            ),
-                            child: Stack(
-                              children: <Widget>[
-                                Container(
-                                    margin: EdgeInsets.only(left: 0),
-                                    padding: EdgeInsets.only(left: 0),
-                                    height: 160,
-                                    width: 170,
-                                    decoration: BoxDecoration(
-                                      color: Colors.black.withOpacity(0.3),
-                                      borderRadius: BorderRadius.all(
-                                          Radius.circular(5.0)),
-                                    )),
-                                Container(
-                                    alignment: Alignment.bottomLeft,
-                                    margin: EdgeInsets.only(
-                                        top: 10, left: 10, bottom: 5),
-                                    child: Text(
-                                      index == 0 ? "Photos" : "Events",
-                                      maxLines: 1,
-                                      overflow: TextOverflow.ellipsis,
-                                      style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 20,
-                                          fontFamily: 'Oswald',
-                                          fontWeight: FontWeight.bold),
-                                    )),
-                              ],
-                            ),
-                          ),
-                        );
-                      }, childCount: 2),
-                    ),
-                  ),
+                  // SliverPadding(
+                  //   padding: EdgeInsets.only(right: 20, left: 5),
+                  //   sliver: SliverGrid(
+                  //     gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+                  //       maxCrossAxisExtent: 200.0,
+                  //       mainAxisSpacing: 0.0,
+                  //       crossAxisSpacing: 0.0,
+                  //       childAspectRatio: 1.0,
+                  //     ),
+                  //     delegate: SliverChildBuilderDelegate(
+                  //         (BuildContext context, int index) {
+                  //       return GestureDetector(
+                  //         onTap: () {
+                  //           // Navigator.push(
+                  //           //   context,
+                  //           //   MaterialPageRoute(
+                  //           //       builder: (context) => HotelSearchPage()),
+                  //           // );
+                  //         },
+                  //         child: new Container(
+                  //           margin: EdgeInsets.only(
+                  //               left: 15, right: 0, top: 5, bottom: 10),
+                  //           padding: EdgeInsets.only(left: 0),
+                  //           height: 100,
+                  //           width: 100,
+                  //           decoration: BoxDecoration(
+                  //             image: DecorationImage(
+                  //               image: index == 0
+                  //                   ? AssetImage("assets/images/f6.jpg")
+                  //                   : AssetImage("assets/images/f7.jpg"),
+                  //               fit: BoxFit.cover,
+                  //             ),
+                  //             borderRadius:
+                  //                 BorderRadius.all(Radius.circular(5.0)),
+                  //             color: Colors.white,
+                  //             boxShadow: [
+                  //               BoxShadow(
+                  //                 blurRadius: 3.0,
+                  //                 color: Colors.black.withOpacity(.5),
+                  //                 //offset: Offset(6.0, 7.0),
+                  //               ),
+                  //             ],
+                  //             // border: Border.all(width: 0.2, color: Colors.grey)
+                  //           ),
+                  //           child: Stack(
+                  //             children: <Widget>[
+                  //               Container(
+                  //                   margin: EdgeInsets.only(left: 0),
+                  //                   padding: EdgeInsets.only(left: 0),
+                  //                   height: 160,
+                  //                   width: 170,
+                  //                   decoration: BoxDecoration(
+                  //                     color: Colors.black.withOpacity(0.3),
+                  //                     borderRadius: BorderRadius.all(
+                  //                         Radius.circular(5.0)),
+                  //                   )),
+                  //               Container(
+                  //                   alignment: Alignment.bottomLeft,
+                  //                   margin: EdgeInsets.only(
+                  //                       top: 10, left: 10, bottom: 5),
+                  //                   child: Text(
+                  //                     index == 0 ? "Photos" : "Events",
+                  //                     maxLines: 1,
+                  //                     overflow: TextOverflow.ellipsis,
+                  //                     style: TextStyle(
+                  //                         color: Colors.white,
+                  //                         fontSize: 20,
+                  //                         fontFamily: 'Oswald',
+                  //                         fontWeight: FontWeight.bold),
+                  //                   )),
+                  //             ],
+                  //           ),
+                  //         ),
+                  //       );
+                  //     }, childCount: 2),
+                  //   ),
+                  // ),
                   SliverToBoxAdapter(
                     child: Column(
                       children: <Widget>[
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            Container(
-                                width: 50,
-                                margin: EdgeInsets.only(
-                                    top: 15, left: 25, right: 25, bottom: 10),
-                                decoration: BoxDecoration(
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(15.0)),
-                                    color: header,
-                                    boxShadow: [
-                                      BoxShadow(
-                                        blurRadius: 1.0,
-                                        color: header,
-                                        //offset: Offset(6.0, 7.0),
-                                      ),
-                                    ],
-                                    border:
-                                        Border.all(width: 0.5, color: header))),
-                          ],
-                        ),
+                        // Row(
+                        //   mainAxisAlignment: MainAxisAlignment.center,
+                        //   children: <Widget>[
+                        //     Container(
+                        //         width: 50,
+                        //         margin: EdgeInsets.only(
+                        //             top: 15, left: 25, right: 25, bottom: 10),
+                        //         decoration: BoxDecoration(
+                        //             borderRadius:
+                        //                 BorderRadius.all(Radius.circular(15.0)),
+                        //             color: header,
+                        //             boxShadow: [
+                        //               BoxShadow(
+                        //                 blurRadius: 1.0,
+                        //                 color: header,
+                        //                 //offset: Offset(6.0, 7.0),
+                        //               ),
+                        //             ],
+                        //             border:
+                        //                 Border.all(width: 0.5, color: header))),
+                        //   ],
+                        // ),
                         Container(
                             alignment: Alignment.centerLeft,
                             margin: EdgeInsets.only(top: 15, left: 20),
@@ -1562,7 +1620,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   SliverList(
                     delegate: SliverChildBuilderDelegate(
                         (BuildContext context, int index) {
-                      return FeedCard(loading, index);
+                      return MyFeedCard(loading, index);
                     }, childCount: 2),
                   ),
                 ],

@@ -1,3 +1,4 @@
+import 'package:chatapp_new/MainScreens/ChatPage/ChattingPage/chattingPage.dart';
 import 'package:chatapp_new/MainScreens/ChatPage/chatPage.dart';
 import 'package:chatapp_new/MainScreens/ProfilePage/FriendsProfile/FriendMainPage/friendsProfile.dart';
 import 'package:flutter/material.dart';
@@ -29,22 +30,26 @@ class _AllMembersCardState extends State<AllMembersCard> {
               SliverChildBuilderDelegate((BuildContext context, int index) {
             return GestureDetector(
               onTap: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => FriendProfileNewPage()));
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => FriendProfileNewPage()));
               },
 
               ////// <<<<< Main Data >>>>> //////
               child: Container(
                 padding: EdgeInsets.only(top: 10, bottom: 10),
                 decoration: BoxDecoration(
-                  color: Colors.black.withOpacity(0.3),
+                  color: color == "1"
+                      ? Colors.black.withOpacity(0.3)
+                      : Colors.white.withOpacity(0.8),
                   borderRadius: BorderRadius.circular(15),
                   boxShadow: [
-                        BoxShadow(
-                          blurRadius: 1.0,
-                          color: Colors.black38,
-                        ),
-                      ],
+                    BoxShadow(
+                      blurRadius: 1.0,
+                      color: Colors.black38,
+                    ),
+                  ],
                 ),
                 margin:
                     EdgeInsets.only(top: 2.5, bottom: 2.5, left: 20, right: 20),
@@ -71,14 +76,19 @@ class _AllMembersCardState extends State<AllMembersCard> {
                                     backgroundImage: index == 0
                                         ? AssetImage('assets/images/user.png')
                                         : index == 1
-                                            ? AssetImage('assets/images/man2.jpg')
+                                            ? AssetImage(
+                                                'assets/images/man2.png')
                                             : index == 2
-                                                ? AssetImage('assets/images/user.png')
+                                                ? AssetImage(
+                                                    'assets/images/user.jpg')
                                                 : index == 3
                                                     ? AssetImage(
-                                                        'assets/images/man2.jpg')
-                                                    : AssetImage(
-                                                        'assets/images/user.png'),
+                                                        'assets/images/man4.jpg')
+                                                    : index == 4
+                                                        ? AssetImage(
+                                                            'assets/images/man3.png')
+                                                        : AssetImage(
+                                                            'assets/images/user.png'),
                                   ),
                                   decoration: new BoxDecoration(
                                     color: Colors.grey[300],
@@ -95,19 +105,23 @@ class _AllMembersCardState extends State<AllMembersCard> {
                                 children: <Widget>[
                                   Text(
                                     index == 0
-                                        ? "John Smith"
+                                        ? "John Right"
                                         : index == 1
-                                            ? "David Ryan"
+                                            ? "Richard Arrickson"
                                             : index == 2
-                                                ? "Simon Wright"
+                                                ? "Simon Paul"
                                                 : index == 3
                                                     ? "Mike Johnson"
-                                                    : "Daniel Smith",
+                                                    : index == 4
+                                                        ? "Daniel Smith"
+                                                        : "Shaun Williams",
                                     overflow: TextOverflow.ellipsis,
                                     maxLines: 1,
                                     style: TextStyle(
                                         fontSize: 16,
-                                        color: Colors.white,
+                                        color: color == "1"
+                                            ? Colors.white
+                                            : Colors.black54,
                                         fontFamily: 'Oswald',
                                         fontWeight: FontWeight.w400),
                                   ),
@@ -119,19 +133,23 @@ class _AllMembersCardState extends State<AllMembersCard> {
                                       index == 0
                                           ? "Admin"
                                           : index == 1
-                                              ? "Moderator"
+                                              ? "Admin"
                                               : index == 2
-                                                  ? "Member"
+                                                  ? "Moderator"
                                                   : index == 3
                                                       ? "Member"
-                                                      : "Member",
+                                                      : index == 4
+                                                          ? "Member"
+                                                          : "Member",
                                       maxLines: 1,
                                       overflow: TextOverflow.ellipsis,
                                       style: TextStyle(
                                           fontFamily: 'Oswald',
                                           fontWeight: FontWeight.w400,
                                           fontSize: 11,
-                                          color: Colors.white70),
+                                          color: color == "1"
+                                              ? Colors.white70
+                                              : Colors.black45),
                                     ),
                                   ),
                                 ],
@@ -148,14 +166,14 @@ class _AllMembersCardState extends State<AllMembersCard> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => ChatPage()));
+                                builder: (context) => ChattingPage()));
                       },
                       child: Container(
                           margin: EdgeInsets.only(right: 15),
                           padding: EdgeInsets.only(
                               left: 10, right: 10, top: 5, bottom: 5),
                           decoration: BoxDecoration(
-                              color: header.withOpacity(0.7),
+                              color: header,
                               borderRadius: BorderRadius.circular(15),
                               border: Border.all(color: header, width: 0.5)),
                           child: Text("Message",
@@ -170,7 +188,7 @@ class _AllMembersCardState extends State<AllMembersCard> {
                 ),
               ),
             );
-          }, childCount: 5),
+          }, childCount: 6),
         ),
       ),
     );

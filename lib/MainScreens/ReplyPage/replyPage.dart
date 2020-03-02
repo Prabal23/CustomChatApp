@@ -253,8 +253,14 @@ class _ReplyPageState extends State<ReplyPage> {
                                             : theme == "8"
                                                 ? AssetImage(
                                                     "assets/images/f10.png")
-                                                : AssetImage(
-                                                    "assets/images/white.jpg"),
+                                                : theme == "9"
+                                                    ? AssetImage(
+                                                        "assets/images/pattern1.jpg")
+                                                    : theme == "10"
+                                                        ? AssetImage(
+                                                            "assets/images/pattern2.jpg")
+                                                        : AssetImage(
+                                                            "assets/images/white.jpg"),
                 fit: BoxFit.cover,
               ),
             ),
@@ -274,7 +280,8 @@ class _ReplyPageState extends State<ReplyPage> {
               slivers: <Widget>[
                 SliverToBoxAdapter(
                   child: Container(
-                    margin: EdgeInsets.only(left: 20, right: 20, bottom: 0, top: 20),
+                    margin: EdgeInsets.only(
+                        left: 20, right: 20, bottom: 0, top: 20),
                     padding: EdgeInsets.only(right: 0),
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -286,7 +293,8 @@ class _ReplyPageState extends State<ReplyPage> {
                           child: CircleAvatar(
                             radius: 15.0,
                             backgroundColor: Colors.white,
-                            backgroundImage: AssetImage("assets/images/user.png"),
+                            backgroundImage:
+                                AssetImage("assets/images/user.png"),
                           ),
                           decoration: new BoxDecoration(
                             color: Colors.grey[300],

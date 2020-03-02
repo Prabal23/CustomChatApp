@@ -203,43 +203,43 @@ class _CreatePostFormState extends State<CreatePostForm> {
                                     ),
                                   ),
                                 ),
-                                // Container(
-                                //   margin: EdgeInsets.only(
-                                //       top: 0, left: 5, right: 15),
-                                //   decoration: BoxDecoration(
-                                //       border: Border.all(
-                                //           width: 0.3, color: Colors.white70),
-                                //       borderRadius: BorderRadius.all(
-                                //           Radius.circular(10))),
-                                //   child: Row(
-                                //     mainAxisAlignment: MainAxisAlignment.center,
-                                //     children: <Widget>[
-                                //       Container(
-                                //         margin: EdgeInsets.only(left: 5),
-                                //         child: Icon(
-                                //           Icons.add,
-                                //           size: 12,
-                                //           color: Colors.white70,
-                                //         ),
-                                //       ),
-                                //       Container(
-                                //           margin: EdgeInsets.only(left: 5),
-                                //           child: Text(
-                                //             "Album",
-                                //             style: TextStyle(
-                                //                 color: Colors.white70,
-                                //                 fontSize: 12,
-                                //                 fontWeight: FontWeight.w300,
-                                //                 fontFamily: "Oswald"),
-                                //           )),
-                                //       Icon(
-                                //         Icons.arrow_drop_down,
-                                //         size: 25,
-                                //         color: Colors.white70,
-                                //       ),
-                                //     ],
-                                //   ),
-                                // ),
+                                Container(
+                                  margin: EdgeInsets.only(
+                                      top: 0, left: 5, right: 15),
+                                  decoration: BoxDecoration(
+                                      border: Border.all(
+                                          width: 0.3, color: Colors.white70),
+                                      borderRadius: BorderRadius.all(
+                                          Radius.circular(10))),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: <Widget>[
+                                      Container(
+                                        margin: EdgeInsets.only(left: 5),
+                                        child: Icon(
+                                          Icons.add,
+                                          size: 12,
+                                          color: Colors.white70,
+                                        ),
+                                      ),
+                                      Container(
+                                          margin: EdgeInsets.only(left: 5),
+                                          child: Text(
+                                            "Album",
+                                            style: TextStyle(
+                                                color: Colors.white70,
+                                                fontSize: 12,
+                                                fontWeight: FontWeight.w300,
+                                                fontFamily: "Oswald"),
+                                          )),
+                                      Icon(
+                                        Icons.arrow_drop_down,
+                                        size: 25,
+                                        color: Colors.white70,
+                                      ),
+                                    ],
+                                  ),
+                                ),
                               ],
                             ),
                           ),
@@ -375,118 +375,118 @@ class _CreatePostFormState extends State<CreatePostForm> {
                         ],
                       ),
                     ),
-                    // Expanded(
-                    //   child: GestureDetector(
-                    //     onTap: () {
-                    //       Navigator.push(
-                    //           context,
-                    //           MaterialPageRoute(
-                    //               builder: (context) => CreatePost()));
-                    //     },
-                    //     child: Column(
-                    //       children: <Widget>[
-                    //         Container(
-                    //           margin: EdgeInsets.only(left: 0),
-                    //           height: 50,
-                    //           padding: EdgeInsets.all(10.0),
-                    //           child: Icon(
-                    //             Icons.videocam,
-                    //             color: Colors.white.withOpacity(0.6),
-                    //             size: 15,
-                    //           ),
-                    //           decoration: new BoxDecoration(
-                    //             color: Colors.grey
-                    //                 .withOpacity(0.7), // border color
-                    //             shape: BoxShape.circle,
-                    //           ),
-                    //         ),
-                    //         Text("Video",
-                    //             style: TextStyle(
-                    //                 color: Colors.white.withOpacity(0.8),
-                    //                 fontFamily: "Oswald",
-                    //                 fontSize: 13))
-                    //       ],
-                    //     ),
-                    //   ),
-                    // ),
-                    // Expanded(
-                    //   child: Column(
-                    //     children: <Widget>[
-                    //       Container(
-                    //         margin: EdgeInsets.only(left: 0),
-                    //         height: 50,
-                    //         padding: EdgeInsets.all(10.0),
-                    //         child: Icon(
-                    //           Icons.person,
-                    //           color: Colors.white.withOpacity(0.6),
-                    //           size: 15,
-                    //         ),
-                    //         decoration: new BoxDecoration(
-                    //           color:
-                    //               Colors.grey.withOpacity(0.7), // border color
-                    //           shape: BoxShape.circle,
-                    //         ),
-                    //       ),
-                    //       Text("Tag",
-                    //           style: TextStyle(
-                    //               color: Colors.white.withOpacity(0.8),
-                    //               fontFamily: "Oswald",
-                    //               fontSize: 13))
-                    //     ],
-                    //   ),
-                    // ),
-                    // Expanded(
-                    //   child: Column(
-                    //     children: <Widget>[
-                    //       Container(
-                    //         margin: EdgeInsets.only(left: 0),
-                    //         height: 50,
-                    //         padding: EdgeInsets.all(10.0),
-                    //         child: Icon(
-                    //           Icons.location_on,
-                    //           color: Colors.white.withOpacity(0.6),
-                    //           size: 15,
-                    //         ),
-                    //         decoration: new BoxDecoration(
-                    //           color:
-                    //               Colors.grey.withOpacity(0.7), // border color
-                    //           shape: BoxShape.circle,
-                    //         ),
-                    //       ),
-                    //       Text("Check in",
-                    //           style: TextStyle(
-                    //               color: Colors.white.withOpacity(0.8),
-                    //               fontFamily: "Oswald",
-                    //               fontSize: 13))
-                    //     ],
-                    //   ),
-                    // ),
-                    // Expanded(
-                    //   child: Column(
-                    //     children: <Widget>[
-                    //       Container(
-                    //         margin: EdgeInsets.only(left: 0),
-                    //         height: 50,
-                    //         padding: EdgeInsets.all(10.0),
-                    //         child: Icon(
-                    //           Icons.favorite,
-                    //           color: Colors.white.withOpacity(0.6),
-                    //           size: 15,
-                    //         ),
-                    //         decoration: new BoxDecoration(
-                    //           color:
-                    //               Colors.grey.withOpacity(0.7), // border color
-                    //           shape: BoxShape.circle,
-                    //         ),
-                    //       ),
-                    //       Text("Feelings",
-                    //           style: TextStyle(
-                    //               color: Colors.white.withOpacity(0.8),
-                    //               fontFamily: "Oswald",
-                    //               fontSize: 13))
-                    //     ],
-                    //   ),
-                    // ),
+                    Expanded(
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => CreatePost()));
+                        },
+                        child: Column(
+                          children: <Widget>[
+                            Container(
+                              margin: EdgeInsets.only(left: 0),
+                              height: 50,
+                              padding: EdgeInsets.all(10.0),
+                              child: Icon(
+                                Icons.videocam,
+                                color: Colors.white.withOpacity(0.6),
+                                size: 15,
+                              ),
+                              decoration: new BoxDecoration(
+                                color: Colors.grey
+                                    .withOpacity(0.7), // border color
+                                shape: BoxShape.circle,
+                              ),
+                            ),
+                            Text("Video",
+                                style: TextStyle(
+                                    color: Colors.white.withOpacity(0.8),
+                                    fontFamily: "Oswald",
+                                    fontSize: 13))
+                          ],
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      child: Column(
+                        children: <Widget>[
+                          Container(
+                            margin: EdgeInsets.only(left: 0),
+                            height: 50,
+                            padding: EdgeInsets.all(10.0),
+                            child: Icon(
+                              Icons.person,
+                              color: Colors.white.withOpacity(0.6),
+                              size: 15,
+                            ),
+                            decoration: new BoxDecoration(
+                              color:
+                                  Colors.grey.withOpacity(0.7), // border color
+                              shape: BoxShape.circle,
+                            ),
+                          ),
+                          Text("Tag",
+                              style: TextStyle(
+                                  color: Colors.white.withOpacity(0.8),
+                                  fontFamily: "Oswald",
+                                  fontSize: 13))
+                        ],
+                      ),
+                    ),
+                    Expanded(
+                      child: Column(
+                        children: <Widget>[
+                          Container(
+                            margin: EdgeInsets.only(left: 0),
+                            height: 50,
+                            padding: EdgeInsets.all(10.0),
+                            child: Icon(
+                              Icons.location_on,
+                              color: Colors.white.withOpacity(0.6),
+                              size: 15,
+                            ),
+                            decoration: new BoxDecoration(
+                              color:
+                                  Colors.grey.withOpacity(0.7), // border color
+                              shape: BoxShape.circle,
+                            ),
+                          ),
+                          Text("Check in",
+                              style: TextStyle(
+                                  color: Colors.white.withOpacity(0.8),
+                                  fontFamily: "Oswald",
+                                  fontSize: 13))
+                        ],
+                      ),
+                    ),
+                    Expanded(
+                      child: Column(
+                        children: <Widget>[
+                          Container(
+                            margin: EdgeInsets.only(left: 0),
+                            height: 50,
+                            padding: EdgeInsets.all(10.0),
+                            child: Icon(
+                              Icons.favorite,
+                              color: Colors.white.withOpacity(0.6),
+                              size: 15,
+                            ),
+                            decoration: new BoxDecoration(
+                              color:
+                                  Colors.grey.withOpacity(0.7), // border color
+                              shape: BoxShape.circle,
+                            ),
+                          ),
+                          Text("Feelings",
+                              style: TextStyle(
+                                  color: Colors.white.withOpacity(0.8),
+                                  fontFamily: "Oswald",
+                                  fontSize: 13))
+                        ],
+                      ),
+                    ),
                   ],
                 ),
               ),

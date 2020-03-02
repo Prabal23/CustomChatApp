@@ -181,8 +181,14 @@ class SearchPageState extends State<SearchPage> {
                                               : theme == "8"
                                                   ? AssetImage(
                                                       "assets/images/f10.png")
-                                                  : AssetImage(
-                                                      "assets/images/white.jpg"),
+                                                  : theme == "9"
+                                                      ? AssetImage(
+                                                          "assets/images/pattern1.jpg")
+                                                      : theme == "10"
+                                                          ? AssetImage(
+                                                              "assets/images/pattern2.jpg")
+                                                          : AssetImage(
+                                                              "assets/images/white.jpg"),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -284,18 +290,18 @@ class SearchPageState extends State<SearchPage> {
                                               backgroundColor: Colors.white,
                                               backgroundImage: index == 0
                                                   ? AssetImage(
-                                                      'assets/images/man.png')
+                                                      "assets/images/man.png")
                                                   : index == 1
                                                       ? AssetImage(
-                                                          'assets/images/man2.jpg')
+                                                          "assets/images/man2.jpg")
                                                       : index == 2
                                                           ? AssetImage(
-                                                              'assets/images/man.png')
+                                                              "assets/images/man3.png")
                                                           : index == 3
                                                               ? AssetImage(
-                                                                  'assets/images/man2.jpg')
+                                                                  "assets/images/user.jpg")
                                                               : AssetImage(
-                                                                  'assets/images/man.png'),
+                                                                  "assets/images/man4.jpg"),
                                             ),
                                             decoration: new BoxDecoration(
                                               color: Colors
@@ -328,14 +334,15 @@ class SearchPageState extends State<SearchPage> {
                                 ),
                               ),
                               GestureDetector(
-                                onTap: (){
+                                onTap: () {
                                   setState(() {
-                                   friendname.removeAt(index); 
+                                    friendname.removeAt(index);
                                   });
                                 },
                                 child: Container(
                                   child: Icon(Icons.close,
-                                      color: back_new.withOpacity(0.5), size: 18),
+                                      color: back_new.withOpacity(0.5),
+                                      size: 18),
                                 ),
                               )
                             ],

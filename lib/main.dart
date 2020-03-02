@@ -27,6 +27,8 @@ List<String> name = [
   "Daniel Smith"
 ];
 
+String color = "";
+
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
@@ -34,11 +36,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primaryColor: header
-      ),
+      theme: ThemeData(primaryColor: header),
       home: StartingPage(),
     );
   }
 }
-

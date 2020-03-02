@@ -5,16 +5,16 @@ import 'package:shimmer/shimmer.dart';
 
 import '../../main.dart';
 
-class FeedCard extends StatefulWidget {
+class MyFeedCard extends StatefulWidget {
   final index;
   final loading;
-  FeedCard(this.loading, this.index);
+  MyFeedCard(this.loading, this.index);
 
   @override
-  _FeedCardState createState() => _FeedCardState();
+  _MyFeedCardState createState() => _MyFeedCardState();
 }
 
-class _FeedCardState extends State<FeedCard> {
+class _MyFeedCardState extends State<MyFeedCard> {
   int no, likeNum = 0;
   List likeArr = [0, 0];
 
@@ -189,8 +189,8 @@ class _FeedCardState extends State<FeedCard> {
                                 radius: 20.0,
                                 backgroundColor: Colors.white,
                                 backgroundImage: widget.index % 2 == 0
-                                    ? AssetImage('assets/images/man.png')
-                                    : AssetImage('assets/images/user.jpg'),
+                                    ? AssetImage('assets/images/man2.jpg')
+                                    : AssetImage('assets/images/man2.jpg'),
                               ),
                               decoration: new BoxDecoration(
                                 color: Colors.grey[300], // border color
@@ -204,9 +204,7 @@ class _FeedCardState extends State<FeedCard> {
                               children: <Widget>[
                                 ////// <<<<< Name start >>>>> //////
                                 Text(
-                                  widget.index % 2 == 0
-                                      ? "John Smith"
-                                      : "David Ryan",
+                                  "Paul Brian",
                                   style: TextStyle(
                                       fontSize: 15,
                                       color: Colors.white,
@@ -263,7 +261,7 @@ class _FeedCardState extends State<FeedCard> {
                           ? Container(
                               width: MediaQuery.of(context).size.width,
                               child: Text(
-                                "Hello everyone! this is my first status. i have made a social app with flutter. i hope you will like it. \nThank you",
+                                "Honesty is the best policy",
                                 textAlign: TextAlign.justify,
                                 style: TextStyle(
                                     color: Colors.white,
@@ -275,7 +273,7 @@ class _FeedCardState extends State<FeedCard> {
                                 Container(
                                   alignment: Alignment.centerLeft,
                                   child: Text(
-                                    "Last week tour with friends",
+                                    "Tour of nearest hill",
                                     textAlign: TextAlign.justify,
                                     style: TextStyle(
                                         color: Colors.white,
@@ -291,7 +289,7 @@ class _FeedCardState extends State<FeedCard> {
                                         borderRadius: BorderRadius.circular(15),
                                         image: DecorationImage(
                                             image: AssetImage(
-                                                "assets/images/f6.jpg"),
+                                                "assets/images/f7.jpg"),
                                             fit: BoxFit.cover)),
                                     child: null),
                               ],

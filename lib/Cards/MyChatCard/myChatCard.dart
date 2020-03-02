@@ -14,7 +14,7 @@ class _MyChatCardState extends State<MyChatCard> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(left: 0, right: 0, top: 0),
+      margin: EdgeInsets.only(left: 0, right: 15, top: 0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
@@ -26,7 +26,7 @@ class _MyChatCardState extends State<MyChatCard> {
                   ////// <<<<< Message start >>>>> //////
                   Container(
                     padding: EdgeInsets.all(10),
-                    margin: EdgeInsets.only(top: 0, left: 70),
+                    margin: EdgeInsets.only(top: 10, left: 70),
                     decoration: new BoxDecoration(
                       color: header,
                       borderRadius: BorderRadius.all(Radius.circular(10)),

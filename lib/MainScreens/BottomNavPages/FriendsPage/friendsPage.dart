@@ -84,8 +84,14 @@ class FriendsPageState extends State<FriendsPage> {
                                             : theme == "8"
                                                 ? AssetImage(
                                                     "assets/images/f10.png")
-                                                : AssetImage(
-                                                    "assets/images/white.jpg"),
+                                                : theme == "9"
+                                                    ? AssetImage(
+                                                        "assets/images/pattern1.jpg")
+                                                    : theme == "10"
+                                                        ? AssetImage(
+                                                            "assets/images/pattern2.jpg")
+                                                        : AssetImage(
+                                                            "assets/images/white.jpg"),
                 fit: BoxFit.cover,
               ),
             ),
@@ -908,7 +914,7 @@ class FriendsPageState extends State<FriendsPage> {
                                                             ? AssetImage(
                                                                 'assets/images/man4.jpg')
                                                             : AssetImage(
-                                                                        'assets/images/user.png'),
+                                                                'assets/images/user.png'),
                                                   ),
                                                   decoration: new BoxDecoration(
                                                     color: Colors.grey[
@@ -945,7 +951,7 @@ class FriendsPageState extends State<FriendsPage> {
                                                         ? "John Louis"
                                                         : index == 1
                                                             ? "David King"
-                                                            :"Daniel Ryan",
+                                                            : "Daniel Ryan",
                                                     overflow:
                                                         TextOverflow.ellipsis,
                                                     maxLines: 1,

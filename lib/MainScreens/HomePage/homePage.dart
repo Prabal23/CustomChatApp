@@ -2,6 +2,7 @@ import 'package:chatapp_new/MainScreens/BottomNavPages/FeedPage/feedPage.dart';
 import 'package:chatapp_new/MainScreens/BottomNavPages/FriendsPage/friendsPage.dart';
 import 'package:chatapp_new/MainScreens/BottomNavPages/GroupPage/groupPage.dart';
 import 'package:chatapp_new/MainScreens/BottomNavPages/MainPage/myProfile.dart';
+import 'package:chatapp_new/MainScreens/BottomNavPages/SettingsPage/ThemePage/themePage.dart';
 import 'package:chatapp_new/MainScreens/BottomNavPages/SettingsPage/settingsPage.dart';
 import 'package:chatapp_new/MainScreens/ChatPage/chatPage.dart';
 import 'package:chatapp_new/MainScreens/NotifyPage/notifyPage.dart';
@@ -24,6 +25,7 @@ class _MyHomePageState extends State<MyHomePage> {
     FriendsPage(),
     GroupPage(),
     SettingsPage(),
+    //ThemePage(),
     ProfileNewPage(),
   ];
 
@@ -32,13 +34,13 @@ class _MyHomePageState extends State<MyHomePage> {
     return Center(
       child: Scaffold(
         //backgroundColor: Colors.white,
-        key: _scaffoldKey,
-
+        //key: _scaffoldKey,
         appBar: AppBar(
           //iconTheme: IconThemeData(color: header),
           automaticallyImplyLeading: false,
-          backgroundColor: Colors.black.withOpacity(0.5),
-
+          backgroundColor: color == "1"
+              ? Colors.black.withOpacity(0.5)
+              : Colors.white.withOpacity(0.7),
           title: Container(
             margin: EdgeInsets.only(top: 0),
             child: Row(
@@ -56,7 +58,8 @@ class _MyHomePageState extends State<MyHomePage> {
                         child: Text(
                           "Chat anytime",
                           style: TextStyle(
-                              color: Colors.white,
+                              color:
+                                  color == "1" ? Colors.white : Colors.black54,
                               fontSize: 20,
                               fontFamily: 'Oswald',
                               fontWeight: FontWeight.normal),
@@ -78,7 +81,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     padding: EdgeInsets.all(8),
                     child: Icon(
                       Icons.search,
-                      color: Colors.grey[200],
+                      color: color == "1" ? Colors.grey[200] : Colors.black54,
                       size: 18,
                     ),
                   ),
@@ -99,7 +102,8 @@ class _MyHomePageState extends State<MyHomePage> {
                         padding: EdgeInsets.all(8),
                         child: Icon(
                           Icons.notifications,
-                          color: Colors.grey[200],
+                          color:
+                              color == "1" ? Colors.grey[200] : Colors.black54,
                           size: 18,
                         ),
                       ),
@@ -111,7 +115,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             color: header,
                             borderRadius: BorderRadius.circular(15)),
                         child: Text(
-                          "38",
+                          "2",
                           textAlign: TextAlign.start,
                           style: TextStyle(
                               color: Colors.white,
@@ -139,7 +143,8 @@ class _MyHomePageState extends State<MyHomePage> {
                         padding: EdgeInsets.all(8),
                         child: Icon(
                           Icons.chat,
-                          color: Colors.grey[200],
+                          color:
+                              color == "1" ? Colors.grey[200] : Colors.black54,
                           size: 18,
                         ),
                       ),
@@ -151,7 +156,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             color: header,
                             borderRadius: BorderRadius.circular(15)),
                         child: Text(
-                          "46",
+                          "3",
                           textAlign: TextAlign.start,
                           style: TextStyle(
                               color: Colors.white,
@@ -172,11 +177,13 @@ class _MyHomePageState extends State<MyHomePage> {
         body: pageOptions[_selectedPage],
         bottomNavigationBar: Theme(
           data: Theme.of(context).copyWith(
-              canvasColor: Colors.black.withOpacity(0.5),
+              canvasColor: color == "1"
+                  ? Colors.black.withOpacity(0.5)
+                  : Colors.white.withOpacity(0.7),
               primaryColor: header,
-              textTheme: Theme.of(context)
-                  .textTheme
-                  .copyWith(caption: new TextStyle(color: back_new))),
+              textTheme: Theme.of(context).textTheme.copyWith(
+                  caption: new TextStyle(
+                      color: color == "1" ? back_new : Colors.grey))),
           child: BottomNavigationBar(
             type: BottomNavigationBarType.fixed,
             currentIndex: _selectedPage,
@@ -221,8 +228,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   ]),
                   title: SizedBox.shrink()),
               BottomNavigationBarItem(
-                  icon: Icon(Icons.supervised_user_circle, size: 20), title: SizedBox.shrink()),
+                  icon: Icon(Icons.supervised_user_circle, size: 20),
+                  title: SizedBox.shrink()),
               BottomNavigationBarItem(
+                  //icon: Icon(Icons.settings, size: 20),
                   icon: Icon(Icons.settings, size: 20),
                   title: SizedBox.shrink()),
               BottomNavigationBarItem(

@@ -80,30 +80,40 @@ class _ProfilePageState extends State<ProfileNewPage> {
               width: MediaQuery.of(context).size.width,
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: state == PhotoCrop.free
-                      ? theme == "1" || theme == null
-                          ? AssetImage("assets/images/f4.jpg")
-                          : theme == "2"
-                              ? AssetImage("assets/images/f.jpg")
-                              : theme == "3"
-                                  ? AssetImage("assets/images/f6.jpg")
-                                  : theme == "4"
-                                      ? AssetImage("assets/images/f5.jpg")
-                                      : theme == "5"
-                                          ? AssetImage(
-                                              "assets/images/friend8.jpg")
-                                          : theme == "6"
-                                              ? AssetImage(
-                                                  "assets/images/f2.jpg")
-                                              : theme == "7"
-                                                  ? AssetImage(
-                                                      "assets/images/f9.jpg")
-                                                  : theme == "8"
-                                                      ? AssetImage(
-                                                          "assets/images/f10.png")
-                                                      : AssetImage(
-                                                          "assets/images/white.jpg")
-                      : FileImage(imageFile),
+                  image:
+                      // state == PhotoCrop.free
+                      //     ? theme == "1" || theme == null
+                      //         ? AssetImage("assets/images/f4.jpg")
+                      //         : theme == "2"
+                      //             ? AssetImage("assets/images/f.jpg")
+                      //             : theme == "3"
+                      //                 ? AssetImage("assets/images/f6.jpg")
+                      //                 : theme == "4"
+                      //                     ? AssetImage("assets/images/f5.jpg")
+                      //                     : theme == "5"
+                      //                         ? AssetImage(
+                      //                             "assets/images/friend8.jpg")
+                      //                         : theme == "6"
+                      //                             ? AssetImage(
+                      //                                 "assets/images/f2.jpg")
+                      //                             : theme == "7"
+                      //                                 ? AssetImage(
+                      //                                     "assets/images/f9.jpg")
+                      //                                 : theme == "8"
+                      //                                     ? AssetImage(
+                      //                                         "assets/images/f10.png")
+                      //                                     : theme == "9"
+                      //                                         ? AssetImage(
+                      //                                             "assets/images/pattern1.jpg")
+                      //                                         : theme == "10"
+                      //                                             ? AssetImage(
+                      //                                                 "assets/images/pattern2.jpg")
+                      //                                             : AssetImage(
+                      //                                                 "assets/images/white.jpg")
+                      //     :
+                      imageFile == null
+                          ? AssetImage("assets/images/man2.jpg")
+                          : FileImage(imageFile),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -126,7 +136,9 @@ class _ProfilePageState extends State<ProfileNewPage> {
             Container(
               alignment: Alignment.bottomCenter,
               decoration: BoxDecoration(
-                  color: Colors.black.withOpacity(0.3),
+                  color: color == "1"
+                      ? Colors.black.withOpacity(0.3)
+                      : Colors.white.withOpacity(0.2),
                   borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(0),
                       topRight: Radius.circular(0))),
@@ -139,7 +151,9 @@ class _ProfilePageState extends State<ProfileNewPage> {
                       Container(
                         alignment: Alignment.bottomCenter,
                         decoration: BoxDecoration(
-                            color: Colors.black.withOpacity(0.5),
+                            color: color == "1"
+                                ? Colors.black.withOpacity(0.5)
+                                : Colors.white.withOpacity(0.75),
                             borderRadius: BorderRadius.only(
                                 topLeft: Radius.circular(25),
                                 topRight: Radius.circular(25))),
@@ -155,9 +169,11 @@ class _ProfilePageState extends State<ProfileNewPage> {
                                   children: <Widget>[
                                     Expanded(
                                       child: Text(
-                                        "David Ryan",
+                                        "Paul Brian",
                                         style: TextStyle(
-                                            color: Colors.white,
+                                            color: color == "1"
+                                                ? Colors.white
+                                                : Colors.black54,
                                             fontSize: 22,
                                             fontFamily: 'Oswald',
                                             fontWeight: FontWeight.normal),
@@ -172,7 +188,9 @@ class _ProfilePageState extends State<ProfileNewPage> {
                                   "Software Engineer at Appifylab",
                                   textAlign: TextAlign.start,
                                   style: TextStyle(
-                                      color: Colors.white70,
+                                      color: color == "1"
+                                          ? Colors.white70
+                                          : Colors.black87,
                                       fontSize: 13,
                                       fontFamily: 'Oswald',
                                       fontWeight: FontWeight.w300),
@@ -280,8 +298,11 @@ class _ProfilePageState extends State<ProfileNewPage> {
                                           ),
                                           Text("Create Post",
                                               style: TextStyle(
-                                                  color: Colors.white
-                                                      .withOpacity(0.8),
+                                                  color: color == "1"
+                                                      ? Colors.white
+                                                          .withOpacity(0.8)
+                                                      : Colors.black54
+                                                          .withOpacity(0.6),
                                                   fontFamily: "Oswald",
                                                   fontSize: 13))
                                         ],
@@ -319,8 +340,11 @@ class _ProfilePageState extends State<ProfileNewPage> {
                                         ),
                                         Text("Edit Profile",
                                             style: TextStyle(
-                                                color: Colors.white
-                                                    .withOpacity(0.8),
+                                                color: color == "1"
+                                                    ? Colors.white
+                                                        .withOpacity(0.8)
+                                                    : Colors.black54
+                                                        .withOpacity(0.6),
                                                 fontFamily: "Oswald",
                                                 fontSize: 13))
                                       ],
@@ -352,8 +376,11 @@ class _ProfilePageState extends State<ProfileNewPage> {
                                           ),
                                           Text("Profile Photo",
                                               style: TextStyle(
-                                                  color: Colors.white
-                                                      .withOpacity(0.8),
+                                                  color: color == "1"
+                                                      ? Colors.white
+                                                          .withOpacity(0.8)
+                                                      : Colors.black54
+                                                          .withOpacity(0.6),
                                                   fontFamily: "Oswald",
                                                   fontSize: 13))
                                         ],

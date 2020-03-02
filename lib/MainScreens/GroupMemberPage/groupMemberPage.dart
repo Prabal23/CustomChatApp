@@ -51,15 +51,18 @@ class _GroupMemberPageState extends State<GroupMemberPage> {
       ),
     );
   }
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        iconTheme: IconThemeData(color: Colors.white),
+        iconTheme:
+            IconThemeData(color: color == "1" ? Colors.white : Colors.black54),
         //automaticallyImplyLeading: false,
-        backgroundColor: Colors.black.withOpacity(0.5),
+        backgroundColor: color == "1"
+            ? Colors.black.withOpacity(0.5)
+            : Colors.white.withOpacity(0.7),
         title: Container(
           margin: EdgeInsets.only(top: 0),
           child: Row(
@@ -77,7 +80,7 @@ class _GroupMemberPageState extends State<GroupMemberPage> {
                       child: Text(
                         "Group Members",
                         style: TextStyle(
-                            color: Colors.white,
+                            color: color == "1" ? Colors.white : Colors.black54,
                             fontSize: 20,
                             fontFamily: 'Oswald',
                             fontWeight: FontWeight.normal),
@@ -112,8 +115,14 @@ class _GroupMemberPageState extends State<GroupMemberPage> {
                                             : theme == "8"
                                                 ? AssetImage(
                                                     "assets/images/f10.png")
-                                                : AssetImage(
-                                                    "assets/images/white.jpg"),
+                                                : theme == "9"
+                                                    ? AssetImage(
+                                                        "assets/images/pattern1.jpg")
+                                                    : theme == "10"
+                                                        ? AssetImage(
+                                                            "assets/images/pattern2.jpg")
+                                                        : AssetImage(
+                                                            "assets/images/white.jpg"),
                 fit: BoxFit.cover,
               ),
             ),
@@ -126,7 +135,9 @@ class _GroupMemberPageState extends State<GroupMemberPage> {
           ),
           Container(
             decoration: BoxDecoration(
-                color: Colors.black.withOpacity(0.3),
+                color: color == "1"
+                    ? Colors.black.withOpacity(0.3)
+                    : Colors.white.withOpacity(0.2),
                 borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(0), topRight: Radius.circular(0))),
             margin: EdgeInsets.only(top: 0, left: 0, right: 0, bottom: 0),
@@ -136,7 +147,6 @@ class _GroupMemberPageState extends State<GroupMemberPage> {
                 SliverToBoxAdapter(
                   child: Column(
                     children: <Widget>[
-
                       ////// <<<<< Friend Number >>>>> //////
                       Container(
                         margin: EdgeInsets.only(top: 12, left: 20, bottom: 7),
@@ -145,16 +155,16 @@ class _GroupMemberPageState extends State<GroupMemberPage> {
                           children: <Widget>[
                             Container(
                                 child: Text(
-                                  "25",
-                                  textAlign: TextAlign.start,
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 18,
-                                      fontFamily: 'Oswald',
-                                      fontWeight: FontWeight.w400),
-                                )),
+                              "6",
+                              textAlign: TextAlign.start,
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 18,
+                                  fontFamily: 'Oswald',
+                                  fontWeight: FontWeight.w400),
+                            )),
                             Container(
-                              margin: EdgeInsets.only(bottom: 3),
+                                margin: EdgeInsets.only(bottom: 3),
                                 child: Text(
                                   " members",
                                   textAlign: TextAlign.start,
@@ -173,7 +183,8 @@ class _GroupMemberPageState extends State<GroupMemberPage> {
                         children: <Widget>[
                           Container(
                             width: 30,
-                            margin: EdgeInsets.only(top: 0, left: 20, bottom: 12),
+                            margin:
+                                EdgeInsets.only(top: 0, left: 20, bottom: 12),
                             decoration: BoxDecoration(
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(15.0)),
@@ -185,8 +196,8 @@ class _GroupMemberPageState extends State<GroupMemberPage> {
                                     //offset: Offset(6.0, 7.0),
                                   ),
                                 ],
-                                border:
-                                    Border.all(width: 0.5, color: Colors.white)),
+                                border: Border.all(
+                                    width: 0.5, color: Colors.white)),
                           ),
                         ],
                       ),

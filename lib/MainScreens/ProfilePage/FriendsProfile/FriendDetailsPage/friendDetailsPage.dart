@@ -6,7 +6,6 @@ import 'dart:async';
 
 import '../../../../main.dart';
 
-
 class FriendsProfilePage extends StatefulWidget {
   @override
   _ProfilePageState createState() => _ProfilePageState();
@@ -115,8 +114,14 @@ class _ProfilePageState extends State<FriendsProfilePage> {
                                               : theme == "8"
                                                   ? AssetImage(
                                                       "assets/images/f10.png")
-                                                  : AssetImage(
-                                                      "assets/images/white.jpg"),
+                                                  : theme == "9"
+                                                      ? AssetImage(
+                                                          "assets/images/pattern1.jpg")
+                                                      : theme == "10"
+                                                          ? AssetImage(
+                                                              "assets/images/pattern2.jpg")
+                                                          : AssetImage(
+                                                              "assets/images/white.jpg"),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -1312,7 +1317,8 @@ class _ProfilePageState extends State<FriendsProfilePage> {
                           children: <Widget>[
                             Container(
                               width: 30,
-                              margin: EdgeInsets.only(top: 10, left: 20, bottom: 10),
+                              margin: EdgeInsets.only(
+                                  top: 10, left: 20, bottom: 10),
                               decoration: BoxDecoration(
                                   borderRadius:
                                       BorderRadius.all(Radius.circular(15.0)),

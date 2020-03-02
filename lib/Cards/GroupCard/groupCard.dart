@@ -1,4 +1,5 @@
 import 'package:chatapp_new/MainScreens/GroupDetailsPage/groupDetailsPage.dart';
+import 'package:chatapp_new/main.dart';
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 
@@ -24,7 +25,9 @@ class _GroupCardState extends State<GroupCard> {
             ? Container(
                 padding: EdgeInsets.only(top: 10, bottom: 10),
                 decoration: BoxDecoration(
-                  color: Colors.black.withOpacity(0.3),
+                  color: color == "1"
+                      ? Colors.black.withOpacity(0.3)
+                      : Colors.white.withOpacity(0.8),
                   borderRadius: BorderRadius.circular(15),
                   //border: Border.all(width: 0.8, color: Colors.grey[300]),
                   boxShadow: [
@@ -68,7 +71,7 @@ class _GroupCardState extends State<GroupCard> {
                             ),
                           ),
                           ////// <<<<< Pic end >>>>> //////
-                          
+
                           ////// <<<<< Name start >>>>> //////
                           Container(
                             margin: EdgeInsets.only(top: 5),
@@ -86,13 +89,15 @@ class _GroupCardState extends State<GroupCard> {
                               maxLines: 1,
                               style: TextStyle(
                                   fontSize: 14,
-                                  color: Colors.white,
+                                  color: color == "1"
+                                      ? Colors.white
+                                      : Colors.black,
                                   fontFamily: 'Oswald',
                                   fontWeight: FontWeight.w400),
                             ),
                           ),
                           ////// <<<<< Name end >>>>> //////
-                          
+
                           ////// <<<<< Member start >>>>> //////
                           Container(
                             margin: EdgeInsets.only(top: 3),
@@ -112,7 +117,9 @@ class _GroupCardState extends State<GroupCard> {
                                   fontFamily: 'Oswald',
                                   fontWeight: FontWeight.w400,
                                   fontSize: 11,
-                                  color: Colors.white54),
+                                  color: color == "1"
+                                      ? Colors.white54
+                                      : Colors.black54),
                             ),
                           ),
                           ////// <<<<< Member end >>>>> //////
@@ -125,7 +132,9 @@ class _GroupCardState extends State<GroupCard> {
             : Container(
                 padding: EdgeInsets.only(top: 10, bottom: 10),
                 decoration: BoxDecoration(
-                  color: Colors.black.withOpacity(0.3),
+                  color: color == "1"
+                      ? Colors.black.withOpacity(0.3)
+                      : Colors.white.withOpacity(0.8),
                   borderRadius: BorderRadius.circular(15),
                   //border: Border.all(width: 0.8, color: Colors.grey[300]),
                   boxShadow: [
@@ -151,8 +160,12 @@ class _GroupCardState extends State<GroupCard> {
                             //transform: Matrix4.translationValues(0.0, 0.0, 0.0),
                             padding: EdgeInsets.all(1.0),
                             child: Shimmer.fromColors(
-                              baseColor: Colors.grey[700],
-                              highlightColor: Colors.grey[500],
+                              baseColor: color == "1"
+                                  ? Colors.grey[700]
+                                  : Colors.grey[400],
+                              highlightColor: color == "1"
+                                  ? Colors.grey[500]
+                                  : Colors.grey[200],
                               child: CircleAvatar(
                                 radius: 27.0,
                                 backgroundColor: Colors.white,
@@ -168,8 +181,12 @@ class _GroupCardState extends State<GroupCard> {
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: <Widget>[
                                 Shimmer.fromColors(
-                                  baseColor: Colors.grey[700],
-                                  highlightColor: Colors.grey[500],
+                                  baseColor: color == "1"
+                                      ? Colors.grey[700]
+                                      : Colors.grey[400],
+                                  highlightColor: color == "1"
+                                      ? Colors.grey[500]
+                                      : Colors.grey[200],
                                   child: Container(
                                     width: 80,
                                     height: 22,
@@ -181,8 +198,12 @@ class _GroupCardState extends State<GroupCard> {
                                 Container(
                                   margin: EdgeInsets.only(top: 3),
                                   child: Shimmer.fromColors(
-                                    baseColor: Colors.grey[700],
-                                    highlightColor: Colors.grey[500],
+                                    baseColor: color == "1"
+                                        ? Colors.grey[700]
+                                        : Colors.grey[400],
+                                    highlightColor: color == "1"
+                                        ? Colors.grey[500]
+                                        : Colors.grey[200],
                                     child: Container(
                                       width: 50,
                                       height: 12,

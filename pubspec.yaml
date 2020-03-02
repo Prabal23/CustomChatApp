@@ -31,6 +31,7 @@ dependencies:
   shared_preferences:
   shimmer:
   image_cropper:
+  custom_switch_button:
 
 dev_dependencies:
   flutter_test:

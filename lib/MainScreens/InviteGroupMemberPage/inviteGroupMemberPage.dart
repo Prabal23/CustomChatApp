@@ -112,8 +112,14 @@ class _InviteGroupMemberPageState extends State<InviteGroupMemberPage> {
                                             : theme == "8"
                                                 ? AssetImage(
                                                     "assets/images/f10.png")
-                                                : AssetImage(
-                                                    "assets/images/white.jpg"),
+                                                : theme == "9"
+                                                    ? AssetImage(
+                                                        "assets/images/pattern1.jpg")
+                                                    : theme == "10"
+                                                        ? AssetImage(
+                                                            "assets/images/pattern2.jpg")
+                                                        : AssetImage(
+                                                            "assets/images/white.jpg"),
                 fit: BoxFit.cover,
               ),
             ),
@@ -135,59 +141,59 @@ class _InviteGroupMemberPageState extends State<InviteGroupMemberPage> {
                 SliverToBoxAdapter(
                   child: Column(
                     children: <Widget>[
-                      Container(
-                        margin: EdgeInsets.only(bottom: 10, top: 20),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          //mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            Container(
-                                width: MediaQuery.of(context).size.width,
-                                padding: EdgeInsets.all(10),
-                                margin: EdgeInsets.only(
-                                    left: 20, right: 20, top: 0),
-                                decoration: BoxDecoration(
-                                    color: Colors.white.withOpacity(0.7),
-                                    border: Border.all(
-                                        color: Colors.grey, width: 0.5),
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(15))),
-                                child: Row(
-                                  children: <Widget>[
-                                    Container(
-                                        margin: EdgeInsets.only(left: 5),
-                                        child: Icon(Icons.search,
-                                            color: Colors.black45, size: 20)),
-                                    Flexible(
-                                      child: TextField(
-                                        onChanged: (value) {
-                                          //filterSearchResults(value);
-                                        },
-                                        //controller: src,
-                                        keyboardType:
-                                            TextInputType.emailAddress,
-                                        style: TextStyle(
-                                          color: Colors.black87,
-                                        ),
-                                        decoration: InputDecoration(
-                                          hintText: "Search friend",
-                                          hintStyle: TextStyle(
-                                              color: Colors.black45,
-                                              fontSize: 15,
-                                              fontFamily: 'Oswald',
-                                              fontWeight: FontWeight.w300),
-                                          //labelStyle: TextStyle(color: Colors.white70),
-                                          contentPadding: EdgeInsets.fromLTRB(
-                                              10.0, 2.5, 20.0, 2.5),
-                                          border: InputBorder.none,
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                )),
-                          ],
-                        ),
-                      ),
+                      // Container(
+                      //   margin: EdgeInsets.only(bottom: 10, top: 20),
+                      //   child: Column(
+                      //     crossAxisAlignment: CrossAxisAlignment.center,
+                      //     //mainAxisAlignment: MainAxisAlignment.center,
+                      //     children: <Widget>[
+                      //       Container(
+                      //           width: MediaQuery.of(context).size.width,
+                      //           padding: EdgeInsets.all(10),
+                      //           margin: EdgeInsets.only(
+                      //               left: 20, right: 20, top: 0),
+                      //           decoration: BoxDecoration(
+                      //               color: Colors.white.withOpacity(0.7),
+                      //               border: Border.all(
+                      //                   color: Colors.grey, width: 0.5),
+                      //               borderRadius:
+                      //                   BorderRadius.all(Radius.circular(15))),
+                      //           child: Row(
+                      //             children: <Widget>[
+                      //               Container(
+                      //                   margin: EdgeInsets.only(left: 5),
+                      //                   child: Icon(Icons.search,
+                      //                       color: Colors.black45, size: 20)),
+                      //               Flexible(
+                      //                 child: TextField(
+                      //                   onChanged: (value) {
+                      //                     //filterSearchResults(value);
+                      //                   },
+                      //                   //controller: src,
+                      //                   keyboardType:
+                      //                       TextInputType.emailAddress,
+                      //                   style: TextStyle(
+                      //                     color: Colors.black87,
+                      //                   ),
+                      //                   decoration: InputDecoration(
+                      //                     hintText: "Search friend",
+                      //                     hintStyle: TextStyle(
+                      //                         color: Colors.black45,
+                      //                         fontSize: 15,
+                      //                         fontFamily: 'Oswald',
+                      //                         fontWeight: FontWeight.w300),
+                      //                     //labelStyle: TextStyle(color: Colors.white70),
+                      //                     contentPadding: EdgeInsets.fromLTRB(
+                      //                         10.0, 2.5, 20.0, 2.5),
+                      //                     border: InputBorder.none,
+                      //                   ),
+                      //                 ),
+                      //               ),
+                      //             ],
+                      //           )),
+                      //     ],
+                      //   ),
+                      // ),
                       Column(
                         children: <Widget>[
                           Container(

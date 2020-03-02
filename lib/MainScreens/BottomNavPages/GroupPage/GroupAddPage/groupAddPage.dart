@@ -1,6 +1,9 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:shimmer/shimmer.dart';
 import 'dart:async';
@@ -24,13 +27,12 @@ class _GroupAddPageState extends State<GroupAddPage> {
   Timer _timer;
   int _start = 3;
   bool loading = true;
+  Future<File> fileImage;
   TextEditingController src = new TextEditingController();
   List<String> name = [
-    "John Smith",
-    "David Ryan",
-    "Simon Wright",
-    "Mike Johnson",
-    "Daniel Smith"
+    "John Louis",
+    "David King",
+    "Daniel Ryan",
   ];
   var friendname = List<String>();
 
@@ -94,7 +96,12 @@ class _GroupAddPageState extends State<GroupAddPage> {
         //print(friendname);
       });
     }
-    
+  }
+
+  pickImagefromGallery(ImageSource src) {
+    setState(() {
+      fileImage = ImagePicker.pickImage(source: src);
+    });
   }
 
   @override
@@ -128,17 +135,22 @@ class _GroupAddPageState extends State<GroupAddPage> {
                         )),
                   ),
                 ),
-                Container(
-                    margin: EdgeInsets.only(right: 10),
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      "Next",
-                      style: TextStyle(
-                          color: header,
-                          fontSize: 15,
-                          fontFamily: 'Oswald',
-                          fontWeight: FontWeight.normal),
-                    )),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                  child: Container(
+                      margin: EdgeInsets.only(right: 10),
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        "Next",
+                        style: TextStyle(
+                            color: header,
+                            fontSize: 15,
+                            fontFamily: 'Oswald',
+                            fontWeight: FontWeight.normal),
+                      )),
+                ),
               ],
             ),
           ),
@@ -168,8 +180,14 @@ class _GroupAddPageState extends State<GroupAddPage> {
                                               : theme == "8"
                                                   ? AssetImage(
                                                       "assets/images/f10.png")
-                                                  : AssetImage(
-                                                      "assets/images/white.jpg"),
+                                                  : theme == "9"
+                                                      ? AssetImage(
+                                                          "assets/images/pattern1.jpg")
+                                                      : theme == "10"
+                                                          ? AssetImage(
+                                                              "assets/images/pattern2.jpg")
+                                                          : AssetImage(
+                                                              "assets/images/white.jpg"),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -198,23 +216,58 @@ class _GroupAddPageState extends State<GroupAddPage> {
                                 top: 10, bottom: 10, left: 20, right: 10),
                             child: Row(
                               children: <Widget>[
-                                Container(
-                                  //color: Colors.red,
-                                  child: Center(
-                                    child: Container(
-                                      margin: EdgeInsets.only(right: 0),
-                                      //transform: Matrix4.translationValues(0.0, 0.0, 0.0),
-                                      padding: EdgeInsets.all(0.5),
-                                      child: CircleAvatar(
-                                        radius: 30.0,
-                                        backgroundColor: Colors.transparent,
-                                        backgroundImage: AssetImage(
-                                            'assets/images/add_image.jpg'),
-                                      ),
-                                      decoration: new BoxDecoration(
-                                        color: Colors.grey[300], // border color
-                                        shape: BoxShape.circle,
-                                      ),
+                                GestureDetector(
+                                  onTap: () {
+                                    pickImagefromGallery(ImageSource.gallery);
+                                  },
+                                  child: Container(
+                                    child: FutureBuilder<File>(
+                                      future: fileImage,
+                                      builder: (BuildContext context,
+                                          AsyncSnapshot<File> snapshot) {
+                                        if (snapshot.connectionState ==
+                                                ConnectionState.done &&
+                                            snapshot.data != null) {
+                                          return Container(
+                                            //transform: Matrix4.translationValues(0.0, 0.0, 0.0),
+                                            padding: EdgeInsets.all(1.0),
+                                            child: CircleAvatar(
+                                              radius: 30.0,
+                                              backgroundColor:
+                                                  Colors.white.withOpacity(0.5),
+                                              backgroundImage:
+                                                  FileImage(snapshot.data),
+                                            ),
+                                            decoration: new BoxDecoration(
+                                              color:
+                                                  Colors.grey, // border color
+                                              shape: BoxShape.circle,
+                                            ),
+                                          );
+                                        } else if (snapshot.error != null) {
+                                          return const Text(
+                                            'Error Picking Image',
+                                            textAlign: TextAlign.center,
+                                          );
+                                        } else {
+                                          return Container(
+                                            //transform: Matrix4.translationValues(0.0, 0.0, 0.0),
+                                            padding: EdgeInsets.all(1.0),
+                                            child: CircleAvatar(
+                                              radius: 30.0,
+                                              backgroundColor:
+                                                  Colors.white.withOpacity(0.5),
+                                              backgroundImage: AssetImage(
+                                                  'assets/images/add_image.jpg'),
+                                            ),
+                                            decoration: new BoxDecoration(
+                                              color:
+                                                  Colors.grey, // border color
+                                              shape: BoxShape.circle,
+                                            ),
+                                          );
+                                        }
+                                      },
                                     ),
                                   ),
                                 ),
@@ -443,36 +496,47 @@ class _GroupAddPageState extends State<GroupAddPage> {
                                           Radius.circular(10.0)),
                                       //color: Colors.white,
                                     ),
-                                    child: GestureDetector(
-                                      onTap: () {
-                                        setState(() {
-                                          users.removeAt(index);
-                                          user = users;
-                                          //print(images.length);
-                                        });
-                                      },
-                                      child: Container(
-                                        child: Column(
-                                          children: <Widget>[
-                                            Container(
-                                              margin: EdgeInsets.only(right: 0),
-                                              //transform: Matrix4.translationValues(0.0, 0.0, 0.0),
-                                              padding: EdgeInsets.all(1.0),
-                                              child: CircleAvatar(
-                                                radius: 25.0,
-                                                backgroundColor:
-                                                    Colors.transparent,
-                                                backgroundImage: AssetImage(
-                                                    'assets/images/man2.jpg'),
-                                              ),
-                                              decoration: new BoxDecoration(
-                                                color: Colors
-                                                    .white, // border color
-                                                shape: BoxShape.circle,
-                                              ),
+                                    child: Container(
+                                      child: Stack(
+                                        children: <Widget>[
+                                          Container(
+                                            margin: EdgeInsets.only(right: 0),
+                                            //transform: Matrix4.translationValues(0.0, 0.0, 0.0),
+                                            padding: EdgeInsets.all(1.0),
+                                            child: CircleAvatar(
+                                              radius: 25.0,
+                                              backgroundColor:
+                                                  Colors.transparent,
+                                              backgroundImage: AssetImage(
+                                                  'assets/images/user.png'),
                                             ),
-                                          ],
-                                        ),
+                                            decoration: new BoxDecoration(
+                                              color:
+                                                  Colors.white, // border color
+                                              shape: BoxShape.circle,
+                                            ),
+                                          ),
+                                          GestureDetector(
+                                            onTap: () {
+                                              setState(() {
+                                                users.removeAt(index);
+                                                user = users;
+                                                //print(images.length);
+                                              });
+                                            },
+                                            child: Container(
+                                                decoration: new BoxDecoration(
+                                                  color: Colors.white
+                                                      .withOpacity(
+                                                          0.4), // border color
+                                                  shape: BoxShape.circle,
+                                                ),
+                                                child: Icon(
+                                                  Icons.close,
+                                                  size: 18,
+                                                )),
+                                          )
+                                        ],
                                       ),
                                     ),
                                   ),
@@ -548,18 +612,12 @@ class _GroupAddPageState extends State<GroupAddPage> {
                                                         Colors.white,
                                                     backgroundImage: index == 0
                                                         ? AssetImage(
-                                                            'assets/images/man.png')
+                                                            'assets/images/user.png')
                                                         : index == 1
                                                             ? AssetImage(
-                                                                'assets/images/man2.jpg')
-                                                            : index == 2
-                                                                ? AssetImage(
-                                                                    'assets/images/man.png')
-                                                                : index == 3
-                                                                    ? AssetImage(
-                                                                        'assets/images/man2.jpg')
-                                                                    : AssetImage(
-                                                                        'assets/images/man.png'),
+                                                                'assets/images/user.png')
+                                                            : AssetImage(
+                                                                'assets/images/user.png'),
                                                   ),
                                                   decoration: new BoxDecoration(
                                                     color: Colors.grey[
@@ -611,11 +669,7 @@ class _GroupAddPageState extends State<GroupAddPage> {
                                                           ? "6 mutual friends"
                                                           : index == 1
                                                               ? "16 mutual friends"
-                                                              : index == 2
-                                                                  ? "26 mutual friends"
-                                                                  : index == 3
-                                                                      ? "32 mutual friends"
-                                                                      : "34 mutual friends",
+                                                              : "34 mutual friends",
                                                       maxLines: 1,
                                                       overflow:
                                                           TextOverflow.ellipsis,

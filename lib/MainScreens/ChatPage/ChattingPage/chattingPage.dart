@@ -21,7 +21,7 @@ class ChattingPageState extends State<ChattingPage> {
   String result = '', msg = '', date = '', st = '';
   TextEditingController msgController = new TextEditingController();
   //ScrollController _scrollController = new ScrollController();
-  
+
   int selected;
   var now = new DateTime.now();
   DateTime _date = DateTime.now();
@@ -33,8 +33,8 @@ class ChattingPageState extends State<ChattingPage> {
   void initState() {
     setState(() {
       date = DateFormat("MMM dd, yyyy").format(now);
-      messages.add(date);
-      st = "1";
+      //messages.add(date);
+      //st = "1";
     });
     sharedPrefcheck();
     super.initState();
@@ -72,7 +72,7 @@ class ChattingPageState extends State<ChattingPage> {
                       child: CircleAvatar(
                         radius: 16.0,
                         backgroundColor: Colors.transparent,
-                        backgroundImage: AssetImage('assets/images/man2.jpg'),
+                        backgroundImage: AssetImage('assets/images/user.jpg'),
                       ),
                       decoration: new BoxDecoration(
                         color: Colors.grey[300], // border color
@@ -106,7 +106,7 @@ class ChattingPageState extends State<ChattingPage> {
                   child: Container(
                       alignment: Alignment.centerLeft,
                       child: Text(
-                        "User's name",
+                        "Simon Paul",
                         style: TextStyle(
                             color: Colors.white,
                             fontSize: 16,
@@ -143,8 +143,14 @@ class ChattingPageState extends State<ChattingPage> {
                                             : theme == "8"
                                                 ? AssetImage(
                                                     "assets/images/f10.png")
-                                                : AssetImage(
-                                                    "assets/images/white.jpg"),
+                                                : theme == "9"
+                                                    ? AssetImage(
+                                                        "assets/images/pattern1.jpg")
+                                                    : theme == "10"
+                                                        ? AssetImage(
+                                                            "assets/images/pattern2.jpg")
+                                                        : AssetImage(
+                                                            "assets/images/white.jpg"),
                 fit: BoxFit.cover,
               ),
             ),
@@ -181,27 +187,28 @@ class ChattingPageState extends State<ChattingPage> {
                                       // });
                                     },
                                     child: index % 2 == 0
-                                        ? Container(
-                                            child: ListTile(
-                                              title: index == 0
-                                                  ? Container(
-                                                      alignment:
-                                                          Alignment.center,
-                                                      child: Text(
-                                                          "${messages[index]}",
-                                                          style: TextStyle(
-                                                              color: Colors
-                                                                  .white70,
-                                                              fontSize: 12,
-                                                              fontFamily:
-                                                                  'Oswald',
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w400)),
-                                                    )
-                                                  : MyChatCard(index),
-                                            ),
-                                          )
+                                        ? MyChatCard(index)
+                                        // Container(
+                                        //     child: ListTile(
+                                        //       title: index == 0
+                                        //           ? Container(
+                                        //               alignment:
+                                        //                   Alignment.center,
+                                        //               child: Text(
+                                        //                   "${messages[index]}",
+                                        //                   style: TextStyle(
+                                        //                       color: Colors
+                                        //                           .white70,
+                                        //                       fontSize: 12,
+                                        //                       fontFamily:
+                                        //                           'Oswald',
+                                        //                       fontWeight:
+                                        //                           FontWeight
+                                        //                               .w400)),
+                                        //             )
+                                        //           : MyChatCard(index),
+                                        //     ),
+                                        //   )
                                         : FriendChatCard(index))),
                       ),
                     ),

@@ -1,3 +1,5 @@
+import 'package:chatapp_new/MainScreens/ColorPage/ColorPage.dart';
+import 'package:chatapp_new/main.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:shimmer/shimmer.dart';
@@ -55,8 +57,14 @@ class SettingsPageState extends State<SettingsPage> {
                                             : theme == "8"
                                                 ? AssetImage(
                                                     "assets/images/f10.png")
-                                                : AssetImage(
-                                                    "assets/images/white.jpg"),
+                                                : theme == "9"
+                                                    ? AssetImage(
+                                                        "assets/images/pattern1.jpg")
+                                                    : theme == "10"
+                                                        ? AssetImage(
+                                                            "assets/images/pattern2.jpg")
+                                                        : AssetImage(
+                                                            "assets/images/white.jpg"),
                 fit: BoxFit.cover,
               ),
             ),
@@ -69,7 +77,9 @@ class SettingsPageState extends State<SettingsPage> {
           ),
           Container(
             decoration: BoxDecoration(
-                color: Colors.black.withOpacity(0.3),
+                color: color == "1"
+                    ? Colors.black.withOpacity(0.3)
+                    : Colors.white.withOpacity(0.2),
                 borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(0), topRight: Radius.circular(0))),
             margin: EdgeInsets.only(top: 0, left: 0, right: 0, bottom: 0),
@@ -107,7 +117,8 @@ class SettingsPageState extends State<SettingsPage> {
                                   ),
                                 ],
                                 border: Border.all(
-                                    width: 0.5, color: Colors.white)),
+                                    width: 0.5,
+                                    color: Colors.white)),
                           ),
                         ],
                       ),
@@ -155,18 +166,27 @@ class SettingsPageState extends State<SettingsPage> {
                               context,
                               MaterialPageRoute(
                                   builder: (context) => ThemePage()));
+                        } else {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => ColorPage()));
                         }
                       },
                       child: Container(
                         padding: EdgeInsets.only(top: 10, bottom: 10),
                         decoration: BoxDecoration(
-                          color: Colors.black.withOpacity(0.3),
+                          color: color == "1"
+                              ? Colors.black.withOpacity(0.3)
+                              : Colors.white.withOpacity(0.1),
                           borderRadius: BorderRadius.circular(15),
                           //border: Border.all(width: 0.8, color: Colors.grey[300]),
                           boxShadow: [
                             BoxShadow(
                               blurRadius: 1.0,
-                              color: Colors.black38,
+                              color: color == "1"
+                                  ? Colors.black38
+                                  : Colors.white70,
                               //offset: Offset(6.0, 7.0),
                             ),
                           ],
@@ -191,20 +211,21 @@ class SettingsPageState extends State<SettingsPage> {
                                             CrossAxisAlignment.start,
                                         children: <Widget>[
                                           Text(
-                                            index == 0
-                                                ? "Background"
-                                                : index == 1
-                                                    ? "General"
-                                                    : index == 2
-                                                        ? "Security"
-                                                        : index == 3
-                                                            ? "Terms and conditions"
-                                                            : "Privacy Policy",
+                                            index == 0 ? "Background" : "Theme",
+                                            // : index == 1
+                                            //     ? "General"
+                                            //     : index == 2
+                                            //         ? "Security"
+                                            //         : index == 3
+                                            //             ? "Terms and conditions"
+                                            //             : "Privacy Policy",
                                             overflow: TextOverflow.ellipsis,
                                             maxLines: 1,
                                             style: TextStyle(
                                                 fontSize: 15,
-                                                color: Colors.white,
+                                                color: color == "1"
+                                                    ? Colors.white
+                                                    : Colors.black54,
                                                 fontFamily: 'Oswald',
                                                 fontWeight: FontWeight.w300),
                                           ),
@@ -220,14 +241,16 @@ class SettingsPageState extends State<SettingsPage> {
                                 margin: EdgeInsets.only(right: 15),
                                 child: Icon(
                                   Icons.chevron_right,
-                                  color: Colors.white70,
+                                  color: color == "1"
+                                      ? Colors.white70
+                                      : Colors.black45,
                                   size: 17,
-                                )),
+                                ))
                           ],
                         ),
                       ),
                     );
-                  }, childCount: 5),
+                  }, childCount: 2),
                 ),
               ],
             ),

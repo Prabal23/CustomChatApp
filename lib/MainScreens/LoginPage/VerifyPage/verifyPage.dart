@@ -66,8 +66,14 @@ class VerifyPageState extends State<VerifyPage> {
                                                 : theme == "8"
                                                     ? AssetImage(
                                                         "assets/images/f10.png")
-                                                    : AssetImage(
-                                                        "assets/images/white.jpg"),
+                                                    : theme == "9"
+                                                        ? AssetImage(
+                                                            "assets/images/pattern1.jpg")
+                                                        : theme == "10"
+                                                            ? AssetImage(
+                                                                "assets/images/pattern2.jpg")
+                                                            : AssetImage(
+                                                                "assets/images/white.jpg"),
                     fit: BoxFit.cover,
                   ),
                 ),

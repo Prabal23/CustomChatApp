@@ -114,8 +114,14 @@ class _EditProfilePageState extends State<EditProfilePage> {
                                             : theme == "8"
                                                 ? AssetImage(
                                                     "assets/images/f10.png")
-                                                : AssetImage(
-                                                    "assets/images/white.jpg"),
+                                                : theme == "9"
+                                                    ? AssetImage(
+                                                        "assets/images/pattern1.jpg")
+                                                    : theme == "10"
+                                                        ? AssetImage(
+                                                            "assets/images/pattern2.jpg")
+                                                        : AssetImage(
+                                                            "assets/images/white.jpg"),
                 fit: BoxFit.cover,
               ),
             ),
@@ -126,12 +132,18 @@ class _EditProfilePageState extends State<EditProfilePage> {
             decoration: BoxDecoration(color: Colors.grey.withOpacity(0.5)),
             child: null,
           ),
+          Container(
+            width: MediaQuery.of(context).size.width,
+            decoration: BoxDecoration(color: Colors.black.withOpacity(0.3)),
+            child: null,
+          ),
           SingleChildScrollView(
             child: Container(
               decoration: BoxDecoration(
-                  color: Colors.black.withOpacity(0.3),
+                  //color: Colors.black.withOpacity(0.3),
                   borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(0), topRight: Radius.circular(0))),
+                      topLeft: Radius.circular(0),
+                      topRight: Radius.circular(0))),
               margin: EdgeInsets.only(top: 0, left: 0, right: 0, bottom: 0),
               child: EditProfileForm(),
             ),
