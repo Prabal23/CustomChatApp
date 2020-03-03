@@ -13,19 +13,21 @@ class StartingPage extends StatefulWidget {
 
 class StartingPageState extends State<StartingPage> {
   String theme = "";
-  
+
   @override
   void initState() {
     sharedPrefcheck();
     super.initState();
   }
 
-  void sharedPrefcheck() async{
+  void sharedPrefcheck() async {
     SharedPreferences localStorage = await SharedPreferences.getInstance();
 
     //localStorage.remove("theme");
     setState(() {
-     theme = localStorage.getString("theme"); 
+      theme = localStorage.getString("theme");
+      color = localStorage.getString("color");
+      background = localStorage.getString("background");
     });
     //print("object $theme +");
   }
@@ -136,7 +138,8 @@ class StartingPageState extends State<StartingPage> {
                                   onTap: () {
                                     Navigator.push(
                                       context,
-                                      MaterialPageRoute(builder: (context) => OptionPage()),
+                                      MaterialPageRoute(
+                                          builder: (context) => OptionPage()),
                                     );
                                   },
                                   child: Container(

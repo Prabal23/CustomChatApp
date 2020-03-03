@@ -56,9 +56,12 @@ class NotifyPageState extends State<NotifyPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        iconTheme: IconThemeData(color: Colors.white),
+        iconTheme:
+            IconThemeData(color: color == "1" ? Colors.white : Colors.black54),
         //automaticallyImplyLeading: false,
-        backgroundColor: Colors.black.withOpacity(0.5),
+        backgroundColor: color == "1"
+            ? Colors.black.withOpacity(0.5)
+            : Colors.white.withOpacity(0.7),
         title: Container(
           margin: EdgeInsets.only(top: 0),
           child: Row(
@@ -76,7 +79,7 @@ class NotifyPageState extends State<NotifyPage> {
                       child: Text(
                         "Notification",
                         style: TextStyle(
-                            color: Colors.white,
+                            color: color == "1" ? Colors.white : Colors.black54,
                             fontSize: 20,
                             fontFamily: 'Oswald',
                             fontWeight: FontWeight.normal),
@@ -94,31 +97,37 @@ class NotifyPageState extends State<NotifyPage> {
             width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: theme == "1" || theme == null
-                    ? AssetImage("assets/images/f4.jpg")
-                    : theme == "2"
-                        ? AssetImage("assets/images/f.jpg")
-                        : theme == "3"
-                            ? AssetImage("assets/images/f6.jpg")
-                            : theme == "4"
-                                ? AssetImage("assets/images/f5.jpg")
-                                : theme == "5"
-                                    ? AssetImage("assets/images/friend8.jpg")
-                                    : theme == "6"
-                                        ? AssetImage("assets/images/f2.jpg")
-                                        : theme == "7"
-                                            ? AssetImage("assets/images/f9.jpg")
-                                            : theme == "8"
+                image: background == "1"
+                    ? color == "1"
+                        ? AssetImage("assets/images/black.jpg")
+                        : AssetImage("assets/images/white.jpg")
+                    : theme == "1" || theme == null
+                        ? AssetImage("assets/images/f4.jpg")
+                        : theme == "2"
+                            ? AssetImage("assets/images/f.jpg")
+                            : theme == "3"
+                                ? AssetImage("assets/images/f6.jpg")
+                                : theme == "4"
+                                    ? AssetImage("assets/images/f5.jpg")
+                                    : theme == "5"
+                                        ? AssetImage(
+                                            "assets/images/friend8.jpg")
+                                        : theme == "6"
+                                            ? AssetImage("assets/images/f2.jpg")
+                                            : theme == "7"
                                                 ? AssetImage(
-                                                    "assets/images/f10.png")
-                                                : theme == "9"
+                                                    "assets/images/f9.jpg")
+                                                : theme == "8"
                                                     ? AssetImage(
-                                                        "assets/images/pattern1.jpg")
-                                                    : theme == "10"
+                                                        "assets/images/f10.png")
+                                                    : theme == "9"
                                                         ? AssetImage(
-                                                            "assets/images/pattern2.jpg")
-                                                        : AssetImage(
-                                                            "assets/images/white.jpg"),
+                                                            "assets/images/pattern1.jpg")
+                                                        : theme == "10"
+                                                            ? AssetImage(
+                                                                "assets/images/pattern2.jpg")
+                                                            : AssetImage(
+                                                                "assets/images/white.jpg"),
                 fit: BoxFit.cover,
               ),
             ),
@@ -131,7 +140,9 @@ class NotifyPageState extends State<NotifyPage> {
           ),
           Container(
             decoration: BoxDecoration(
-                color: Colors.black.withOpacity(0.3),
+                color: color == "1"
+                    ? Colors.black.withOpacity(0.3)
+                    : Colors.white.withOpacity(0.2),
                 borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(0), topRight: Radius.circular(0))),
             margin: EdgeInsets.only(top: 0, left: 0, right: 0, bottom: 0),
@@ -186,7 +197,9 @@ class NotifyPageState extends State<NotifyPage> {
                         ? Container(
                             padding: EdgeInsets.only(top: 0, bottom: 0),
                             decoration: BoxDecoration(
-                              color: Colors.black.withOpacity(0.3),
+                              color: color == "1"
+                                  ? Colors.black.withOpacity(0.3)
+                                  : Colors.white.withOpacity(0.9),
                               borderRadius: BorderRadius.circular(15),
                               //border: Border.all(width: 0.8, color: Colors.grey[300]),
                               boxShadow: [
@@ -272,7 +285,9 @@ class NotifyPageState extends State<NotifyPage> {
                                                         ? "David Ryan"
                                                         : "Jason Smith",
                                                     style: TextStyle(
-                                                      color: Colors.white,
+                                                      color: color == "1"
+                                                          ? Colors.white
+                                                          : Colors.black54,
                                                       fontSize: 15,
                                                       fontFamily: 'Oswald',
                                                       fontWeight:
@@ -283,7 +298,9 @@ class NotifyPageState extends State<NotifyPage> {
                                                         ? " liked a photo that you're tagged in"
                                                         : " reacted to your photo",
                                                     style: TextStyle(
-                                                      color: Colors.white60,
+                                                      color: color == "1"
+                                                          ? Colors.white60
+                                                          : Colors.black38,
                                                       fontSize: 15,
                                                       fontFamily: 'Oswald',
                                                       fontWeight:
@@ -302,7 +319,9 @@ class NotifyPageState extends State<NotifyPage> {
                                               style: TextStyle(
                                                   color: index % 2 == 0
                                                       ? header
-                                                      : Colors.white54,
+                                                      : color == "1"
+                                                          ? back_new
+                                                          : Colors.black45,
                                                   fontFamily: 'Oswald',
                                                   fontWeight: FontWeight.w300,
                                                   fontSize: 12),
@@ -326,7 +345,9 @@ class NotifyPageState extends State<NotifyPage> {
                         : Container(
                             padding: EdgeInsets.only(top: 10, bottom: 10),
                             decoration: BoxDecoration(
-                              color: Colors.black.withOpacity(0.3),
+                              color: color == "1"
+                                  ? Colors.black.withOpacity(0.3)
+                                  : Colors.white.withOpacity(0.9),
                               borderRadius: BorderRadius.circular(15),
                               //border: Border.all(width: 0.8, color: Colors.grey[300]),
                               boxShadow: [
@@ -357,8 +378,12 @@ class NotifyPageState extends State<NotifyPage> {
                                           //transform: Matrix4.translationValues(0.0, 0.0, 0.0),
                                           padding: EdgeInsets.all(1.0),
                                           child: Shimmer.fromColors(
-                                            baseColor: Colors.grey[700],
-                                            highlightColor: Colors.grey[500],
+                                            baseColor: color == "1"
+                                                ? Colors.grey[700]
+                                                : Colors.grey[400],
+                                            highlightColor: color == "1"
+                                                ? Colors.grey[500]
+                                                : Colors.grey[200],
                                             child: CircleAvatar(
                                               radius: 25.0,
                                               backgroundColor: Colors.white,
@@ -374,9 +399,12 @@ class NotifyPageState extends State<NotifyPage> {
                                                 CrossAxisAlignment.start,
                                             children: <Widget>[
                                               Shimmer.fromColors(
-                                                baseColor: Colors.grey[700],
-                                                highlightColor:
-                                                    Colors.grey[500],
+                                                baseColor: color == "1"
+                                                    ? Colors.grey[700]
+                                                    : Colors.grey[400],
+                                                highlightColor: color == "1"
+                                                    ? Colors.grey[500]
+                                                    : Colors.grey[200],
                                                 child: Container(
                                                   width: MediaQuery.of(context)
                                                       .size
@@ -390,9 +418,12 @@ class NotifyPageState extends State<NotifyPage> {
                                               Container(
                                                 margin: EdgeInsets.only(top: 3),
                                                 child: Shimmer.fromColors(
-                                                  baseColor: Colors.grey[700],
-                                                  highlightColor:
-                                                      Colors.grey[500],
+                                                  baseColor: color == "1"
+                                                      ? Colors.grey[700]
+                                                      : Colors.grey[400],
+                                                  highlightColor: color == "1"
+                                                      ? Colors.grey[500]
+                                                      : Colors.grey[200],
                                                   child: Container(
                                                     width: 150,
                                                     height: 15,
@@ -406,9 +437,12 @@ class NotifyPageState extends State<NotifyPage> {
                                                 margin:
                                                     EdgeInsets.only(top: 10),
                                                 child: Shimmer.fromColors(
-                                                  baseColor: Colors.grey[700],
-                                                  highlightColor:
-                                                      Colors.grey[500],
+                                                  baseColor: color == "1"
+                                                      ? Colors.grey[700]
+                                                      : Colors.grey[400],
+                                                  highlightColor: color == "1"
+                                                      ? Colors.grey[500]
+                                                      : Colors.grey[200],
                                                   child: Container(
                                                     width: 50,
                                                     height: 12,

@@ -67,31 +67,37 @@ class FriendsPageState extends State<FriendsPage> {
             width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: theme == "1" || theme == null
-                    ? AssetImage("assets/images/f4.jpg")
-                    : theme == "2"
-                        ? AssetImage("assets/images/f.jpg")
-                        : theme == "3"
-                            ? AssetImage("assets/images/f6.jpg")
-                            : theme == "4"
-                                ? AssetImage("assets/images/f5.jpg")
-                                : theme == "5"
-                                    ? AssetImage("assets/images/friend8.jpg")
-                                    : theme == "6"
-                                        ? AssetImage("assets/images/f2.jpg")
-                                        : theme == "7"
-                                            ? AssetImage("assets/images/f9.jpg")
-                                            : theme == "8"
+                image: background == "1"
+                    ? color == "1"
+                        ? AssetImage("assets/images/black.jpg")
+                        : AssetImage("assets/images/white.jpg")
+                    : theme == "1" || theme == null
+                        ? AssetImage("assets/images/f4.jpg")
+                        : theme == "2"
+                            ? AssetImage("assets/images/f.jpg")
+                            : theme == "3"
+                                ? AssetImage("assets/images/f6.jpg")
+                                : theme == "4"
+                                    ? AssetImage("assets/images/f5.jpg")
+                                    : theme == "5"
+                                        ? AssetImage(
+                                            "assets/images/friend8.jpg")
+                                        : theme == "6"
+                                            ? AssetImage("assets/images/f2.jpg")
+                                            : theme == "7"
                                                 ? AssetImage(
-                                                    "assets/images/f10.png")
-                                                : theme == "9"
+                                                    "assets/images/f9.jpg")
+                                                : theme == "8"
                                                     ? AssetImage(
-                                                        "assets/images/pattern1.jpg")
-                                                    : theme == "10"
+                                                        "assets/images/f10.png")
+                                                    : theme == "9"
                                                         ? AssetImage(
-                                                            "assets/images/pattern2.jpg")
-                                                        : AssetImage(
-                                                            "assets/images/white.jpg"),
+                                                            "assets/images/pattern1.jpg")
+                                                        : theme == "10"
+                                                            ? AssetImage(
+                                                                "assets/images/pattern2.jpg")
+                                                            : AssetImage(
+                                                                "assets/images/white.jpg"),
                 fit: BoxFit.cover,
               ),
             ),
@@ -104,7 +110,9 @@ class FriendsPageState extends State<FriendsPage> {
           ),
           Container(
             decoration: BoxDecoration(
-                color: Colors.black.withOpacity(0.3),
+                color: color == "1"
+                    ? Colors.black.withOpacity(0.3)
+                    : Colors.white.withOpacity(0.2),
                 borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(0), topRight: Radius.circular(0))),
             margin: EdgeInsets.only(top: 0, left: 0, right: 0, bottom: 0),
@@ -119,7 +127,11 @@ class FriendsPageState extends State<FriendsPage> {
                           child: Text(
                             "Requests",
                             style: TextStyle(
-                                color: Colors.white,
+                                color: background == "1"
+                                    ? color == "1"
+                                        ? Colors.white
+                                        : Colors.black54
+                                    : Colors.white,
                                 fontSize: 18,
                                 fontFamily: 'Oswald',
                                 fontWeight: FontWeight.normal),
@@ -132,16 +144,29 @@ class FriendsPageState extends State<FriendsPage> {
                             decoration: BoxDecoration(
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(15.0)),
-                                color: Colors.white,
+                                color: background == "1"
+                                    ? color == "1"
+                                        ? Colors.white
+                                        : Colors.black54
+                                    : Colors.white,
                                 boxShadow: [
                                   BoxShadow(
                                     blurRadius: 3.0,
-                                    color: Colors.white,
+                                    color: background == "1"
+                                        ? color == "1"
+                                            ? Colors.white
+                                            : Colors.black54
+                                        : Colors.white,
                                     //offset: Offset(6.0, 7.0),
                                   ),
                                 ],
                                 border: Border.all(
-                                    width: 0.5, color: Colors.white)),
+                                    width: 0.5,
+                                    color: background == "1"
+                                        ? color == "1"
+                                            ? Colors.white
+                                            : Colors.black54
+                                        : Colors.white)),
                           ),
                         ],
                       ),
@@ -156,7 +181,11 @@ class FriendsPageState extends State<FriendsPage> {
                                 "2 requests",
                                 textAlign: TextAlign.start,
                                 style: TextStyle(
-                                    color: Colors.white70,
+                                    color: background == "1"
+                                        ? color == "1"
+                                            ? Colors.white70
+                                            : Colors.black45
+                                        : Colors.white,
                                     fontSize: 13,
                                     fontFamily: 'Oswald',
                                     fontWeight: FontWeight.w400),
@@ -179,7 +208,11 @@ class FriendsPageState extends State<FriendsPage> {
                                       "Show all",
                                       textAlign: TextAlign.start,
                                       style: TextStyle(
-                                          color: back_new,
+                                          color: background == "1"
+                                              ? color == "1"
+                                                  ? back_new
+                                                  : Colors.black54
+                                              : back_new,
                                           fontSize: 13,
                                           fontFamily: 'Oswald',
                                           fontWeight: FontWeight.w400),
@@ -187,7 +220,12 @@ class FriendsPageState extends State<FriendsPage> {
                                     Container(
                                       margin: EdgeInsets.only(top: 3),
                                       child: Icon(Icons.chevron_right,
-                                          color: back_new, size: 17),
+                                          color: background == "1"
+                                              ? color == "1"
+                                                  ? back_new
+                                                  : Colors.black54
+                                              : back_new,
+                                          size: 17),
                                     )
                                   ],
                                 )),
@@ -211,7 +249,9 @@ class FriendsPageState extends State<FriendsPage> {
                           ? Container(
                               padding: EdgeInsets.only(top: 10, bottom: 10),
                               decoration: BoxDecoration(
-                                color: Colors.black.withOpacity(0.3),
+                                color: color == "1"
+                                    ? Colors.black.withOpacity(0.3)
+                                    : Colors.white.withOpacity(0.9),
                                 borderRadius: BorderRadius.circular(15),
                                 //border: Border.all(width: 0.8, color: Colors.grey[300]),
                                 boxShadow: [
@@ -271,7 +311,9 @@ class FriendsPageState extends State<FriendsPage> {
                                                   maxLines: 1,
                                                   style: TextStyle(
                                                       fontSize: 16,
-                                                      color: Colors.white,
+                                                      color: color == "1"
+                                                          ? Colors.white
+                                                          : Colors.black,
                                                       fontFamily: 'Oswald',
                                                       fontWeight:
                                                           FontWeight.w400),
@@ -291,7 +333,9 @@ class FriendsPageState extends State<FriendsPage> {
                                                         fontWeight:
                                                             FontWeight.w400,
                                                         fontSize: 11,
-                                                        color: Colors.white54),
+                                                        color: color == "1"
+                                                            ? Colors.white54
+                                                            : Colors.black54),
                                                   ),
                                                 ),
                                               ],
@@ -335,7 +379,9 @@ class FriendsPageState extends State<FriendsPage> {
                           : Container(
                               padding: EdgeInsets.only(top: 10, bottom: 10),
                               decoration: BoxDecoration(
-                                color: Colors.black.withOpacity(0.3),
+                                color: color == "1"
+                                    ? Colors.black.withOpacity(0.3)
+                                    : Colors.white.withOpacity(0.9),
                                 borderRadius: BorderRadius.circular(15),
                                 //border: Border.all(width: 0.8, color: Colors.grey[300]),
                                 boxShadow: [
@@ -367,8 +413,12 @@ class FriendsPageState extends State<FriendsPage> {
                                             //transform: Matrix4.translationValues(0.0, 0.0, 0.0),
                                             padding: EdgeInsets.all(1.0),
                                             child: Shimmer.fromColors(
-                                              baseColor: Colors.grey[700],
-                                              highlightColor: Colors.grey[500],
+                                              baseColor: color == "1"
+                                                  ? Colors.grey[700]
+                                                  : Colors.grey[400],
+                                              highlightColor: color == "1"
+                                                  ? Colors.grey[500]
+                                                  : Colors.grey[200],
                                               child: CircleAvatar(
                                                 radius: 20.0,
                                                 backgroundColor: Colors.white,
@@ -384,9 +434,12 @@ class FriendsPageState extends State<FriendsPage> {
                                                   CrossAxisAlignment.start,
                                               children: <Widget>[
                                                 Shimmer.fromColors(
-                                                  baseColor: Colors.grey[700],
-                                                  highlightColor:
-                                                      Colors.grey[500],
+                                                  baseColor: color == "1"
+                                                      ? Colors.grey[700]
+                                                      : Colors.grey[400],
+                                                  highlightColor: color == "1"
+                                                      ? Colors.grey[500]
+                                                      : Colors.grey[200],
                                                   child: Container(
                                                     width: 150,
                                                     height: 22,
@@ -399,9 +452,12 @@ class FriendsPageState extends State<FriendsPage> {
                                                   margin:
                                                       EdgeInsets.only(top: 3),
                                                   child: Shimmer.fromColors(
-                                                    baseColor: Colors.grey[700],
-                                                    highlightColor:
-                                                        Colors.grey[500],
+                                                    baseColor: color == "1"
+                                                        ? Colors.grey[700]
+                                                        : Colors.grey[400],
+                                                    highlightColor: color == "1"
+                                                        ? Colors.grey[500]
+                                                        : Colors.grey[200],
                                                     child: Container(
                                                       width: 90,
                                                       height: 12,
@@ -449,7 +505,11 @@ class FriendsPageState extends State<FriendsPage> {
                           child: Text(
                             "Suggestions",
                             style: TextStyle(
-                                color: Colors.white,
+                                color: background == "1"
+                                    ? color == "1"
+                                        ? Colors.white
+                                        : Colors.black54
+                                    : Colors.white,
                                 fontSize: 18,
                                 fontFamily: 'Oswald',
                                 fontWeight: FontWeight.normal),
@@ -462,16 +522,29 @@ class FriendsPageState extends State<FriendsPage> {
                             decoration: BoxDecoration(
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(15.0)),
-                                color: Colors.white,
+                                color: background == "1"
+                                    ? color == "1"
+                                        ? Colors.white
+                                        : Colors.black54
+                                    : Colors.white,
                                 boxShadow: [
                                   BoxShadow(
                                     blurRadius: 3.0,
-                                    color: Colors.white,
+                                    color: background == "1"
+                                        ? color == "1"
+                                            ? Colors.white
+                                            : Colors.black54
+                                        : Colors.white,
                                     //offset: Offset(6.0, 7.0),
                                   ),
                                 ],
                                 border: Border.all(
-                                    width: 0.5, color: Colors.white)),
+                                    width: 0.5,
+                                    color: background == "1"
+                                        ? color == "1"
+                                            ? Colors.white
+                                            : Colors.black54
+                                        : Colors.white)),
                           ),
                         ],
                       ),
@@ -486,7 +559,11 @@ class FriendsPageState extends State<FriendsPage> {
                                 "1 suggestion",
                                 textAlign: TextAlign.start,
                                 style: TextStyle(
-                                    color: Colors.white70,
+                                    color: background == "1"
+                                        ? color == "1"
+                                            ? Colors.white70
+                                            : Colors.black45
+                                        : Colors.white,
                                     fontSize: 13,
                                     fontFamily: 'Oswald',
                                     fontWeight: FontWeight.w400),
@@ -509,7 +586,11 @@ class FriendsPageState extends State<FriendsPage> {
                                       "Show all",
                                       textAlign: TextAlign.start,
                                       style: TextStyle(
-                                          color: back_new,
+                                          color: background == "1"
+                                              ? color == "1"
+                                                  ? back_new
+                                                  : Colors.black54
+                                              : back_new,
                                           fontSize: 13,
                                           fontFamily: 'Oswald',
                                           fontWeight: FontWeight.w400),
@@ -517,7 +598,12 @@ class FriendsPageState extends State<FriendsPage> {
                                     Container(
                                       margin: EdgeInsets.only(top: 3),
                                       child: Icon(Icons.chevron_right,
-                                          color: back_new, size: 17),
+                                          color: background == "1"
+                                              ? color == "1"
+                                                  ? back_new
+                                                  : Colors.black54
+                                              : back_new,
+                                          size: 17),
                                     )
                                   ],
                                 )),
@@ -541,7 +627,9 @@ class FriendsPageState extends State<FriendsPage> {
                           ? Container(
                               padding: EdgeInsets.only(top: 10, bottom: 10),
                               decoration: BoxDecoration(
-                                color: Colors.black.withOpacity(0.3),
+                                color: color == "1"
+                                    ? Colors.black.withOpacity(0.3)
+                                    : Colors.white.withOpacity(0.9),
                                 borderRadius: BorderRadius.circular(15),
                                 //border: Border.all(width: 0.8, color: Colors.grey[300]),
                                 boxShadow: [
@@ -596,7 +684,9 @@ class FriendsPageState extends State<FriendsPage> {
                                                   maxLines: 1,
                                                   style: TextStyle(
                                                       fontSize: 16,
-                                                      color: Colors.white,
+                                                      color: color == "1"
+                                                          ? Colors.white
+                                                          : Colors.black,
                                                       fontFamily: 'Oswald',
                                                       fontWeight:
                                                           FontWeight.w400),
@@ -614,7 +704,9 @@ class FriendsPageState extends State<FriendsPage> {
                                                         fontWeight:
                                                             FontWeight.w400,
                                                         fontSize: 11,
-                                                        color: Colors.white54),
+                                                        color: color == "1"
+                                                            ? Colors.white54
+                                                            : Colors.black54),
                                                   ),
                                                 ),
                                               ],
@@ -661,7 +753,9 @@ class FriendsPageState extends State<FriendsPage> {
                           : Container(
                               padding: EdgeInsets.only(top: 10, bottom: 10),
                               decoration: BoxDecoration(
-                                color: Colors.black.withOpacity(0.3),
+                                color: color == "1"
+                                    ? Colors.black.withOpacity(0.3)
+                                    : Colors.white.withOpacity(0.9),
                                 borderRadius: BorderRadius.circular(15),
                                 //border: Border.all(width: 0.8, color: Colors.grey[300]),
                                 boxShadow: [
@@ -693,8 +787,12 @@ class FriendsPageState extends State<FriendsPage> {
                                             //transform: Matrix4.translationValues(0.0, 0.0, 0.0),
                                             padding: EdgeInsets.all(1.0),
                                             child: Shimmer.fromColors(
-                                              baseColor: Colors.grey[700],
-                                              highlightColor: Colors.grey[500],
+                                              baseColor: color == "1"
+                                                  ? Colors.grey[700]
+                                                  : Colors.grey[400],
+                                              highlightColor: color == "1"
+                                                  ? Colors.grey[500]
+                                                  : Colors.grey[200],
                                               child: CircleAvatar(
                                                 radius: 20.0,
                                                 backgroundColor: Colors.white,
@@ -710,9 +808,12 @@ class FriendsPageState extends State<FriendsPage> {
                                                   CrossAxisAlignment.start,
                                               children: <Widget>[
                                                 Shimmer.fromColors(
-                                                  baseColor: Colors.grey[700],
-                                                  highlightColor:
-                                                      Colors.grey[500],
+                                                  baseColor: color == "1"
+                                                      ? Colors.grey[700]
+                                                      : Colors.grey[400],
+                                                  highlightColor: color == "1"
+                                                      ? Colors.grey[500]
+                                                      : Colors.grey[200],
                                                   child: Container(
                                                     width: 150,
                                                     height: 22,
@@ -725,9 +826,12 @@ class FriendsPageState extends State<FriendsPage> {
                                                   margin:
                                                       EdgeInsets.only(top: 3),
                                                   child: Shimmer.fromColors(
-                                                    baseColor: Colors.grey[700],
-                                                    highlightColor:
-                                                        Colors.grey[500],
+                                                    baseColor: color == "1"
+                                                        ? Colors.grey[700]
+                                                        : Colors.grey[400],
+                                                    highlightColor: color == "1"
+                                                        ? Colors.grey[500]
+                                                        : Colors.grey[200],
                                                     child: Container(
                                                       width: 90,
                                                       height: 12,
@@ -775,7 +879,11 @@ class FriendsPageState extends State<FriendsPage> {
                           child: Text(
                             "Friends",
                             style: TextStyle(
-                                color: Colors.white,
+                                color: background == "1"
+                                    ? color == "1"
+                                        ? Colors.white
+                                        : Colors.black54
+                                    : Colors.white,
                                 fontSize: 18,
                                 fontFamily: 'Oswald',
                                 fontWeight: FontWeight.normal),
@@ -788,16 +896,29 @@ class FriendsPageState extends State<FriendsPage> {
                             decoration: BoxDecoration(
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(15.0)),
-                                color: Colors.white,
+                                color: background == "1"
+                                    ? color == "1"
+                                        ? Colors.white
+                                        : Colors.black54
+                                    : Colors.white,
                                 boxShadow: [
                                   BoxShadow(
                                     blurRadius: 3.0,
-                                    color: Colors.white,
+                                    color: background == "1"
+                                        ? color == "1"
+                                            ? Colors.white
+                                            : Colors.black54
+                                        : Colors.white,
                                     //offset: Offset(6.0, 7.0),
                                   ),
                                 ],
                                 border: Border.all(
-                                    width: 0.5, color: Colors.white)),
+                                    width: 0.5,
+                                    color: background == "1"
+                                        ? color == "1"
+                                            ? Colors.white
+                                            : Colors.black54
+                                        : Colors.white)),
                           ),
                         ],
                       ),
@@ -812,7 +933,11 @@ class FriendsPageState extends State<FriendsPage> {
                                 "3 friends",
                                 textAlign: TextAlign.start,
                                 style: TextStyle(
-                                    color: Colors.white70,
+                                    color: background == "1"
+                                        ? color == "1"
+                                            ? Colors.white70
+                                            : Colors.black45
+                                        : Colors.white,
                                     fontSize: 13,
                                     fontFamily: 'Oswald',
                                     fontWeight: FontWeight.w400),
@@ -834,7 +959,11 @@ class FriendsPageState extends State<FriendsPage> {
                                       "Show all",
                                       textAlign: TextAlign.start,
                                       style: TextStyle(
-                                          color: back_new,
+                                          color: background == "1"
+                                              ? color == "1"
+                                                  ? back_new
+                                                  : Colors.black54
+                                              : back_new,
                                           fontSize: 13,
                                           fontFamily: 'Oswald',
                                           fontWeight: FontWeight.w400),
@@ -842,7 +971,12 @@ class FriendsPageState extends State<FriendsPage> {
                                     Container(
                                       margin: EdgeInsets.only(top: 3),
                                       child: Icon(Icons.chevron_right,
-                                          color: back_new, size: 17),
+                                          color: background == "1"
+                                              ? color == "1"
+                                                  ? back_new
+                                                  : Colors.black54
+                                              : back_new,
+                                          size: 17),
                                     )
                                   ],
                                 )),
@@ -869,7 +1003,9 @@ class FriendsPageState extends State<FriendsPage> {
                             ? Container(
                                 padding: EdgeInsets.only(top: 10, bottom: 10),
                                 decoration: BoxDecoration(
-                                  color: Colors.black.withOpacity(0.3),
+                                  color: color == "1"
+                                      ? Colors.black.withOpacity(0.3)
+                                      : Colors.white.withOpacity(0.9),
                                   borderRadius: BorderRadius.circular(15),
                                   //border: Border.all(width: 0.8, color: Colors.grey[300]),
                                   boxShadow: [
@@ -957,7 +1093,9 @@ class FriendsPageState extends State<FriendsPage> {
                                                     maxLines: 1,
                                                     style: TextStyle(
                                                         fontSize: 16,
-                                                        color: Colors.white,
+                                                        color: color == "1"
+                                                            ? Colors.white
+                                                            : Colors.black,
                                                         fontFamily: 'Oswald',
                                                         fontWeight:
                                                             FontWeight.w400),
@@ -979,8 +1117,9 @@ class FriendsPageState extends State<FriendsPage> {
                                                           fontWeight:
                                                               FontWeight.w400,
                                                           fontSize: 11,
-                                                          color:
-                                                              Colors.white54),
+                                                          color: color == "1"
+                                                              ? Colors.white54
+                                                              : Colors.black54),
                                                     ),
                                                   ),
                                                 ],
@@ -1009,13 +1148,18 @@ class FriendsPageState extends State<FriendsPage> {
                                               borderRadius:
                                                   BorderRadius.circular(15),
                                               border: Border.all(
-                                                  color: back_new, width: 0.5)),
+                                                  color: color == "1"
+                                                      ? back_new
+                                                      : header,
+                                                  width: 0.5)),
                                           child: Text("Message",
                                               textAlign: TextAlign.center,
                                               style: TextStyle(
                                                   fontFamily: 'Oswald',
                                                   fontWeight: FontWeight.w400,
-                                                  color: back_new,
+                                                  color: color == "1"
+                                                      ? back_new
+                                                      : header,
                                                   fontSize: 12))),
                                     ),
                                   ],
@@ -1024,7 +1168,9 @@ class FriendsPageState extends State<FriendsPage> {
                             : Container(
                                 padding: EdgeInsets.only(top: 10, bottom: 10),
                                 decoration: BoxDecoration(
-                                  color: Colors.black.withOpacity(0.3),
+                                  color: color == "1"
+                                      ? Colors.black.withOpacity(0.3)
+                                      : Colors.white.withOpacity(0.9),
                                   borderRadius: BorderRadius.circular(15),
                                   //border: Border.all(width: 0.8, color: Colors.grey[300]),
                                   boxShadow: [
@@ -1057,9 +1203,12 @@ class FriendsPageState extends State<FriendsPage> {
                                               //transform: Matrix4.translationValues(0.0, 0.0, 0.0),
                                               padding: EdgeInsets.all(1.0),
                                               child: Shimmer.fromColors(
-                                                baseColor: Colors.grey[700],
-                                                highlightColor:
-                                                    Colors.grey[500],
+                                                baseColor: color == "1"
+                                                    ? Colors.grey[700]
+                                                    : Colors.grey[400],
+                                                highlightColor: color == "1"
+                                                    ? Colors.grey[500]
+                                                    : Colors.grey[200],
                                                 child: CircleAvatar(
                                                   radius: 20.0,
                                                   backgroundColor: Colors.white,
@@ -1075,9 +1224,12 @@ class FriendsPageState extends State<FriendsPage> {
                                                     CrossAxisAlignment.start,
                                                 children: <Widget>[
                                                   Shimmer.fromColors(
-                                                    baseColor: Colors.grey[700],
-                                                    highlightColor:
-                                                        Colors.grey[500],
+                                                    baseColor: color == "1"
+                                                        ? Colors.grey[700]
+                                                        : Colors.grey[400],
+                                                    highlightColor: color == "1"
+                                                        ? Colors.grey[500]
+                                                        : Colors.grey[200],
                                                     child: Container(
                                                       width: 150,
                                                       height: 22,
@@ -1090,10 +1242,13 @@ class FriendsPageState extends State<FriendsPage> {
                                                     margin:
                                                         EdgeInsets.only(top: 3),
                                                     child: Shimmer.fromColors(
-                                                      baseColor:
-                                                          Colors.grey[700],
-                                                      highlightColor:
-                                                          Colors.grey[500],
+                                                      baseColor: color == "1"
+                                                          ? Colors.grey[700]
+                                                          : Colors.grey[400],
+                                                      highlightColor: color ==
+                                                              "1"
+                                                          ? Colors.grey[500]
+                                                          : Colors.grey[200],
                                                       child: Container(
                                                         width: 90,
                                                         height: 12,

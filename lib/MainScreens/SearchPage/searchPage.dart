@@ -100,9 +100,12 @@ class SearchPageState extends State<SearchPage> {
   Widget build(BuildContext context) {
     return new Scaffold(
         appBar: AppBar(
-          iconTheme: IconThemeData(color: Colors.white),
+          iconTheme: IconThemeData(
+              color: color == "1" ? Colors.white : Colors.black54),
           automaticallyImplyLeading: false,
-          backgroundColor: Colors.black.withOpacity(0.5),
+          backgroundColor: color == "1"
+              ? Colors.black.withOpacity(0.5)
+              : Colors.white.withOpacity(0.7),
           titleSpacing: 0.0,
           title: Container(
             margin: EdgeInsets.only(top: 0),
@@ -115,8 +118,9 @@ class SearchPageState extends State<SearchPage> {
                 Expanded(
                   child: Container(
                       width: MediaQuery.of(context).size.width,
-                      padding: EdgeInsets.all(5),
-                      margin: EdgeInsets.only(left: 0, right: 20, top: 0),
+                      padding: EdgeInsets.all(0),
+                      margin: EdgeInsets.only(
+                          left: 0, right: 20, top: 0, bottom: 0),
                       decoration: BoxDecoration(
                           color: Colors.white.withOpacity(0.7),
                           border: Border.all(color: Colors.grey, width: 0.5),
@@ -163,32 +167,38 @@ class SearchPageState extends State<SearchPage> {
               width: MediaQuery.of(context).size.width,
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: theme == "1" || theme == null
-                      ? AssetImage("assets/images/f4.jpg")
-                      : theme == "2"
-                          ? AssetImage("assets/images/f.jpg")
-                          : theme == "3"
-                              ? AssetImage("assets/images/f6.jpg")
-                              : theme == "4"
-                                  ? AssetImage("assets/images/f5.jpg")
-                                  : theme == "5"
-                                      ? AssetImage("assets/images/friend8.jpg")
-                                      : theme == "6"
-                                          ? AssetImage("assets/images/f2.jpg")
-                                          : theme == "7"
+                  image: background == "1"
+                      ? color == "1"
+                          ? AssetImage("assets/images/black.jpg")
+                          : AssetImage("assets/images/white.jpg")
+                      : theme == "1" || theme == null
+                          ? AssetImage("assets/images/f4.jpg")
+                          : theme == "2"
+                              ? AssetImage("assets/images/f.jpg")
+                              : theme == "3"
+                                  ? AssetImage("assets/images/f6.jpg")
+                                  : theme == "4"
+                                      ? AssetImage("assets/images/f5.jpg")
+                                      : theme == "5"
+                                          ? AssetImage(
+                                              "assets/images/friend8.jpg")
+                                          : theme == "6"
                                               ? AssetImage(
-                                                  "assets/images/f9.jpg")
-                                              : theme == "8"
+                                                  "assets/images/f2.jpg")
+                                              : theme == "7"
                                                   ? AssetImage(
-                                                      "assets/images/f10.png")
-                                                  : theme == "9"
+                                                      "assets/images/f9.jpg")
+                                                  : theme == "8"
                                                       ? AssetImage(
-                                                          "assets/images/pattern1.jpg")
-                                                      : theme == "10"
+                                                          "assets/images/f10.png")
+                                                      : theme == "9"
                                                           ? AssetImage(
-                                                              "assets/images/pattern2.jpg")
-                                                          : AssetImage(
-                                                              "assets/images/white.jpg"),
+                                                              "assets/images/pattern1.jpg")
+                                                          : theme == "10"
+                                                              ? AssetImage(
+                                                                  "assets/images/pattern2.jpg")
+                                                              : AssetImage(
+                                                                  "assets/images/white.jpg"),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -201,7 +211,9 @@ class SearchPageState extends State<SearchPage> {
             ),
             Container(
               decoration: BoxDecoration(
-                  color: Colors.black.withOpacity(0.3),
+                  color: color == "1"
+                      ? Colors.black.withOpacity(0.3)
+                      : Colors.white.withOpacity(0.2),
                   borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(0),
                       topRight: Radius.circular(0))),
@@ -216,7 +228,11 @@ class SearchPageState extends State<SearchPage> {
                           child: Text(
                             "Recent searches",
                             style: TextStyle(
-                                color: Colors.white,
+                                color: background == "1"
+                                    ? color == "1"
+                                        ? Colors.white
+                                        : Colors.black54
+                                    : Colors.white,
                                 fontSize: 18,
                                 fontFamily: 'Oswald',
                                 fontWeight: FontWeight.normal),
@@ -230,16 +246,29 @@ class SearchPageState extends State<SearchPage> {
                             decoration: BoxDecoration(
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(15.0)),
-                                color: Colors.white,
+                                color: background == "1"
+                                    ? color == "1"
+                                        ? Colors.white
+                                        : Colors.black54
+                                    : Colors.white,
                                 boxShadow: [
                                   BoxShadow(
                                     blurRadius: 3.0,
-                                    color: Colors.white,
+                                    color: background == "1"
+                                        ? color == "1"
+                                            ? Colors.white
+                                            : Colors.black54
+                                        : Colors.white,
                                     //offset: Offset(6.0, 7.0),
                                   ),
                                 ],
                                 border: Border.all(
-                                    width: 0.5, color: Colors.white)),
+                                    width: 0.5,
+                                    color: background == "1"
+                                        ? color == "1"
+                                            ? Colors.white
+                                            : Colors.black54
+                                        : Colors.white)),
                           ),
                         ],
                       ),
@@ -254,7 +283,9 @@ class SearchPageState extends State<SearchPage> {
                           padding:
                               EdgeInsets.only(top: 10, bottom: 10, right: 10),
                           decoration: BoxDecoration(
-                            color: Colors.black.withOpacity(0.3),
+                            color: color == "1"
+                                ? Colors.black.withOpacity(0.3)
+                                : Colors.white.withOpacity(0.9),
                             borderRadius: BorderRadius.circular(15),
                             //border: Border.all(width: 0.8, color: Colors.grey[300]),
                             boxShadow: [
@@ -322,7 +353,9 @@ class SearchPageState extends State<SearchPage> {
                                               maxLines: 1,
                                               style: TextStyle(
                                                   fontSize: 14,
-                                                  color: Colors.white,
+                                                  color: color == "1"
+                                                      ? Colors.white
+                                                      : Colors.black,
                                                   fontFamily: 'Oswald',
                                                   fontWeight: FontWeight.w400),
                                             ),
@@ -341,7 +374,9 @@ class SearchPageState extends State<SearchPage> {
                                 },
                                 child: Container(
                                   child: Icon(Icons.close,
-                                      color: back_new.withOpacity(0.5),
+                                      color: color == "1"
+                                      ? back_new
+                                      : Colors.black45,
                                       size: 18),
                                 ),
                               )

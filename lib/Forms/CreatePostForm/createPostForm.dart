@@ -93,6 +93,7 @@ class _CreatePostFormState extends State<CreatePostForm> {
             timer.cancel();
             setState(() {
               chk = "";
+              Navigator.pop(context);
             });
           } else {
             _postStart = _postStart - 1;
@@ -139,7 +140,9 @@ class _CreatePostFormState extends State<CreatePostForm> {
                                       "David Ryan",
                                       maxLines: 1,
                                       style: TextStyle(
-                                          color: Colors.white,
+                                          color: color == "1"
+                                                ? Colors.white
+                                                : Colors.black54,
                                           fontSize: 20,
                                           fontFamily: 'Oswald',
                                           fontWeight: FontWeight.normal),
@@ -161,7 +164,9 @@ class _CreatePostFormState extends State<CreatePostForm> {
                                         top: 0, right: 5, left: 10),
                                     decoration: BoxDecoration(
                                         border: Border.all(
-                                            width: 0.3, color: Colors.white70),
+                                            width: 0.3, color: color == "1"
+                                                ? Colors.white70
+                                                : Colors.black45),
                                         borderRadius: BorderRadius.all(
                                             Radius.circular(10))),
                                     child: Row(
@@ -177,7 +182,9 @@ class _CreatePostFormState extends State<CreatePostForm> {
                                                     ? Icons.lock_outline
                                                     : Icons.group,
                                             size: 12,
-                                            color: Colors.white70,
+                                            color: color == "1"
+                                                ? Colors.white70
+                                                : Colors.black45,
                                           ),
                                         ),
                                         Container(
@@ -189,7 +196,9 @@ class _CreatePostFormState extends State<CreatePostForm> {
                                                       ? "Only Me"
                                                       : "Friends",
                                               style: TextStyle(
-                                                  color: Colors.white70,
+                                                  color: color == "1"
+                                                ? Colors.white70
+                                                : Colors.black45,
                                                   fontSize: 12,
                                                   fontWeight: FontWeight.w300,
                                                   fontFamily: "Oswald"),
@@ -197,7 +206,9 @@ class _CreatePostFormState extends State<CreatePostForm> {
                                         Icon(
                                           Icons.arrow_drop_down,
                                           size: 25,
-                                          color: Colors.white70,
+                                          color: color == "1"
+                                                ? Colors.white70
+                                                : Colors.black45,
                                         ),
                                       ],
                                     ),
@@ -208,7 +219,9 @@ class _CreatePostFormState extends State<CreatePostForm> {
                                       top: 0, left: 5, right: 15),
                                   decoration: BoxDecoration(
                                       border: Border.all(
-                                          width: 0.3, color: Colors.white70),
+                                          width: 0.3, color: color == "1"
+                                                ? Colors.white70
+                                                : Colors.black45),
                                       borderRadius: BorderRadius.all(
                                           Radius.circular(10))),
                                   child: Row(
@@ -219,7 +232,9 @@ class _CreatePostFormState extends State<CreatePostForm> {
                                         child: Icon(
                                           Icons.add,
                                           size: 12,
-                                          color: Colors.white70,
+                                          color: color == "1"
+                                                ? Colors.white70
+                                                : Colors.black45,
                                         ),
                                       ),
                                       Container(
@@ -227,7 +242,9 @@ class _CreatePostFormState extends State<CreatePostForm> {
                                           child: Text(
                                             "Album",
                                             style: TextStyle(
-                                                color: Colors.white70,
+                                                color: color == "1"
+                                                ? Colors.white70
+                                                : Colors.black45,
                                                 fontSize: 12,
                                                 fontWeight: FontWeight.w300,
                                                 fontFamily: "Oswald"),
@@ -235,7 +252,9 @@ class _CreatePostFormState extends State<CreatePostForm> {
                                       Icon(
                                         Icons.arrow_drop_down,
                                         size: 25,
-                                        color: Colors.white70,
+                                        color: color == "1"
+                                                ? Colors.white70
+                                                : Colors.black45,
                                       ),
                                     ],
                                   ),
@@ -260,7 +279,9 @@ class _CreatePostFormState extends State<CreatePostForm> {
                       topRight: Radius.circular(5.0),
                       bottomLeft: Radius.circular(5.0),
                       bottomRight: Radius.circular(5.0)),
-                  color: Colors.white.withOpacity(0.7),
+                  color: color == "1"
+                    ? Colors.white.withOpacity(0.7)
+                    : Colors.black12.withOpacity(0.05),
                   //border: Border.all(width: 0.2, color: Colors.grey)),
                 ),
                 child: Row(

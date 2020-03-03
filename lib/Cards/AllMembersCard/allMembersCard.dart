@@ -42,7 +42,7 @@ class _AllMembersCardState extends State<AllMembersCard> {
                 decoration: BoxDecoration(
                   color: color == "1"
                       ? Colors.black.withOpacity(0.3)
-                      : Colors.white.withOpacity(0.8),
+                      : Colors.white.withOpacity(0.9),
                   borderRadius: BorderRadius.circular(15),
                   boxShadow: [
                     BoxShadow(

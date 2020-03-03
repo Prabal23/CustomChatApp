@@ -1,3 +1,4 @@
+import 'package:custom_switch_button/custom_switch_button.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -11,6 +12,7 @@ class ThemePage extends StatefulWidget {
 class ThemePageState extends State<ThemePage> {
   SharedPreferences sharedPreferences;
   String theme = "";
+  bool isChecked = false;
 
   @override
   void initState() {
@@ -23,6 +25,10 @@ class ThemePageState extends State<ThemePage> {
 
     setState(() {
       theme = sharedPreferences.getString("theme");
+      background = sharedPreferences.getString("background");
+      if (background == "2") {
+        isChecked = true;
+      }
     });
     //print(theme);
   }
@@ -34,6 +40,15 @@ class ThemePageState extends State<ThemePage> {
     localStorage.setString("theme", theme);
     print("theme");
     print(theme);
+  }
+
+  void sharedPrefbackground(int index) async {
+    SharedPreferences localStorage = await SharedPreferences.getInstance();
+    background = "$index";
+
+    localStorage.setString("background", background);
+    print("background");
+    print(background);
   }
 
   @override
@@ -81,31 +96,37 @@ class ThemePageState extends State<ThemePage> {
             width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: theme == "1" || theme == null
-                    ? AssetImage("assets/images/f4.jpg")
-                    : theme == "2"
-                        ? AssetImage("assets/images/f.jpg")
-                        : theme == "3"
-                            ? AssetImage("assets/images/f6.jpg")
-                            : theme == "4"
-                                ? AssetImage("assets/images/f5.jpg")
-                                : theme == "5"
-                                    ? AssetImage("assets/images/friend8.jpg")
-                                    : theme == "6"
-                                        ? AssetImage("assets/images/f2.jpg")
-                                        : theme == "7"
-                                            ? AssetImage("assets/images/f9.jpg")
-                                            : theme == "8"
+                image: background == "1"
+                    ? color == "1"
+                        ? AssetImage("assets/images/black.jpg")
+                        : AssetImage("assets/images/white.jpg")
+                    : theme == "1" || theme == null
+                        ? AssetImage("assets/images/f4.jpg")
+                        : theme == "2"
+                            ? AssetImage("assets/images/f.jpg")
+                            : theme == "3"
+                                ? AssetImage("assets/images/f6.jpg")
+                                : theme == "4"
+                                    ? AssetImage("assets/images/f5.jpg")
+                                    : theme == "5"
+                                        ? AssetImage(
+                                            "assets/images/friend8.jpg")
+                                        : theme == "6"
+                                            ? AssetImage("assets/images/f2.jpg")
+                                            : theme == "7"
                                                 ? AssetImage(
-                                                    "assets/images/f10.png")
-                                                : theme == "9"
+                                                    "assets/images/f9.jpg")
+                                                : theme == "8"
                                                     ? AssetImage(
-                                                        "assets/images/pattern1.jpg")
-                                                    : theme == "10"
+                                                        "assets/images/f10.png")
+                                                    : theme == "9"
                                                         ? AssetImage(
-                                                            "assets/images/pattern2.jpg")
-                                                        : AssetImage(
-                                                            "assets/images/white.jpg"),
+                                                            "assets/images/pattern1.jpg")
+                                                        : theme == "10"
+                                                            ? AssetImage(
+                                                                "assets/images/pattern2.jpg")
+                                                            : AssetImage(
+                                                                "assets/images/white.jpg"),
                 fit: BoxFit.cover,
               ),
             ),
@@ -130,16 +151,74 @@ class ThemePageState extends State<ThemePage> {
                   child: Column(
                     children: <Widget>[
                       Container(
-                          alignment: Alignment.centerLeft,
-                          margin: EdgeInsets.only(top: 15, left: 20),
-                          child: Text(
-                            "Select Picture",
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 18,
-                                fontFamily: 'Oswald',
-                                fontWeight: FontWeight.normal),
-                          )),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                            Container(
+                                alignment: Alignment.centerLeft,
+                                margin: EdgeInsets.only(top: 15, left: 20),
+                                child: Text(
+                                  "Select Picture",
+                                  style: TextStyle(
+                                      color: background == "1"
+                                          ? color == "1"
+                                              ? Colors.white
+                                              : Colors.black54
+                                          : Colors.white,
+                                      fontSize: 18,
+                                      fontFamily: 'Oswald',
+                                      fontWeight: FontWeight.normal),
+                                )),
+                            GestureDetector(
+                              onTap: () {
+                                setState(() {
+                                  isChecked = !isChecked;
+                                  if (isChecked) {
+                                    sharedPrefbackground(2);
+                                  } else {
+                                    sharedPrefbackground(1);
+                                  }
+                                });
+                              },
+                              child: Container(
+                                padding: EdgeInsets.only(right: 20, top: 15),
+                                child: Row(
+                                  children: <Widget>[
+                                    Container(
+                                        alignment: Alignment.centerLeft,
+                                        margin: EdgeInsets.only(right: 5),
+                                        child: Text(
+                                          "Background",
+                                          style: TextStyle(
+                                              color: background == "1"
+                                                  ? color == "1"
+                                                      ? Colors.white
+                                                      : Colors.black54
+                                                  : Colors.white,
+                                              fontSize: 13,
+                                              fontFamily: 'Oswald',
+                                              fontWeight: FontWeight.w300),
+                                        )),
+                                    CustomSwitchButton(
+                                      // buttonWidth: 40,
+                                      // buttonHeight: 20,
+                                      backgroundColor: !isChecked
+                                          ? Colors.grey.withOpacity(0.5)
+                                          : back_new,
+                                      unCheckedColor:
+                                          Colors.grey.withOpacity(0.7),
+                                      animationDuration:
+                                          Duration(milliseconds: 400),
+                                      checkedColor: header,
+                                      checked: isChecked,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
                       Row(
                         children: <Widget>[
                           Container(
@@ -149,17 +228,29 @@ class ThemePageState extends State<ThemePage> {
                             decoration: BoxDecoration(
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(15.0)),
-                                color: Colors.white,
+                                color: background == "1"
+                                    ? color == "1"
+                                        ? Colors.white
+                                        : Colors.black54
+                                    : Colors.white,
                                 boxShadow: [
                                   BoxShadow(
                                     blurRadius: 3.0,
-                                    color: Colors.white,
+                                    color: background == "1"
+                                        ? color == "1"
+                                            ? Colors.white
+                                            : Colors.black54
+                                        : Colors.white,
                                     //offset: Offset(6.0, 7.0),
                                   ),
                                 ],
                                 border: Border.all(
                                     width: 0.5,
-                                    color: Colors.white)),
+                                    color: background == "1"
+                                        ? color == "1"
+                                            ? Colors.white
+                                            : Colors.black54
+                                        : Colors.white)),
                           ),
                         ],
                       ),

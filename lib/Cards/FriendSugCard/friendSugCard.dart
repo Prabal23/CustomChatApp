@@ -25,7 +25,9 @@ class _FriendSugCardState extends State<FriendSugCard> {
             ? Container(
                 padding: EdgeInsets.only(top: 10, bottom: 10),
                 decoration: BoxDecoration(
-                  color: Colors.black.withOpacity(0.3),
+                  color: color == "1"
+                      ? Colors.black.withOpacity(0.3)
+                      : Colors.white.withOpacity(0.9),
                   borderRadius: BorderRadius.circular(15),
                   //border: Border.all(width: 0.8, color: Colors.grey[300]),
                   boxShadow: [
@@ -74,7 +76,9 @@ class _FriendSugCardState extends State<FriendSugCard> {
                                     maxLines: 1,
                                     style: TextStyle(
                                         fontSize: 16,
-                                        color: Colors.white,
+                                        color: color == "1"
+                                            ? Colors.white
+                                            : Colors.black,
                                         fontFamily: 'Oswald',
                                         fontWeight: FontWeight.w400),
                                   ),
@@ -88,7 +92,9 @@ class _FriendSugCardState extends State<FriendSugCard> {
                                           fontFamily: 'Oswald',
                                           fontWeight: FontWeight.w400,
                                           fontSize: 11,
-                                          color: Colors.white54),
+                                          color: color == "1"
+                                              ? Colors.white54
+                                              : Colors.black54),
                                     ),
                                   ),
                                 ],
@@ -134,7 +140,9 @@ class _FriendSugCardState extends State<FriendSugCard> {
             : Container(
                 padding: EdgeInsets.only(top: 10, bottom: 10),
                 decoration: BoxDecoration(
-                  color: Colors.black.withOpacity(0.3),
+                  color: color == "1"
+                      ? Colors.black.withOpacity(0.3)
+                      : Colors.white.withOpacity(0.9),
                   borderRadius: BorderRadius.circular(15),
                   //border: Border.all(width: 0.8, color: Colors.grey[300]),
                   boxShadow: [
@@ -163,8 +171,12 @@ class _FriendSugCardState extends State<FriendSugCard> {
                               //transform: Matrix4.translationValues(0.0, 0.0, 0.0),
                               padding: EdgeInsets.all(1.0),
                               child: Shimmer.fromColors(
-                                baseColor: Colors.grey[700],
-                                highlightColor: Colors.grey[500],
+                                baseColor: color == "1"
+                                    ? Colors.grey[700]
+                                    : Colors.grey[400],
+                                highlightColor: color == "1"
+                                    ? Colors.grey[500]
+                                    : Colors.grey[200],
                                 child: CircleAvatar(
                                   radius: 20.0,
                                   backgroundColor: Colors.white,
@@ -179,8 +191,12 @@ class _FriendSugCardState extends State<FriendSugCard> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: <Widget>[
                                   Shimmer.fromColors(
-                                    baseColor: Colors.grey[700],
-                                    highlightColor: Colors.grey[500],
+                                    baseColor: color == "1"
+                                        ? Colors.grey[700]
+                                        : Colors.grey[400],
+                                    highlightColor: color == "1"
+                                        ? Colors.grey[500]
+                                        : Colors.grey[200],
                                     child: Container(
                                       width: 150,
                                       height: 22,
@@ -192,8 +208,12 @@ class _FriendSugCardState extends State<FriendSugCard> {
                                   Container(
                                     margin: EdgeInsets.only(top: 3),
                                     child: Shimmer.fromColors(
-                                      baseColor: Colors.grey[700],
-                                      highlightColor: Colors.grey[500],
+                                      baseColor: color == "1"
+                                          ? Colors.grey[700]
+                                          : Colors.grey[400],
+                                      highlightColor: color == "1"
+                                          ? Colors.grey[500]
+                                          : Colors.grey[200],
                                       child: Container(
                                         width: 90,
                                         height: 12,

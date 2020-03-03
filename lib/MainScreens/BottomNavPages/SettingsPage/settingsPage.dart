@@ -40,31 +40,37 @@ class SettingsPageState extends State<SettingsPage> {
             width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: theme == "1" || theme == null
-                    ? AssetImage("assets/images/f4.jpg")
-                    : theme == "2"
-                        ? AssetImage("assets/images/f.jpg")
-                        : theme == "3"
-                            ? AssetImage("assets/images/f6.jpg")
-                            : theme == "4"
-                                ? AssetImage("assets/images/f5.jpg")
-                                : theme == "5"
-                                    ? AssetImage("assets/images/friend8.jpg")
-                                    : theme == "6"
-                                        ? AssetImage("assets/images/f2.jpg")
-                                        : theme == "7"
-                                            ? AssetImage("assets/images/f9.jpg")
-                                            : theme == "8"
+                image: background == "1"
+                    ? color == "1"
+                        ? AssetImage("assets/images/black.jpg")
+                        : AssetImage("assets/images/white.jpg")
+                    : theme == "1" || theme == null
+                        ? AssetImage("assets/images/f4.jpg")
+                        : theme == "2"
+                            ? AssetImage("assets/images/f.jpg")
+                            : theme == "3"
+                                ? AssetImage("assets/images/f6.jpg")
+                                : theme == "4"
+                                    ? AssetImage("assets/images/f5.jpg")
+                                    : theme == "5"
+                                        ? AssetImage(
+                                            "assets/images/friend8.jpg")
+                                        : theme == "6"
+                                            ? AssetImage("assets/images/f2.jpg")
+                                            : theme == "7"
                                                 ? AssetImage(
-                                                    "assets/images/f10.png")
-                                                : theme == "9"
+                                                    "assets/images/f9.jpg")
+                                                : theme == "8"
                                                     ? AssetImage(
-                                                        "assets/images/pattern1.jpg")
-                                                    : theme == "10"
+                                                        "assets/images/f10.png")
+                                                    : theme == "9"
                                                         ? AssetImage(
-                                                            "assets/images/pattern2.jpg")
-                                                        : AssetImage(
-                                                            "assets/images/white.jpg"),
+                                                            "assets/images/pattern1.jpg")
+                                                        : theme == "10"
+                                                            ? AssetImage(
+                                                                "assets/images/pattern2.jpg")
+                                                            : AssetImage(
+                                                                "assets/images/white.jpg"),
                 fit: BoxFit.cover,
               ),
             ),
@@ -94,7 +100,11 @@ class SettingsPageState extends State<SettingsPage> {
                           child: Text(
                             "Settings",
                             style: TextStyle(
-                                color: Colors.white,
+                                color: background == "1"
+                                    ? color == "1"
+                                        ? Colors.white
+                                        : Colors.black54
+                                    : Colors.white,
                                 fontSize: 18,
                                 fontFamily: 'Oswald',
                                 fontWeight: FontWeight.normal),
@@ -108,17 +118,29 @@ class SettingsPageState extends State<SettingsPage> {
                             decoration: BoxDecoration(
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(15.0)),
-                                color: Colors.white,
+                                color: background == "1"
+                                    ? color == "1"
+                                        ? Colors.white
+                                        : Colors.black54
+                                    : Colors.white,
                                 boxShadow: [
                                   BoxShadow(
                                     blurRadius: 3.0,
-                                    color: Colors.white,
+                                    color: background == "1"
+                                        ? color == "1"
+                                            ? Colors.white
+                                            : Colors.black54
+                                        : Colors.white,
                                     //offset: Offset(6.0, 7.0),
                                   ),
                                 ],
                                 border: Border.all(
                                     width: 0.5,
-                                    color: Colors.white)),
+                                    color: background == "1"
+                                        ? color == "1"
+                                            ? Colors.white
+                                            : Colors.black54
+                                        : Colors.white)),
                           ),
                         ],
                       ),
@@ -178,7 +200,7 @@ class SettingsPageState extends State<SettingsPage> {
                         decoration: BoxDecoration(
                           color: color == "1"
                               ? Colors.black.withOpacity(0.3)
-                              : Colors.white.withOpacity(0.1),
+                              : Colors.white.withOpacity(0.6),
                           borderRadius: BorderRadius.circular(15),
                           //border: Border.all(width: 0.8, color: Colors.grey[300]),
                           boxShadow: [

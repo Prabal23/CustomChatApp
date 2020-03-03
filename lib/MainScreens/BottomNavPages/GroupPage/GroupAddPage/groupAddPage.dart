@@ -108,9 +108,12 @@ class _GroupAddPageState extends State<GroupAddPage> {
   Widget build(BuildContext context) {
     return new Scaffold(
         appBar: AppBar(
-          iconTheme: IconThemeData(color: Colors.white),
+          iconTheme: IconThemeData(
+              color: color == "1" ? Colors.white : Colors.black54),
           //automaticallyImplyLeading: false,
-          backgroundColor: Colors.black.withOpacity(0.5),
+          backgroundColor: color == "1"
+              ? Colors.black.withOpacity(0.5)
+              : Colors.white.withOpacity(0.7),
           title: Container(
             margin: EdgeInsets.only(top: 0),
             child: Row(
@@ -128,7 +131,8 @@ class _GroupAddPageState extends State<GroupAddPage> {
                         child: Text(
                           "Create Group",
                           style: TextStyle(
-                              color: Colors.white,
+                              color:
+                                  color == "1" ? Colors.white : Colors.black54,
                               fontSize: 20,
                               fontFamily: 'Oswald',
                               fontWeight: FontWeight.normal),
@@ -162,32 +166,38 @@ class _GroupAddPageState extends State<GroupAddPage> {
               width: MediaQuery.of(context).size.width,
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: theme == "1" || theme == null
-                      ? AssetImage("assets/images/f4.jpg")
-                      : theme == "2"
-                          ? AssetImage("assets/images/f.jpg")
-                          : theme == "3"
-                              ? AssetImage("assets/images/f6.jpg")
-                              : theme == "4"
-                                  ? AssetImage("assets/images/f5.jpg")
-                                  : theme == "5"
-                                      ? AssetImage("assets/images/friend8.jpg")
-                                      : theme == "6"
-                                          ? AssetImage("assets/images/f2.jpg")
-                                          : theme == "7"
+                  image: background == "1"
+                      ? color == "1"
+                          ? AssetImage("assets/images/black.jpg")
+                          : AssetImage("assets/images/white.jpg")
+                      : theme == "1" || theme == null
+                          ? AssetImage("assets/images/f4.jpg")
+                          : theme == "2"
+                              ? AssetImage("assets/images/f.jpg")
+                              : theme == "3"
+                                  ? AssetImage("assets/images/f6.jpg")
+                                  : theme == "4"
+                                      ? AssetImage("assets/images/f5.jpg")
+                                      : theme == "5"
+                                          ? AssetImage(
+                                              "assets/images/friend8.jpg")
+                                          : theme == "6"
                                               ? AssetImage(
-                                                  "assets/images/f9.jpg")
-                                              : theme == "8"
+                                                  "assets/images/f2.jpg")
+                                              : theme == "7"
                                                   ? AssetImage(
-                                                      "assets/images/f10.png")
-                                                  : theme == "9"
+                                                      "assets/images/f9.jpg")
+                                                  : theme == "8"
                                                       ? AssetImage(
-                                                          "assets/images/pattern1.jpg")
-                                                      : theme == "10"
+                                                          "assets/images/f10.png")
+                                                      : theme == "9"
                                                           ? AssetImage(
-                                                              "assets/images/pattern2.jpg")
-                                                          : AssetImage(
-                                                              "assets/images/white.jpg"),
+                                                              "assets/images/pattern1.jpg")
+                                                          : theme == "10"
+                                                              ? AssetImage(
+                                                                  "assets/images/pattern2.jpg")
+                                                              : AssetImage(
+                                                                  "assets/images/white.jpg"),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -200,7 +210,9 @@ class _GroupAddPageState extends State<GroupAddPage> {
             ),
             Container(
               decoration: BoxDecoration(
-                  color: Colors.black.withOpacity(0.3),
+                  color: color == "1"
+                      ? Colors.black.withOpacity(0.3)
+                      : Colors.white.withOpacity(0.2),
                   borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(0),
                       topRight: Radius.circular(0))),
@@ -304,8 +316,13 @@ class _GroupAddPageState extends State<GroupAddPage> {
                                                         right: 10,
                                                         top: 5),
                                                     decoration: BoxDecoration(
-                                                        color: Colors.black
-                                                            .withOpacity(0.4),
+                                                        color: color == "1"
+                                                            ? Colors.black
+                                                                .withOpacity(
+                                                                    0.4)
+                                                            : Colors.white
+                                                                .withOpacity(
+                                                                    0.7),
                                                         border: Border.all(
                                                             color: Colors.black
                                                                 .withOpacity(
@@ -313,16 +330,18 @@ class _GroupAddPageState extends State<GroupAddPage> {
                                                             width: 0.5),
                                                         borderRadius:
                                                             BorderRadius.all(
-                                                                Radius.circular(
-                                                                    25))),
+                                                                Radius.circular(25))),
                                                     child: Row(
                                                       children: <Widget>[
                                                         Flexible(
                                                           child: TextField(
                                                             //controller: phoneController,
                                                             style: TextStyle(
-                                                              color:
-                                                                  Colors.white,
+                                                              color: color ==
+                                                                      "1"
+                                                                  ? Colors.white
+                                                                  : Colors
+                                                                      .black54,
                                                               fontFamily:
                                                                   'Oswald',
                                                             ),
@@ -331,8 +350,11 @@ class _GroupAddPageState extends State<GroupAddPage> {
                                                               hintText:
                                                                   "Group Name",
                                                               hintStyle: TextStyle(
-                                                                  color: Colors
-                                                                      .white70,
+                                                                  color: color == "1"
+                                                                      ? Colors
+                                                                          .white70
+                                                                      : Colors
+                                                                          .black45,
                                                                   fontSize: 15,
                                                                   fontFamily:
                                                                       'Oswald',
@@ -445,7 +467,11 @@ class _GroupAddPageState extends State<GroupAddPage> {
                                 child: Text(
                                   "Friends",
                                   style: TextStyle(
-                                      color: Colors.white,
+                                      color: background == "1"
+                                          ? color == "1"
+                                              ? Colors.white
+                                              : Colors.black54
+                                          : Colors.white,
                                       fontSize: 18,
                                       fontFamily: 'Oswald',
                                       fontWeight: FontWeight.normal),
@@ -459,16 +485,29 @@ class _GroupAddPageState extends State<GroupAddPage> {
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.all(
                                           Radius.circular(15.0)),
-                                      color: Colors.white,
+                                      color: background == "1"
+                                          ? color == "1"
+                                              ? Colors.white
+                                              : Colors.black54
+                                          : Colors.white,
                                       boxShadow: [
                                         BoxShadow(
                                           blurRadius: 3.0,
-                                          color: Colors.white,
+                                          color: background == "1"
+                                              ? color == "1"
+                                                  ? Colors.white
+                                                  : Colors.black54
+                                              : Colors.white,
                                           //offset: Offset(6.0, 7.0),
                                         ),
                                       ],
                                       border: Border.all(
-                                          width: 0.5, color: Colors.white)),
+                                          width: 0.5,
+                                          color: background == "1"
+                                              ? color == "1"
+                                                  ? Colors.white
+                                                  : Colors.black54
+                                              : Colors.white)),
                                 ),
                               ],
                             ),
@@ -572,7 +611,9 @@ class _GroupAddPageState extends State<GroupAddPage> {
                             ? Container(
                                 padding: EdgeInsets.only(top: 10, bottom: 10),
                                 decoration: BoxDecoration(
-                                  color: Colors.black.withOpacity(0.3),
+                                  color: color == "1"
+                                      ? Colors.black.withOpacity(0.3)
+                                      : Colors.white.withOpacity(0.9),
                                   borderRadius: BorderRadius.circular(15),
                                   //border: Border.all(width: 0.8, color: Colors.grey[300]),
                                   boxShadow: [
@@ -656,7 +697,9 @@ class _GroupAddPageState extends State<GroupAddPage> {
                                                     maxLines: 1,
                                                     style: TextStyle(
                                                         fontSize: 16,
-                                                        color: Colors.white,
+                                                        color: color == "1"
+                                                            ? Colors.white
+                                                            : Colors.black,
                                                         fontFamily: 'Oswald',
                                                         fontWeight:
                                                             FontWeight.w400),
@@ -678,8 +721,9 @@ class _GroupAddPageState extends State<GroupAddPage> {
                                                           fontWeight:
                                                               FontWeight.w400,
                                                           fontSize: 11,
-                                                          color:
-                                                              Colors.white54),
+                                                          color: color == "1"
+                                                              ? Colors.white54
+                                                              : Colors.black54),
                                                     ),
                                                   ),
                                                 ],
@@ -700,7 +744,9 @@ class _GroupAddPageState extends State<GroupAddPage> {
                                           },
                                           child: Container(
                                               decoration: BoxDecoration(
-                                                  color: back_new,
+                                                  color: color == "1"
+                                                      ? back_new
+                                                      : header.withOpacity(0.7),
                                                   borderRadius:
                                                       BorderRadius.circular(
                                                           25)),
@@ -721,7 +767,9 @@ class _GroupAddPageState extends State<GroupAddPage> {
                             : Container(
                                 padding: EdgeInsets.only(top: 10, bottom: 10),
                                 decoration: BoxDecoration(
-                                  color: Colors.black.withOpacity(0.3),
+                                  color: color == "1"
+                                      ? Colors.black.withOpacity(0.3)
+                                      : Colors.white.withOpacity(0.9),
                                   borderRadius: BorderRadius.circular(15),
                                   //border: Border.all(width: 0.8, color: Colors.grey[300]),
                                   boxShadow: [
@@ -754,9 +802,12 @@ class _GroupAddPageState extends State<GroupAddPage> {
                                               //transform: Matrix4.translationValues(0.0, 0.0, 0.0),
                                               padding: EdgeInsets.all(1.0),
                                               child: Shimmer.fromColors(
-                                                baseColor: Colors.grey[700],
-                                                highlightColor:
-                                                    Colors.grey[500],
+                                                baseColor: color == "1"
+                                                    ? Colors.grey[700]
+                                                    : Colors.grey[400],
+                                                highlightColor: color == "1"
+                                                    ? Colors.grey[500]
+                                                    : Colors.grey[200],
                                                 child: CircleAvatar(
                                                   radius: 20.0,
                                                   backgroundColor: Colors.white,
@@ -772,9 +823,12 @@ class _GroupAddPageState extends State<GroupAddPage> {
                                                     CrossAxisAlignment.start,
                                                 children: <Widget>[
                                                   Shimmer.fromColors(
-                                                    baseColor: Colors.grey[700],
-                                                    highlightColor:
-                                                        Colors.grey[500],
+                                                    baseColor: color == "1"
+                                                        ? Colors.grey[700]
+                                                        : Colors.grey[400],
+                                                    highlightColor: color == "1"
+                                                        ? Colors.grey[500]
+                                                        : Colors.grey[200],
                                                     child: Container(
                                                       width: 150,
                                                       height: 22,
@@ -787,10 +841,13 @@ class _GroupAddPageState extends State<GroupAddPage> {
                                                     margin:
                                                         EdgeInsets.only(top: 3),
                                                     child: Shimmer.fromColors(
-                                                      baseColor:
-                                                          Colors.grey[700],
-                                                      highlightColor:
-                                                          Colors.grey[500],
+                                                      baseColor: color == "1"
+                                                          ? Colors.grey[700]
+                                                          : Colors.grey[400],
+                                                      highlightColor: color ==
+                                                              "1"
+                                                          ? Colors.grey[500]
+                                                          : Colors.grey[200],
                                                       child: Container(
                                                         width: 90,
                                                         height: 12,

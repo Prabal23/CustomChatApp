@@ -27,7 +27,7 @@ List<String> name = [
   "Daniel Smith"
 ];
 
-String color = "";
+String color = "", background = "";
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.

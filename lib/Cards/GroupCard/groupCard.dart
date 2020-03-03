@@ -27,7 +27,7 @@ class _GroupCardState extends State<GroupCard> {
                 decoration: BoxDecoration(
                   color: color == "1"
                       ? Colors.black.withOpacity(0.3)
-                      : Colors.white.withOpacity(0.8),
+                      : Colors.white.withOpacity(0.9),
                   borderRadius: BorderRadius.circular(15),
                   //border: Border.all(width: 0.8, color: Colors.grey[300]),
                   boxShadow: [
@@ -134,7 +134,7 @@ class _GroupCardState extends State<GroupCard> {
                 decoration: BoxDecoration(
                   color: color == "1"
                       ? Colors.black.withOpacity(0.3)
-                      : Colors.white.withOpacity(0.8),
+                      : Colors.white.withOpacity(0.9),
                   borderRadius: BorderRadius.circular(15),
                   //border: Border.all(width: 0.8, color: Colors.grey[300]),
                   boxShadow: [
