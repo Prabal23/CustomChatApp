@@ -9,6 +9,7 @@ import 'package:chatapp_new/MainScreens/NotifyPage/notifyPage.dart';
 import 'package:chatapp_new/MainScreens/SearchPage/searchPage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../main.dart';
 
@@ -28,6 +29,23 @@ class _MyHomePageState extends State<MyHomePage> {
     //ThemePage(),
     ProfileNewPage(),
   ];
+
+  @override
+  void initState() {
+    sharedPrefcheck();
+    super.initState();
+  }
+
+  void sharedPrefcheck() async {
+    sharedPreferences = await SharedPreferences.getInstance();
+
+    setState(() {
+      color = sharedPreferences.getString("color");
+      print("Color check");
+      print(color);
+    });
+    //print(theme);
+  }
 
   @override
   Widget build(BuildContext context) {

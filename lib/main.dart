@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'MainScreens/StartingPage/startingPage.dart';
+
+String color = "", background = "";
 
 void main() => runApp(MyApp());
 
@@ -18,6 +21,7 @@ Color person_chat = Color(0xFFE9EBED);
 Color chat_page_back = Color(0xFFFFFFFF);
 
 var friendname = List<String>();
+SharedPreferences sharedPreferences;
 List<String> user = [];
 List<String> name = [
   "John Smith",
@@ -27,10 +31,48 @@ List<String> name = [
   "Daniel Smith"
 ];
 
-String color = "", background = "";
+class MyApp extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    return MyAppPageState();
+  }
+}
 
-class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
+class MyAppPageState extends State<MyApp> {
+  @override
+  void initState() {
+    if (color == null || color == "null" || color == "") {
+      sharedPrefColorput();
+    } else {
+      sharedPrefcheck();
+    }
+
+    super.initState();
+  }
+
+  void sharedPrefColorput() async {
+    SharedPreferences localStorage = await SharedPreferences.getInstance();
+    setState(() {
+      color = "1";
+
+      localStorage.setString("color", color);
+      print("color");
+      print(color);
+      sharedPrefcheck();
+    });
+  }
+
+  void sharedPrefcheck() async {
+    sharedPreferences = await SharedPreferences.getInstance();
+
+    setState(() {
+      color = sharedPreferences.getString("color");
+      print("Color check");
+      print(color);
+    });
+    //print(theme);
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
