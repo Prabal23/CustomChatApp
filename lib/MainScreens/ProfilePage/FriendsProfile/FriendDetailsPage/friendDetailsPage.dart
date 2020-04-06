@@ -15,8 +15,9 @@ class _ProfilePageState extends State<FriendsProfilePage> {
   SharedPreferences sharedPreferences;
   String theme = "";
   Timer _timer;
-  int _start = 3;
+  int _start = 3,likeNum = 0;
   bool loading = true;
+  List likeArr = [0, 0];
 
   @override
   void initState() {
@@ -58,9 +59,12 @@ class _ProfilePageState extends State<FriendsProfilePage> {
     return Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
-          iconTheme: IconThemeData(color: Colors.white),
+          iconTheme: IconThemeData(
+              color: color == "1" ? Colors.white : Colors.black54),
           //automaticallyImplyLeading: false,
-          backgroundColor: Colors.black.withOpacity(0.5),
+          backgroundColor: color == "1"
+              ? Colors.black.withOpacity(0.5)
+              : Colors.white.withOpacity(0.7),
           title: Container(
             margin: EdgeInsets.only(top: 0),
             child: Row(
@@ -78,7 +82,8 @@ class _ProfilePageState extends State<FriendsProfilePage> {
                         child: Text(
                           "Profile Details",
                           style: TextStyle(
-                              color: Colors.white,
+                              color:
+                                  color == "1" ? Colors.white : Colors.black54,
                               fontSize: 20,
                               fontFamily: 'Oswald',
                               fontWeight: FontWeight.normal),
@@ -96,32 +101,38 @@ class _ProfilePageState extends State<FriendsProfilePage> {
               width: MediaQuery.of(context).size.width,
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: theme == "1" || theme == null
-                      ? AssetImage("assets/images/f4.jpg")
-                      : theme == "2"
-                          ? AssetImage("assets/images/f.jpg")
-                          : theme == "3"
-                              ? AssetImage("assets/images/f6.jpg")
-                              : theme == "4"
-                                  ? AssetImage("assets/images/f5.jpg")
-                                  : theme == "5"
-                                      ? AssetImage("assets/images/friend8.jpg")
-                                      : theme == "6"
-                                          ? AssetImage("assets/images/f2.jpg")
-                                          : theme == "7"
+                  image: background == "1"
+                      ? color == "1"
+                          ? AssetImage("assets/images/black.jpg")
+                          : AssetImage("assets/images/white.jpg")
+                      : theme == "1" || theme == null
+                          ? AssetImage("assets/images/f4.jpg")
+                          : theme == "2"
+                              ? AssetImage("assets/images/f.jpg")
+                              : theme == "3"
+                                  ? AssetImage("assets/images/f6.jpg")
+                                  : theme == "4"
+                                      ? AssetImage("assets/images/f5.jpg")
+                                      : theme == "5"
+                                          ? AssetImage(
+                                              "assets/images/friend8.jpg")
+                                          : theme == "6"
                                               ? AssetImage(
-                                                  "assets/images/f9.jpg")
-                                              : theme == "8"
+                                                  "assets/images/f2.jpg")
+                                              : theme == "7"
                                                   ? AssetImage(
-                                                      "assets/images/f10.png")
-                                                  : theme == "9"
+                                                      "assets/images/f9.jpg")
+                                                  : theme == "8"
                                                       ? AssetImage(
-                                                          "assets/images/pattern1.jpg")
-                                                      : theme == "10"
+                                                          "assets/images/f10.png")
+                                                      : theme == "9"
                                                           ? AssetImage(
-                                                              "assets/images/pattern2.jpg")
-                                                          : AssetImage(
-                                                              "assets/images/white.jpg"),
+                                                              "assets/images/pattern1.jpg")
+                                                          : theme == "10"
+                                                              ? AssetImage(
+                                                                  "assets/images/pattern2.jpg")
+                                                              : AssetImage(
+                                                                  "assets/images/white.jpg"),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -129,17 +140,25 @@ class _ProfilePageState extends State<FriendsProfilePage> {
             ),
             Container(
               width: MediaQuery.of(context).size.width,
-              decoration: BoxDecoration(color: Colors.grey.withOpacity(0.5)),
+              decoration: BoxDecoration(
+                  color: color == "1"
+                      ? Colors.grey.withOpacity(0.5)
+                      : Colors.white),
               child: null,
             ),
             Container(
               width: MediaQuery.of(context).size.width,
-              decoration: BoxDecoration(color: Colors.black.withOpacity(0.4)),
+              decoration: BoxDecoration(
+                  color: color == "1"
+                      ? Colors.black.withOpacity(0.4)
+                      : Colors.white),
               child: null,
             ),
             Container(
               decoration: BoxDecoration(
-                  color: Colors.black.withOpacity(0.3),
+                  color: color == "1"
+                      ? Colors.black.withOpacity(0.3)
+                      : Colors.white.withOpacity(0.5),
                   borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(0),
                       topRight: Radius.circular(0))),
@@ -214,14 +233,18 @@ class _ProfilePageState extends State<FriendsProfilePage> {
                                   fontSize: 25,
                                   fontWeight: FontWeight.w400,
                                   fontFamily: "Oswald",
-                                  color: Colors.white),
+                                  color: color == "1"
+                                      ? Colors.white
+                                      : Colors.black54),
                             )),
                         Container(
                             margin: EdgeInsets.only(top: 5),
                             child: Text(
                               "Simple guy with a big heart",
                               style: TextStyle(
-                                  color: Colors.white,
+                                  color: color == "1"
+                                      ? Colors.white
+                                      : Colors.black54,
                                   fontWeight: FontWeight.w300,
                                   fontFamily: "Oswald"),
                             )),
@@ -515,8 +538,9 @@ class _ProfilePageState extends State<FriendsProfilePage> {
                                     ),
                                     Text("Create Post",
                                         style: TextStyle(
-                                            color:
-                                                Colors.white.withOpacity(0.8),
+                                            color: color == "1"
+                                                ? Colors.white.withOpacity(0.8)
+                                                : Colors.black45,
                                             fontFamily: "Oswald",
                                             fontSize: 13))
                                   ],
@@ -543,8 +567,9 @@ class _ProfilePageState extends State<FriendsProfilePage> {
                                     ),
                                     Text("Edit Profile",
                                         style: TextStyle(
-                                            color:
-                                                Colors.white.withOpacity(0.8),
+                                            color: color == "1"
+                                                ? Colors.white.withOpacity(0.8)
+                                                : Colors.black45,
                                             fontFamily: "Oswald",
                                             fontSize: 13))
                                   ],
@@ -570,8 +595,9 @@ class _ProfilePageState extends State<FriendsProfilePage> {
                                     ),
                                     Text("More",
                                         style: TextStyle(
-                                            color:
-                                                Colors.white.withOpacity(0.8),
+                                            color: color == "1"
+                                                ? Colors.white.withOpacity(0.8)
+                                                : Colors.black45,
                                             fontFamily: "Oswald",
                                             fontSize: 13))
                                   ],
@@ -603,7 +629,10 @@ class _ProfilePageState extends State<FriendsProfilePage> {
                               Container(
                                   margin: EdgeInsets.only(right: 10),
                                   child: Icon(Icons.work,
-                                      size: 17, color: Colors.white)),
+                                      size: 17,
+                                      color: color == "1"
+                                          ? Colors.white
+                                          : Colors.black.withOpacity(0.5))),
                               Expanded(
                                 child: Text.rich(
                                   TextSpan(
@@ -612,14 +641,20 @@ class _ProfilePageState extends State<FriendsProfilePage> {
                                           text:
                                               "Former Android Application Developer at",
                                           style: TextStyle(
-                                              color: Colors.white,
+                                              color: color == "1"
+                                                  ? Colors.white
+                                                  : Colors.black
+                                                      .withOpacity(0.5),
                                               fontSize: 15,
                                               fontFamily: "Oswald",
                                               fontWeight: FontWeight.w300)),
                                       TextSpan(
                                           text: " IT Lab Solutions Ltd",
                                           style: TextStyle(
-                                              color: Colors.white,
+                                              color: color == "1"
+                                                  ? Colors.white
+                                                  : Colors.black
+                                                      .withOpacity(0.5),
                                               fontSize: 15,
                                               fontFamily: "Oswald",
                                               fontWeight: FontWeight.w400)),
@@ -638,7 +673,10 @@ class _ProfilePageState extends State<FriendsProfilePage> {
                               Container(
                                   margin: EdgeInsets.only(right: 10),
                                   child: Icon(Icons.work,
-                                      size: 17, color: Colors.white)),
+                                      size: 17,
+                                      color: color == "1"
+                                          ? Colors.white
+                                          : Colors.black.withOpacity(0.5))),
                               Expanded(
                                 child: Text.rich(
                                   TextSpan(
@@ -646,7 +684,10 @@ class _ProfilePageState extends State<FriendsProfilePage> {
                                       TextSpan(
                                           text: "Former student at",
                                           style: TextStyle(
-                                              color: Colors.white,
+                                              color: color == "1"
+                                                  ? Colors.white
+                                                  : Colors.black
+                                                      .withOpacity(0.5),
                                               fontSize: 15,
                                               fontFamily: "Oswald",
                                               fontWeight: FontWeight.w300)),
@@ -654,7 +695,10 @@ class _ProfilePageState extends State<FriendsProfilePage> {
                                           text:
                                               " Computer Science and Engineering",
                                           style: TextStyle(
-                                              color: Colors.white,
+                                              color: color == "1"
+                                                  ? Colors.white
+                                                  : Colors.black
+                                                      .withOpacity(0.5),
                                               fontSize: 15,
                                               fontFamily: "Oswald",
                                               fontWeight: FontWeight.w400)),
@@ -673,7 +717,10 @@ class _ProfilePageState extends State<FriendsProfilePage> {
                               Container(
                                   margin: EdgeInsets.only(right: 10),
                                   child: Icon(Icons.book,
-                                      size: 17, color: Colors.white)),
+                                      size: 17,
+                                      color: color == "1"
+                                          ? Colors.white
+                                          : Colors.black.withOpacity(0.5))),
                               Expanded(
                                 child: Text.rich(
                                   TextSpan(
@@ -681,14 +728,20 @@ class _ProfilePageState extends State<FriendsProfilePage> {
                                       TextSpan(
                                           text: "Studied at",
                                           style: TextStyle(
-                                              color: Colors.white,
+                                              color: color == "1"
+                                                  ? Colors.white
+                                                  : Colors.black
+                                                      .withOpacity(0.5),
                                               fontSize: 15,
                                               fontFamily: "Oswald",
                                               fontWeight: FontWeight.w300)),
                                       TextSpan(
                                           text: " Leading University, Sylhet",
                                           style: TextStyle(
-                                              color: Colors.white,
+                                              color: color == "1"
+                                                  ? Colors.white
+                                                  : Colors.black
+                                                      .withOpacity(0.5),
                                               fontSize: 15,
                                               fontFamily: "Oswald",
                                               fontWeight: FontWeight.w400)),
@@ -707,7 +760,10 @@ class _ProfilePageState extends State<FriendsProfilePage> {
                               Container(
                                   margin: EdgeInsets.only(right: 10),
                                   child: Icon(Icons.book,
-                                      size: 17, color: Colors.white)),
+                                      size: 17,
+                                      color: color == "1"
+                                          ? Colors.white
+                                          : Colors.black.withOpacity(0.5))),
                               Expanded(
                                 child: Text.rich(
                                   TextSpan(
@@ -715,14 +771,20 @@ class _ProfilePageState extends State<FriendsProfilePage> {
                                       TextSpan(
                                           text: "Studied at",
                                           style: TextStyle(
-                                              color: Colors.white,
+                                              color: color == "1"
+                                                  ? Colors.white
+                                                  : Colors.black
+                                                      .withOpacity(0.5),
                                               fontSize: 15,
                                               fontFamily: "Oswald",
                                               fontWeight: FontWeight.w300)),
                                       TextSpan(
                                           text: " MC College, Sylhet",
                                           style: TextStyle(
-                                              color: Colors.white,
+                                              color: color == "1"
+                                                  ? Colors.white
+                                                  : Colors.black
+                                                      .withOpacity(0.5),
                                               fontSize: 15,
                                               fontFamily: "Oswald",
                                               fontWeight: FontWeight.w400)),
@@ -741,7 +803,10 @@ class _ProfilePageState extends State<FriendsProfilePage> {
                               Container(
                                   margin: EdgeInsets.only(right: 10),
                                   child: Icon(Icons.book,
-                                      size: 17, color: Colors.white)),
+                                      size: 17,
+                                      color: color == "1"
+                                          ? Colors.white
+                                          : Colors.black.withOpacity(0.5))),
                               Expanded(
                                 child: Text.rich(
                                   TextSpan(
@@ -749,7 +814,10 @@ class _ProfilePageState extends State<FriendsProfilePage> {
                                       TextSpan(
                                           text: "Studied at",
                                           style: TextStyle(
-                                              color: Colors.white,
+                                              color: color == "1"
+                                                  ? Colors.white
+                                                  : Colors.black
+                                                      .withOpacity(0.5),
                                               fontSize: 15,
                                               fontFamily: "Oswald",
                                               fontWeight: FontWeight.w300)),
@@ -757,7 +825,10 @@ class _ProfilePageState extends State<FriendsProfilePage> {
                                           text:
                                               " Sylhet Govt. Pilot High School, Sylhet",
                                           style: TextStyle(
-                                              color: Colors.white,
+                                              color: color == "1"
+                                                  ? Colors.white
+                                                  : Colors.black
+                                                      .withOpacity(0.5),
                                               fontSize: 15,
                                               fontFamily: "Oswald",
                                               fontWeight: FontWeight.w400)),
@@ -776,7 +847,10 @@ class _ProfilePageState extends State<FriendsProfilePage> {
                               Container(
                                   margin: EdgeInsets.only(right: 10),
                                   child: Icon(Icons.more_horiz,
-                                      size: 17, color: Colors.white)),
+                                      size: 17,
+                                      color: color == "1"
+                                          ? Colors.white
+                                          : Colors.black.withOpacity(0.5))),
                               Expanded(
                                 child: Text.rich(
                                   TextSpan(
@@ -784,7 +858,10 @@ class _ProfilePageState extends State<FriendsProfilePage> {
                                       TextSpan(
                                           text: "See Your About Info",
                                           style: TextStyle(
-                                              color: Colors.white,
+                                              color: color == "1"
+                                                  ? Colors.white
+                                                  : Colors.black
+                                                      .withOpacity(0.5),
                                               fontSize: 15,
                                               fontFamily: "Oswald",
                                               fontWeight: FontWeight.w300)),
@@ -986,7 +1063,10 @@ class _ProfilePageState extends State<FriendsProfilePage> {
                                         child: Text(
                                           "Friends",
                                           style: TextStyle(
-                                              color: Colors.white,
+                                              color: color == "1"
+                                                  ? Colors.white
+                                                  : Colors.black
+                                                      .withOpacity(0.8),
                                               fontSize: 20,
                                               fontFamily: 'Oswald',
                                               fontWeight: FontWeight.normal),
@@ -1000,17 +1080,23 @@ class _ProfilePageState extends State<FriendsProfilePage> {
                                           decoration: BoxDecoration(
                                               borderRadius: BorderRadius.all(
                                                   Radius.circular(15.0)),
-                                              color: Colors.white,
+                                              color: color == "1"
+                                                  ? Colors.white
+                                                  : Colors.black,
                                               boxShadow: [
                                                 BoxShadow(
                                                   blurRadius: 3.0,
-                                                  color: Colors.white,
+                                                  color: color == "1"
+                                                      ? Colors.white
+                                                      : Colors.black,
                                                   //offset: Offset(6.0, 7.0),
                                                 ),
                                               ],
                                               border: Border.all(
                                                   width: 0.5,
-                                                  color: Colors.white)),
+                                                  color: color == "1"
+                                                      ? Colors.white
+                                                      : Colors.black)),
                                         ),
                                       ],
                                     ),
@@ -1026,7 +1112,9 @@ class _ProfilePageState extends State<FriendsProfilePage> {
                                               "238 friends",
                                               textAlign: TextAlign.start,
                                               style: TextStyle(
-                                                  color: Colors.white70,
+                                                  color: color == "1"
+                                                      ? Colors.white70
+                                                      : Colors.black45,
                                                   fontSize: 13,
                                                   fontFamily: 'Oswald',
                                                   fontWeight: FontWeight.w400),
@@ -1050,7 +1138,9 @@ class _ProfilePageState extends State<FriendsProfilePage> {
                                                     "See all",
                                                     textAlign: TextAlign.start,
                                                     style: TextStyle(
-                                                        color: back_new,
+                                                        color: color == "1"
+                                                            ? back_new
+                                                            : Colors.black45,
                                                         fontSize: 13,
                                                         fontFamily: 'Oswald',
                                                         fontWeight:
@@ -1061,7 +1151,9 @@ class _ProfilePageState extends State<FriendsProfilePage> {
                                                         EdgeInsets.only(top: 3),
                                                     child: Icon(
                                                         Icons.chevron_right,
-                                                        color: back_new,
+                                                        color: color == "1"
+                                                            ? back_new
+                                                            : Colors.black45,
                                                         size: 17),
                                                   )
                                                 ],
@@ -1252,7 +1344,7 @@ class _ProfilePageState extends State<FriendsProfilePage> {
                                     height: 160,
                                     width: 170,
                                     decoration: BoxDecoration(
-                                      color: Colors.black.withOpacity(0.3),
+                                      //color: Colors.black.withOpacity(0.3),
                                       borderRadius: BorderRadius.all(
                                           Radius.circular(5.0)),
                                     )),
@@ -1308,7 +1400,9 @@ class _ProfilePageState extends State<FriendsProfilePage> {
                             child: Text(
                               "Timeline",
                               style: TextStyle(
-                                  color: Colors.white,
+                                  color: color == "1"
+                                      ? Colors.white
+                                      : Colors.black.withOpacity(0.8),
                                   fontSize: 20,
                                   fontFamily: 'Oswald',
                                   fontWeight: FontWeight.normal),
@@ -1322,16 +1416,23 @@ class _ProfilePageState extends State<FriendsProfilePage> {
                               decoration: BoxDecoration(
                                   borderRadius:
                                       BorderRadius.all(Radius.circular(15.0)),
-                                  color: Colors.white,
+                                  color: color == "1"
+                                      ? Colors.white
+                                      : Colors.black.withOpacity(0.8),
                                   boxShadow: [
                                     BoxShadow(
                                       blurRadius: 3.0,
-                                      color: Colors.white,
+                                      color: color == "1"
+                                          ? Colors.white
+                                          : Colors.black.withOpacity(0.8),
                                       //offset: Offset(6.0, 7.0),
                                     ),
                                   ],
                                   border: Border.all(
-                                      width: 0.5, color: Colors.white)),
+                                      width: 0.5,
+                                      color: color == "1"
+                                          ? Colors.white
+                                          : Colors.black.withOpacity(0.8))),
                             ),
                           ],
                         ),
@@ -1345,7 +1446,9 @@ class _ProfilePageState extends State<FriendsProfilePage> {
                           ? Container(
                               padding: EdgeInsets.only(top: 20, bottom: 10),
                               decoration: BoxDecoration(
-                                color: Colors.black.withOpacity(0.3),
+                                color: color == "1"
+                                    ? Colors.black.withOpacity(0.3)
+                                    : Colors.white.withOpacity(0.9),
                                 borderRadius: BorderRadius.circular(15),
                                 //border: Border.all(width: 0.8, color: Colors.grey[300]),
                                 boxShadow: [
@@ -1381,11 +1484,8 @@ class _ProfilePageState extends State<FriendsProfilePage> {
                                               child: CircleAvatar(
                                                 radius: 20.0,
                                                 backgroundColor: Colors.white,
-                                                backgroundImage: index % 2 == 0
-                                                    ? AssetImage(
-                                                        'assets/images/man.png')
-                                                    : AssetImage(
-                                                        'assets/images/man2.jpg'),
+                                                backgroundImage: AssetImage(
+                                                        'assets/images/man.png'),
                                               ),
                                               decoration: new BoxDecoration(
                                                 color: Colors
@@ -1397,13 +1497,12 @@ class _ProfilePageState extends State<FriendsProfilePage> {
                                               crossAxisAlignment:
                                                   CrossAxisAlignment.start,
                                               children: <Widget>[
-                                                Text(
-                                                  index % 2 == 0
-                                                      ? "John Smith"
-                                                      : "David Ryan",
+                                                Text("David Ryan",
                                                   style: TextStyle(
                                                       fontSize: 15,
-                                                      color: Colors.white,
+                                                      color: color == "1"
+                                                          ? Colors.white
+                                                          : Colors.black,
                                                       fontFamily: 'Oswald',
                                                       fontWeight:
                                                           FontWeight.w400),
@@ -1423,7 +1522,9 @@ class _ProfilePageState extends State<FriendsProfilePage> {
                                                         fontWeight:
                                                             FontWeight.w400,
                                                         fontSize: 11,
-                                                        color: Colors.white54),
+                                                        color: color == "1"
+                                                            ? Colors.white54
+                                                            : Colors.black54),
                                                   ),
                                                 ),
                                               ],
@@ -1435,7 +1536,9 @@ class _ProfilePageState extends State<FriendsProfilePage> {
                                           margin: EdgeInsets.only(right: 15),
                                           child: Icon(
                                             Icons.more_horiz,
-                                            color: Colors.white60,
+                                            color: color == "1"
+                                                ? Colors.white60
+                                                : Colors.black45,
                                           )),
                                     ],
                                   ),
@@ -1447,7 +1550,9 @@ class _ProfilePageState extends State<FriendsProfilePage> {
                                               "Hello everyone! this is my first status. i have made a social app with flutter. i hope you will like it. \nThank you",
                                               textAlign: TextAlign.justify,
                                               style: TextStyle(
-                                                  color: Colors.white,
+                                                  color: color == "1"
+                                        ? Colors.white
+                                        : Colors.black,
                                                   fontWeight: FontWeight.w400),
                                             )
                                           : Column(
@@ -1460,7 +1565,9 @@ class _ProfilePageState extends State<FriendsProfilePage> {
                                                     textAlign:
                                                         TextAlign.justify,
                                                     style: TextStyle(
-                                                        color: Colors.white,
+                                                        color: color == "1"
+                                        ? Colors.white
+                                        : Colors.black,
                                                         fontWeight:
                                                             FontWeight.w400),
                                                   ),
@@ -1494,90 +1601,138 @@ class _ProfilePageState extends State<FriendsProfilePage> {
                                         color: Colors.grey[400],
                                       )),
                                   Container(
-                                    margin: EdgeInsets.only(left: 20, top: 5),
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      children: <Widget>[
-                                        Row(
-                                          children: <Widget>[
-                                            Container(
-                                              padding: EdgeInsets.all(3.0),
-                                              child: Icon(
-                                                index % 2 == 0
-                                                    ? Icons.favorite
-                                                    : Icons.favorite_border,
-                                                size: 20,
-                                                color: index % 2 == 0
-                                                    ? Colors.redAccent
-                                                    : Colors.white70,
-                                              ),
-                                            ),
-                                            Container(
-                                              margin: EdgeInsets.only(left: 3),
-                                              child: Text(
-                                                  index % 2 == 0
-                                                      ? "200"
-                                                      : "105",
-                                                  style: TextStyle(
-                                                      fontFamily: 'Oswald',
-                                                      fontWeight:
-                                                          FontWeight.w300,
-                                                      color: Colors.white70,
-                                                      fontSize: 12)),
-                                            )
-                                          ],
-                                        ),
-                                        Row(
-                                          children: <Widget>[
-                                            Container(
-                                              margin: EdgeInsets.only(left: 15),
-                                              padding: EdgeInsets.all(3.0),
-                                              child: Icon(
-                                                Icons.chat_bubble_outline,
-                                                size: 20,
-                                                color: Colors.white70,
-                                              ),
-                                            ),
-                                            Container(
-                                              margin: EdgeInsets.only(left: 3),
-                                              child: Text(
-                                                  index % 2 == 0 ? "123" : "89",
-                                                  style: TextStyle(
-                                                      fontFamily: 'Oswald',
-                                                      fontWeight:
-                                                          FontWeight.w300,
-                                                      color: Colors.white70,
-                                                      fontSize: 12)),
-                                            )
-                                          ],
-                                        ),
-                                        Row(
-                                          children: <Widget>[
-                                            Container(
-                                              margin: EdgeInsets.only(left: 15),
-                                              padding: EdgeInsets.all(3.0),
-                                              child: Icon(
-                                                Icons.send,
-                                                size: 20,
-                                                color: Colors.white70,
-                                              ),
-                                            ),
-                                            Container(
-                                              margin: EdgeInsets.only(left: 3),
-                                              child: Text(
-                                                  index % 2 == 0 ? "43" : "21",
-                                                  style: TextStyle(
-                                                      fontFamily: 'Oswald',
-                                                      fontWeight:
-                                                          FontWeight.w300,
-                                                      color: Colors.white70,
-                                                      fontSize: 12)),
-                                            )
-                                          ],
-                                        ),
-                                      ],
-                                    ),
+                    margin: EdgeInsets.only(left: 20, top: 5),
+                    padding: EdgeInsets.all(7),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: <Widget>[
+                        ////// <<<<< Like start >>>>> //////
+                        GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              likeNum++;
+                              if (index == 0) {
+                                if (likeNum % 2 == 0) {
+                                  likeArr.insert(0, 0);
+                                } else {
+                                  likeArr.insert(0, 1);
+                                }
+                              } else {
+                                if (likeNum % 2 == 0) {
+                                  likeArr.insert(1, 0);
+                                } else {
+                                  likeArr.insert(1, 1);
+                                }
+                              }
+                            });
+                          },
+                          child: Container(
+                            child: Row(
+                              children: <Widget>[
+                                Container(
+                                  padding: EdgeInsets.all(3.0),
+                                  child: Icon(
+                                    likeArr[index] != 0
+                                        ? Icons.favorite
+                                        : Icons.favorite_border,
+                                    size: 20,
+                                    color: likeArr[index] != 0
+                                        ? Colors.redAccent
+                                        : color == "1"
+                                            ? Colors.white70
+                                            : Colors.black38,
+                                  ),
+                                ),
+                                Container(
+                                  margin: EdgeInsets.only(left: 3),
+                                  child: Text("${likeArr[index]}",
+                                      style: TextStyle(
+                                          fontFamily: 'Oswald',
+                                          fontWeight: FontWeight.w300,
+                                          color: color == "1"
+                                              ? Colors.white70
+                                              : Colors.black54,
+                                          fontSize: 12)),
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
+                        ////// <<<<< Like end >>>>> //////
+
+                        ////// <<<<< Comment start >>>>> //////
+                        GestureDetector(
+                          onTap: () {
+                            // Navigator.push(
+                            //     context,
+                            //     MaterialPageRoute(
+                            //         builder: (context) => CommentPage()));
+                          },
+                          child: Container(
+                            child: Row(
+                              children: <Widget>[
+                                Container(
+                                  margin: EdgeInsets.only(left: 15),
+                                  padding: EdgeInsets.all(3.0),
+                                  child: Icon(
+                                    Icons.chat_bubble_outline,
+                                    size: 20,
+                                    color: color == "1"
+                                        ? Colors.white70
+                                        : Colors.black38,
+                                  ),
+                                ),
+                                Container(
+                                  margin: EdgeInsets.only(left: 3),
+                                  child: Text(
+                                      index % 2 == 0 ? "123" : "89",
+                                      style: TextStyle(
+                                          fontFamily: 'Oswald',
+                                          fontWeight: FontWeight.w300,
+                                          color: color == "1"
+                                              ? Colors.white70
+                                              : Colors.black54,
+                                          fontSize: 12)),
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
+                        ////// <<<<< Comment end >>>>> //////
+
+                        ////// <<<<< Share start >>>>> //////
+                        Container(
+                          child: Row(
+                            children: <Widget>[
+                              Container(
+                                margin: EdgeInsets.only(left: 15),
+                                padding: EdgeInsets.all(3.0),
+                                child: Icon(
+                                  Icons.send,
+                                  size: 20,
+                                  color: color == "1"
+                                      ? Colors.white70
+                                      : Colors.black38,
+                                ),
+                              ),
+                              Container(
+                                margin: EdgeInsets.only(left: 3),
+                                child: Text(index % 2 == 0 ? "43" : "21",
+                                    style: TextStyle(
+                                        fontFamily: 'Oswald',
+                                        fontWeight: FontWeight.w300,
+                                        color: color == "1"
+                                            ? Colors.white70
+                                            : Colors.black54,
+                                        fontSize: 12)),
+                              )
+                            ],
+                          ),
+                        ),
+                        ////// <<<<< Share end >>>>> //////
+                      ],
+                    ),
+                  
                                   ),
                                 ],
                               ),

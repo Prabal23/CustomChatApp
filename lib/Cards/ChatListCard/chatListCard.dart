@@ -23,7 +23,9 @@ class _ChatListCardState extends State<ChatListCard> {
         child: Container(
           padding: EdgeInsets.only(top: 10, bottom: 10),
           decoration: BoxDecoration(
-            color: Colors.black.withOpacity(0.3),
+            color: color == "1"
+                ? Colors.black.withOpacity(0.3)
+                : Colors.white.withOpacity(0.9),
             borderRadius: BorderRadius.circular(15),
             //border: Border.all(width: 0.8, color: Colors.grey[300]),
             boxShadow: [
@@ -55,16 +57,15 @@ class _ChatListCardState extends State<ChatListCard> {
                           radius: 20.0,
                           backgroundColor: Colors.white,
                           backgroundImage: widget.index == 0
+                              ? AssetImage("assets/images/user.png")
+                              : widget.index == 1
                                   ? AssetImage("assets/images/man.png")
-                                  : widget.index == 1
-                                      ? AssetImage("assets/images/man2.jpg")
-                                      : widget.index == 2
-                                          ? AssetImage("assets/images/man3.png")
-                                          : widget.index == 3
-                                              ? AssetImage(
-                                                  "assets/images/user.jpg")
-                                              : AssetImage(
-                                                  "assets/images/man2.jpg"),
+                                  : widget.index == 2
+                                      ? AssetImage("assets/images/man3.png")
+                                      : widget.index == 3
+                                          ? AssetImage("assets/images/user.jpg")
+                                          : AssetImage(
+                                              "assets/images/man4.jpg"),
                         ),
                         decoration: new BoxDecoration(
                           color: Colors.grey[300], // border color
@@ -81,7 +82,7 @@ class _ChatListCardState extends State<ChatListCard> {
                             ////// <<<<< Name start >>>>> //////
                             Text(
                               widget.index == 0
-                                  ? "John Smith"
+                                  ? "Jason Smith"
                                   : widget.index == 1
                                       ? "David Ryan"
                                       : widget.index == 2
@@ -93,7 +94,9 @@ class _ChatListCardState extends State<ChatListCard> {
                               maxLines: 1,
                               style: TextStyle(
                                   fontSize: 16,
-                                  color: Colors.white,
+                                  color: color == "1"
+                                      ? Colors.white
+                                      : Colors.black54,
                                   fontFamily: 'Oswald',
                                   fontWeight: FontWeight.w400),
                             ),
@@ -118,7 +121,9 @@ class _ChatListCardState extends State<ChatListCard> {
                                     fontFamily: 'Oswald',
                                     fontWeight: FontWeight.w400,
                                     fontSize: 13,
-                                    color: Colors.white70),
+                                    color: color == "1"
+                                        ? Colors.white70
+                                        : Colors.black45),
                               ),
                             ),
                             ////// <<<<< Message end >>>>> //////
@@ -142,7 +147,7 @@ class _ChatListCardState extends State<ChatListCard> {
                           fontFamily: 'Oswald',
                           fontWeight: FontWeight.w200,
                           fontSize: 10,
-                          color: Colors.white),
+                          color: color == "1" ? Colors.white : Colors.black),
                     ),
                   ),
                   ////// <<<<< Date end >>>>> //////

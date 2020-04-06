@@ -156,7 +156,9 @@ class _MyFeedCardState extends State<MyFeedCard> {
           ? Container(
               padding: EdgeInsets.only(top: 20, bottom: 10),
               decoration: BoxDecoration(
-                color: Colors.black.withOpacity(0.3),
+                color: color == "1"
+                    ? Colors.black.withOpacity(0.3)
+                    : Colors.white.withOpacity(0.9),
                 borderRadius: BorderRadius.circular(15),
                 //border: Border.all(width: 0.8, color: Colors.grey[300]),
                 boxShadow: [
@@ -189,8 +191,8 @@ class _MyFeedCardState extends State<MyFeedCard> {
                                 radius: 20.0,
                                 backgroundColor: Colors.white,
                                 backgroundImage: widget.index % 2 == 0
-                                    ? AssetImage('assets/images/man2.jpg')
-                                    : AssetImage('assets/images/man2.jpg'),
+                                    ? AssetImage('assets/images/man.png')
+                                    : AssetImage('assets/images/user.jpg'),
                               ),
                               decoration: new BoxDecoration(
                                 color: Colors.grey[300], // border color
@@ -204,10 +206,14 @@ class _MyFeedCardState extends State<MyFeedCard> {
                               children: <Widget>[
                                 ////// <<<<< Name start >>>>> //////
                                 Text(
-                                  "Paul Brian",
+                                  widget.index % 2 == 0
+                                      ? "John Smith"
+                                      : "David Ryan",
                                   style: TextStyle(
                                       fontSize: 15,
-                                      color: Colors.white,
+                                      color: color == "1"
+                                          ? Colors.white
+                                          : Colors.black,
                                       fontFamily: 'Oswald',
                                       fontWeight: FontWeight.w400),
                                 ),
@@ -226,7 +232,9 @@ class _MyFeedCardState extends State<MyFeedCard> {
                                         fontFamily: 'Oswald',
                                         fontWeight: FontWeight.w400,
                                         fontSize: 11,
-                                        color: Colors.white54),
+                                        color: color == "1"
+                                            ? Colors.white54
+                                            : Colors.black54),
                                   ),
                                 ),
                                 ////// <<<<< Time end >>>>> //////
@@ -247,7 +255,9 @@ class _MyFeedCardState extends State<MyFeedCard> {
                             margin: EdgeInsets.only(right: 15),
                             child: Icon(
                               Icons.more_horiz,
-                              color: Colors.white60,
+                              color: color == "1"
+                                  ? Colors.white60
+                                  : Colors.black45,
                             )),
                       ),
                       ////// <<<<< More end >>>>> //////
@@ -261,10 +271,12 @@ class _MyFeedCardState extends State<MyFeedCard> {
                           ? Container(
                               width: MediaQuery.of(context).size.width,
                               child: Text(
-                                "Honesty is the best policy",
+                                "Hello everyone! this is my first status. i have made a social app with flutter. i hope you will like it. \nThank you",
                                 textAlign: TextAlign.justify,
                                 style: TextStyle(
-                                    color: Colors.white,
+                                    color: color == "1"
+                                        ? Colors.white
+                                        : Colors.black,
                                     fontWeight: FontWeight.w400),
                               ),
                             )
@@ -273,10 +285,12 @@ class _MyFeedCardState extends State<MyFeedCard> {
                                 Container(
                                   alignment: Alignment.centerLeft,
                                   child: Text(
-                                    "Tour of nearest hill",
+                                    "Last week tour with friends",
                                     textAlign: TextAlign.justify,
                                     style: TextStyle(
-                                        color: Colors.white,
+                                        color: color == "1"
+                                            ? Colors.white
+                                            : Colors.black,
                                         fontWeight: FontWeight.w400),
                                   ),
                                 ),
@@ -289,7 +303,7 @@ class _MyFeedCardState extends State<MyFeedCard> {
                                         borderRadius: BorderRadius.circular(15),
                                         image: DecorationImage(
                                             image: AssetImage(
-                                                "assets/images/f7.jpg"),
+                                                "assets/images/f6.jpg"),
                                             fit: BoxFit.cover)),
                                     child: null),
                               ],
@@ -339,7 +353,9 @@ class _MyFeedCardState extends State<MyFeedCard> {
                                     size: 20,
                                     color: likeArr[widget.index] != 0
                                         ? Colors.redAccent
-                                        : Colors.white70,
+                                        : color == "1"
+                                            ? Colors.white70
+                                            : Colors.black38,
                                   ),
                                 ),
                                 Container(
@@ -348,7 +364,9 @@ class _MyFeedCardState extends State<MyFeedCard> {
                                       style: TextStyle(
                                           fontFamily: 'Oswald',
                                           fontWeight: FontWeight.w300,
-                                          color: Colors.white70,
+                                          color: color == "1"
+                                              ? Colors.white70
+                                              : Colors.black54,
                                           fontSize: 12)),
                                 )
                               ],
@@ -360,10 +378,10 @@ class _MyFeedCardState extends State<MyFeedCard> {
                         ////// <<<<< Comment start >>>>> //////
                         GestureDetector(
                           onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => CommentPage()));
+                            // Navigator.push(
+                            //     context,
+                            //     MaterialPageRoute(
+                            //         builder: (context) => CommentPage()));
                           },
                           child: Container(
                             child: Row(
@@ -374,7 +392,9 @@ class _MyFeedCardState extends State<MyFeedCard> {
                                   child: Icon(
                                     Icons.chat_bubble_outline,
                                     size: 20,
-                                    color: Colors.white70,
+                                    color: color == "1"
+                                        ? Colors.white70
+                                        : Colors.black38,
                                   ),
                                 ),
                                 Container(
@@ -384,7 +404,9 @@ class _MyFeedCardState extends State<MyFeedCard> {
                                       style: TextStyle(
                                           fontFamily: 'Oswald',
                                           fontWeight: FontWeight.w300,
-                                          color: Colors.white70,
+                                          color: color == "1"
+                                              ? Colors.white70
+                                              : Colors.black54,
                                           fontSize: 12)),
                                 )
                               ],
@@ -403,7 +425,9 @@ class _MyFeedCardState extends State<MyFeedCard> {
                                 child: Icon(
                                   Icons.send,
                                   size: 20,
-                                  color: Colors.white70,
+                                  color: color == "1"
+                                      ? Colors.white70
+                                      : Colors.black38,
                                 ),
                               ),
                               Container(
@@ -412,7 +436,9 @@ class _MyFeedCardState extends State<MyFeedCard> {
                                     style: TextStyle(
                                         fontFamily: 'Oswald',
                                         fontWeight: FontWeight.w300,
-                                        color: Colors.white70,
+                                        color: color == "1"
+                                            ? Colors.white70
+                                            : Colors.black54,
                                         fontSize: 12)),
                               )
                             ],
@@ -428,7 +454,9 @@ class _MyFeedCardState extends State<MyFeedCard> {
           : Container(
               padding: EdgeInsets.only(top: 20, bottom: 10),
               decoration: BoxDecoration(
-                color: Colors.black.withOpacity(0.3),
+                color: color == "1"
+                    ? Colors.black.withOpacity(0.3)
+                    : Colors.white.withOpacity(0.9),
                 borderRadius: BorderRadius.circular(15),
                 //border: Border.all(width: 0.8, color: Colors.grey[300]),
                 boxShadow: [
@@ -457,8 +485,12 @@ class _MyFeedCardState extends State<MyFeedCard> {
                               //transform: Matrix4.translationValues(0.0, 0.0, 0.0),
                               padding: EdgeInsets.all(1.0),
                               child: Shimmer.fromColors(
-                                baseColor: Colors.grey[700],
-                                highlightColor: Colors.grey[500],
+                                baseColor: color == "1"
+                                    ? Colors.grey[700]
+                                    : Colors.grey[400],
+                                highlightColor: color == "1"
+                                    ? Colors.grey[500]
+                                    : Colors.grey[200],
                                 child: CircleAvatar(
                                   radius: 20.0,
                                   //backgroundColor: Colors.white,
@@ -472,8 +504,12 @@ class _MyFeedCardState extends State<MyFeedCard> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
                                 Shimmer.fromColors(
-                                  baseColor: Colors.grey[700],
-                                  highlightColor: Colors.grey[500],
+                                  baseColor: color == "1"
+                                      ? Colors.grey[700]
+                                      : Colors.grey[400],
+                                  highlightColor: color == "1"
+                                      ? Colors.grey[500]
+                                      : Colors.grey[200],
                                   child: Container(
                                     width: 100,
                                     height: 22,
@@ -485,8 +521,12 @@ class _MyFeedCardState extends State<MyFeedCard> {
                                 Container(
                                   margin: EdgeInsets.only(top: 3),
                                   child: Shimmer.fromColors(
-                                    baseColor: Colors.grey[700],
-                                    highlightColor: Colors.grey[500],
+                                    baseColor: color == "1"
+                                        ? Colors.grey[700]
+                                        : Colors.grey[400],
+                                    highlightColor: color == "1"
+                                        ? Colors.grey[500]
+                                        : Colors.grey[200],
                                     child: Container(
                                       width: 50,
                                       height: 12,
@@ -510,8 +550,12 @@ class _MyFeedCardState extends State<MyFeedCard> {
                           margin: EdgeInsets.only(
                               left: 20, right: 20, top: 20, bottom: 0),
                           child: Shimmer.fromColors(
-                            baseColor: Colors.grey[700],
-                            highlightColor: Colors.grey[500],
+                            baseColor: color == "1"
+                                ? Colors.grey[700]
+                                : Colors.grey[400],
+                            highlightColor: color == "1"
+                                ? Colors.grey[500]
+                                : Colors.grey[200],
                             child: Container(
                               width: MediaQuery.of(context).size.width,
                               height: 10,
@@ -524,8 +568,12 @@ class _MyFeedCardState extends State<MyFeedCard> {
                           margin: EdgeInsets.only(
                               left: 20, right: 20, top: 2, bottom: 5),
                           child: Shimmer.fromColors(
-                            baseColor: Colors.grey[700],
-                            highlightColor: Colors.grey[500],
+                            baseColor: color == "1"
+                                ? Colors.grey[700]
+                                : Colors.grey[400],
+                            highlightColor: color == "1"
+                                ? Colors.grey[500]
+                                : Colors.grey[200],
                             child: Container(
                               width: MediaQuery.of(context).size.width - 100,
                               height: 10,

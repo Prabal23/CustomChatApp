@@ -45,32 +45,38 @@ class RegisterPageState extends State<RegisterPage> {
               width: MediaQuery.of(context).size.width,
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: theme == "1" || theme == null
-                      ? AssetImage("assets/images/f4.jpg")
-                      : theme == "2"
-                          ? AssetImage("assets/images/f.jpg")
-                          : theme == "3"
-                              ? AssetImage("assets/images/f6.jpg")
-                              : theme == "4"
-                                  ? AssetImage("assets/images/f5.jpg")
-                                  : theme == "5"
-                                      ? AssetImage("assets/images/friend8.jpg")
-                                      : theme == "6"
-                                          ? AssetImage("assets/images/f2.jpg")
-                                          : theme == "7"
+                  image: background == "1"
+                      ? color == "1"
+                          ? AssetImage("assets/images/black.jpg")
+                          : AssetImage("assets/images/white.jpg")
+                      : theme == "1" || theme == null
+                          ? AssetImage("assets/images/f4.jpg")
+                          : theme == "2"
+                              ? AssetImage("assets/images/f.jpg")
+                              : theme == "3"
+                                  ? AssetImage("assets/images/f6.jpg")
+                                  : theme == "4"
+                                      ? AssetImage("assets/images/f5.jpg")
+                                      : theme == "5"
+                                          ? AssetImage(
+                                              "assets/images/friend8.jpg")
+                                          : theme == "6"
                                               ? AssetImage(
-                                                  "assets/images/f9.jpg")
-                                              : theme == "8"
+                                                  "assets/images/f2.jpg")
+                                              : theme == "7"
                                                   ? AssetImage(
-                                                      "assets/images/f10.png")
-                                                  : theme == "9"
+                                                      "assets/images/f9.jpg")
+                                                  : theme == "8"
                                                       ? AssetImage(
-                                                          "assets/images/pattern1.jpg")
-                                                      : theme == "10"
+                                                          "assets/images/f10.png")
+                                                      : theme == "9"
                                                           ? AssetImage(
-                                                              "assets/images/pattern2.jpg")
-                                                          : AssetImage(
-                                                              "assets/images/white.jpg"),
+                                                              "assets/images/pattern1.jpg")
+                                                          : theme == "10"
+                                                              ? AssetImage(
+                                                                  "assets/images/pattern2.jpg")
+                                                              : AssetImage(
+                                                                  "assets/images/white.jpg"),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -78,7 +84,9 @@ class RegisterPageState extends State<RegisterPage> {
             ),
             Container(
               width: MediaQuery.of(context).size.width,
-              decoration: BoxDecoration(color: Colors.grey.withOpacity(0.5)),
+              decoration: BoxDecoration(color: color == "1"
+                      ? Colors.grey.withOpacity(0.5)
+                      : Colors.white70),
               child: null,
             ),
             Container(
@@ -88,7 +96,7 @@ class RegisterPageState extends State<RegisterPage> {
                     width: MediaQuery.of(context).size.width,
                     alignment: Alignment.centerLeft,
                     margin: EdgeInsets.only(top: 5),
-                    child: BackButton(color: Colors.white),
+                    child: BackButton(color: color == "1" ? Colors.white : Colors.grey),
                   ),
                   RegisterCard(),
                 ],

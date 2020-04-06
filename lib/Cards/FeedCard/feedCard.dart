@@ -378,10 +378,10 @@ class _FeedCardState extends State<FeedCard> {
                         ////// <<<<< Comment start >>>>> //////
                         GestureDetector(
                           onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => CommentPage()));
+                            // Navigator.push(
+                            //     context,
+                            //     MaterialPageRoute(
+                            //         builder: (context) => CommentPage()));
                           },
                           child: Container(
                             child: Row(

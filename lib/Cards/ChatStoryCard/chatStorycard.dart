@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../main.dart';
+
 class ChatStoryCard extends StatefulWidget {
   final index;
   ChatStoryCard(this.index);
@@ -41,19 +43,21 @@ class _ChatStoryCardState extends State<ChatStoryCard> {
                       backgroundImage: widget.index == 0
                           ? AssetImage("assets/images/grey.jpeg")
                           : widget.index == 0
-                  ? AssetImage("assets/images/man2.jpg")
-                  : widget.index == 1
-                      ? AssetImage("assets/images/man.png")
-                      : widget.index == 2
-                          ? AssetImage("assets/images/man2.png")
-                          : widget.index == 3
-                              ? AssetImage("assets/images/man3.png")
-                              : widget.index == 4
-                                  ? AssetImage("assets/images/user.jpg")
-                                  : AssetImage("assets/images/man4.jpg"),
+                              ? AssetImage("assets/images/man2.jpg")
+                              : widget.index == 1
+                                  ? AssetImage("assets/images/user.png")
+                                  : widget.index == 2
+                                      ? AssetImage("assets/images/man2.png")
+                                      : widget.index == 3
+                                          ? AssetImage("assets/images/man3.png")
+                                          : widget.index == 4
+                                              ? AssetImage(
+                                                  "assets/images/user.jpg")
+                                              : AssetImage(
+                                                  "assets/images/man4.jpg"),
                     )),
                     ////// <<<<< Picture end >>>>> //////
-                    
+
                     ////// <<<<< Online light start >>>>> //////
                     widget.index == 3 || widget.index == 1
                         ? Container(
@@ -71,8 +75,8 @@ class _ChatStoryCardState extends State<ChatStoryCard> {
                             ),
                           )
                         : Container(),
-                        ////// <<<<< Online light end >>>>> //////
-                    
+                    ////// <<<<< Online light end >>>>> //////
+
                     ////// <<<<< Story add start >>>>> //////
                     Center(
                       child: widget.index == 0
@@ -111,7 +115,7 @@ class _ChatStoryCardState extends State<ChatStoryCard> {
                           fontFamily: 'Oswald',
                           fontWeight: FontWeight.w400,
                           fontSize: 12,
-                          color: Colors.white70),
+                          color: color == "1" ? Colors.white70 : Colors.black45),
                     ),
                   ),
                 ],

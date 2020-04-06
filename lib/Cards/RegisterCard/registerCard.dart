@@ -17,7 +17,9 @@ class _RegisterCardState extends State<RegisterCard> {
       child: Expanded(
         child: Container(
           decoration: BoxDecoration(
-              color: Colors.black.withOpacity(0.3),
+              color: color == "1"
+                  ? Colors.black.withOpacity(0.3)
+                  : Colors.grey.withOpacity(0.3),
               borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(25), topRight: Radius.circular(25))),
           margin: EdgeInsets.only(top: 35, left: 0, right: 0, bottom: 0),
@@ -31,7 +33,7 @@ class _RegisterCardState extends State<RegisterCard> {
                     child: Text(
                       "Sign up",
                       style: TextStyle(
-                          color: Colors.white,
+                          color: color == "1" ? Colors.white : Colors.black54,
                           fontSize: 25,
                           fontFamily: 'Oswald',
                           fontWeight: FontWeight.normal),
@@ -43,14 +45,19 @@ class _RegisterCardState extends State<RegisterCard> {
                       margin: EdgeInsets.only(top: 10, left: 20),
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.all(Radius.circular(15.0)),
-                          color: Colors.white,
+                          color: color == "1" ? Colors.white : Colors.black54,
                           boxShadow: [
                             BoxShadow(
                               blurRadius: 3.0,
-                              color: Colors.white,
+                              color:
+                                  color == "1" ? Colors.white : Colors.black54,
                             ),
                           ],
-                          border: Border.all(width: 0.5, color: Colors.white)),
+                          border: Border.all(
+                              width: 0.5,
+                              color: color == "1"
+                                  ? Colors.white
+                                  : Colors.black54)),
                     ),
                   ],
                 ),
@@ -61,7 +68,7 @@ class _RegisterCardState extends State<RegisterCard> {
                       "Create account and start making friends worldwide",
                       textAlign: TextAlign.start,
                       style: TextStyle(
-                          color: Colors.white70,
+                          color: color == "1" ? Colors.white70 : Colors.black45,
                           fontSize: 13,
                           fontFamily: 'Oswald',
                           fontWeight: FontWeight.w300),
@@ -322,7 +329,9 @@ class _RegisterCardState extends State<RegisterCard> {
                                   "Agree with our ",
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
-                                      color: Colors.white70,
+                                      color: color == "1"
+                                          ? Colors.white70
+                                          : Colors.black45,
                                       fontSize: 12,
                                       fontFamily: 'Oswald',
                                       fontWeight: FontWeight.w300),
@@ -396,7 +405,8 @@ class _RegisterCardState extends State<RegisterCard> {
                           child: Text(
                         "Already have an account?",
                         style: TextStyle(
-                            color: Colors.white70,
+                            color:
+                                color == "1" ? Colors.white70 : Colors.black45,
                             fontSize: 14,
                             fontFamily: 'Oswald',
                             fontWeight: FontWeight.w300),

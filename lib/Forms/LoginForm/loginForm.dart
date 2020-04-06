@@ -12,14 +12,16 @@ class LoginForm extends StatefulWidget {
 
 class _LoginFormState extends State<LoginForm> {
   int count = 0;
-  
+
   @override
   Widget build(BuildContext context) {
     return Container(
       child: Expanded(
         child: Container(
           decoration: BoxDecoration(
-              color: Colors.black.withOpacity(0.3),
+              color: color == "1"
+                  ? Colors.black.withOpacity(0.3)
+                  : Colors.grey.withOpacity(0.3),
               borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(25), topRight: Radius.circular(25))),
           margin: EdgeInsets.only(top: 35, left: 0, right: 0, bottom: 0),
@@ -34,7 +36,7 @@ class _LoginFormState extends State<LoginForm> {
                     child: Text(
                       "Sign in",
                       style: TextStyle(
-                          color: Colors.white,
+                          color: color == "1" ? Colors.white : Colors.black54,
                           fontSize: 25,
                           fontFamily: 'Oswald',
                           fontWeight: FontWeight.normal),
@@ -46,15 +48,15 @@ class _LoginFormState extends State<LoginForm> {
                       margin: EdgeInsets.only(top: 10, left: 20),
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.all(Radius.circular(15.0)),
-                          color: Colors.white,
+                          color: color == "1" ? Colors.white : Colors.black54,
                           boxShadow: [
                             BoxShadow(
                               blurRadius: 3.0,
-                              color: Colors.white,
+                              color: color == "1" ? Colors.white : Colors.black54,
                               //offset: Offset(6.0, 7.0),
                             ),
                           ],
-                          border: Border.all(width: 0.5, color: Colors.white)),
+                          border: Border.all(width: 0.5, color: color == "1" ? Colors.white : Colors.black54)),
                     ),
                   ],
                 ),
@@ -65,7 +67,7 @@ class _LoginFormState extends State<LoginForm> {
                       "Login with your account email and password",
                       textAlign: TextAlign.start,
                       style: TextStyle(
-                          color: Colors.white70,
+                          color: color == "1" ? Colors.white70 : Colors.black45,
                           fontSize: 13,
                           fontFamily: 'Oswald',
                           fontWeight: FontWeight.w300),
@@ -187,7 +189,7 @@ class _LoginFormState extends State<LoginForm> {
                         "Forget Pasword?",
                         textAlign: TextAlign.end,
                         style: TextStyle(
-                            color: Colors.white,
+                            color:color == "1" ? Colors.white : Colors.black54 ,
                             fontSize: 13,
                             fontFamily: 'Oswald',
                             fontWeight: FontWeight.w300),
@@ -236,7 +238,7 @@ class _LoginFormState extends State<LoginForm> {
                           child: Text(
                         "Don't have an account?",
                         style: TextStyle(
-                            color: Colors.white70,
+                            color:color == "1" ? Colors.white70 : Colors.black45,
                             fontSize: 14,
                             fontFamily: 'Oswald',
                             fontWeight: FontWeight.w300),

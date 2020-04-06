@@ -59,9 +59,12 @@ class _EditProfilePageState extends State<EditProfilePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        iconTheme: IconThemeData(color: Colors.white),
+        iconTheme:
+            IconThemeData(color: color == "1" ? Colors.white : Colors.black54),
         //automaticallyImplyLeading: false,
-        backgroundColor: Colors.black.withOpacity(0.5),
+        backgroundColor: color == "1"
+            ? Colors.black.withOpacity(0.5)
+            : Colors.white.withOpacity(0.7),
         title: Container(
           margin: EdgeInsets.only(top: 0),
           child: Row(
@@ -79,7 +82,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                       child: Text(
                         "Edit Profile",
                         style: TextStyle(
-                            color: Colors.white,
+                            color: color == "1" ? Colors.white : Colors.black54,
                             fontSize: 20,
                             fontFamily: 'Oswald',
                             fontWeight: FontWeight.normal),
@@ -97,31 +100,37 @@ class _EditProfilePageState extends State<EditProfilePage> {
             width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: theme == "1" || theme == null
-                    ? AssetImage("assets/images/f4.jpg")
-                    : theme == "2"
-                        ? AssetImage("assets/images/f.jpg")
-                        : theme == "3"
-                            ? AssetImage("assets/images/f6.jpg")
-                            : theme == "4"
-                                ? AssetImage("assets/images/f5.jpg")
-                                : theme == "5"
-                                    ? AssetImage("assets/images/friend8.jpg")
-                                    : theme == "6"
-                                        ? AssetImage("assets/images/f2.jpg")
-                                        : theme == "7"
-                                            ? AssetImage("assets/images/f9.jpg")
-                                            : theme == "8"
+                image: background == "1"
+                    ? color == "1"
+                        ? AssetImage("assets/images/black.jpg")
+                        : AssetImage("assets/images/white.jpg")
+                    : theme == "1" || theme == null
+                        ? AssetImage("assets/images/f4.jpg")
+                        : theme == "2"
+                            ? AssetImage("assets/images/f.jpg")
+                            : theme == "3"
+                                ? AssetImage("assets/images/f6.jpg")
+                                : theme == "4"
+                                    ? AssetImage("assets/images/f5.jpg")
+                                    : theme == "5"
+                                        ? AssetImage(
+                                            "assets/images/friend8.jpg")
+                                        : theme == "6"
+                                            ? AssetImage("assets/images/f2.jpg")
+                                            : theme == "7"
                                                 ? AssetImage(
-                                                    "assets/images/f10.png")
-                                                : theme == "9"
+                                                    "assets/images/f9.jpg")
+                                                : theme == "8"
                                                     ? AssetImage(
-                                                        "assets/images/pattern1.jpg")
-                                                    : theme == "10"
+                                                        "assets/images/f10.png")
+                                                    : theme == "9"
                                                         ? AssetImage(
-                                                            "assets/images/pattern2.jpg")
-                                                        : AssetImage(
-                                                            "assets/images/white.jpg"),
+                                                            "assets/images/pattern1.jpg")
+                                                        : theme == "10"
+                                                            ? AssetImage(
+                                                                "assets/images/pattern2.jpg")
+                                                            : AssetImage(
+                                                                "assets/images/white.jpg"),
                 fit: BoxFit.cover,
               ),
             ),
@@ -129,12 +138,15 @@ class _EditProfilePageState extends State<EditProfilePage> {
           ),
           Container(
             width: MediaQuery.of(context).size.width,
-            decoration: BoxDecoration(color: Colors.grey.withOpacity(0.5)),
+            decoration: BoxDecoration(color: Colors.grey.withOpacity(0.2)),
             child: null,
           ),
           Container(
             width: MediaQuery.of(context).size.width,
-            decoration: BoxDecoration(color: Colors.black.withOpacity(0.3)),
+            decoration: BoxDecoration(
+                color: color == "1"
+                    ? Colors.black.withOpacity(0.3)
+                    : Colors.white.withOpacity(0.2)),
             child: null,
           ),
           SingleChildScrollView(

@@ -46,32 +46,38 @@ class OptionPageState extends State<OptionPage> {
               width: MediaQuery.of(context).size.width,
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: theme == "1" || theme == null
-                      ? AssetImage("assets/images/f4.jpg")
-                      : theme == "2"
-                          ? AssetImage("assets/images/f.jpg")
-                          : theme == "3"
-                              ? AssetImage("assets/images/f6.jpg")
-                              : theme == "4"
-                                  ? AssetImage("assets/images/f5.jpg")
-                                  : theme == "5"
-                                      ? AssetImage("assets/images/friend8.jpg")
-                                      : theme == "6"
-                                          ? AssetImage("assets/images/f2.jpg")
-                                          : theme == "7"
+                  image: background == "1"
+                      ? color == "1"
+                          ? AssetImage("assets/images/black.jpg")
+                          : AssetImage("assets/images/white.jpg")
+                      : theme == "1" || theme == null
+                          ? AssetImage("assets/images/f4.jpg")
+                          : theme == "2"
+                              ? AssetImage("assets/images/f.jpg")
+                              : theme == "3"
+                                  ? AssetImage("assets/images/f6.jpg")
+                                  : theme == "4"
+                                      ? AssetImage("assets/images/f5.jpg")
+                                      : theme == "5"
+                                          ? AssetImage(
+                                              "assets/images/friend8.jpg")
+                                          : theme == "6"
                                               ? AssetImage(
-                                                  "assets/images/f9.jpg")
-                                              : theme == "8"
+                                                  "assets/images/f2.jpg")
+                                              : theme == "7"
                                                   ? AssetImage(
-                                                      "assets/images/f10.png")
-                                                  : theme == "9"
+                                                      "assets/images/f9.jpg")
+                                                  : theme == "8"
                                                       ? AssetImage(
-                                                          "assets/images/pattern1.jpg")
-                                                      : theme == "10"
+                                                          "assets/images/f10.png")
+                                                      : theme == "9"
                                                           ? AssetImage(
-                                                              "assets/images/pattern2.jpg")
-                                                          : AssetImage(
-                                                              "assets/images/white.jpg"),
+                                                              "assets/images/pattern1.jpg")
+                                                          : theme == "10"
+                                                              ? AssetImage(
+                                                                  "assets/images/pattern2.jpg")
+                                                              : AssetImage(
+                                                                  "assets/images/white.jpg"),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -79,12 +85,16 @@ class OptionPageState extends State<OptionPage> {
             ),
             Container(
               width: MediaQuery.of(context).size.width,
-              decoration: BoxDecoration(color: Colors.grey.withOpacity(0.5)),
+              decoration: BoxDecoration(
+                  color: color == "1"
+                      ? Colors.grey.withOpacity(0.5)
+                      : Colors.white70),
               child: null,
             ),
             Container(
               margin: EdgeInsets.only(top: 5),
-              child: BackButton(color: Colors.white),
+              child:
+                  BackButton(color: color == "1" ? Colors.white : Colors.grey),
             ),
             Container(
               child: Center(
@@ -94,7 +104,9 @@ class OptionPageState extends State<OptionPage> {
                     Container(),
                     Container(
                       decoration: BoxDecoration(
-                          color: Colors.black.withOpacity(0.3),
+                          color: color == "1"
+                              ? Colors.black.withOpacity(0.3)
+                              : Colors.grey.withOpacity(0.3),
                           borderRadius: BorderRadius.only(
                               topLeft: Radius.circular(25),
                               topRight: Radius.circular(25))),
@@ -110,7 +122,9 @@ class OptionPageState extends State<OptionPage> {
                                 child: Text(
                                   "Be together\nanytime, anywhere",
                                   style: TextStyle(
-                                      color: Colors.white,
+                                      color: color == "1"
+                                          ? Colors.white
+                                          : Colors.black54,
                                       fontSize: 25,
                                       fontFamily: 'Oswald',
                                       fontWeight: FontWeight.normal),
@@ -123,16 +137,23 @@ class OptionPageState extends State<OptionPage> {
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.all(
                                           Radius.circular(15.0)),
-                                      color: Colors.white,
+                                      color: color == "1"
+                                          ? Colors.white
+                                          : Colors.black54,
                                       boxShadow: [
                                         BoxShadow(
                                           blurRadius: 3.0,
-                                          color: Colors.white,
+                                          color: color == "1"
+                                              ? Colors.white
+                                              : Colors.black54,
                                           //offset: Offset(6.0, 7.0),
                                         ),
                                       ],
                                       border: Border.all(
-                                          width: 0.5, color: Colors.white)),
+                                          width: 0.5,
+                                          color: color == "1"
+                                              ? Colors.white
+                                              : Colors.black54)),
                                 ),
                               ],
                             ),
@@ -143,7 +164,9 @@ class OptionPageState extends State<OptionPage> {
                                   "Make new friends, connect with them and share your thoughts",
                                   textAlign: TextAlign.start,
                                   style: TextStyle(
-                                      color: Colors.white70,
+                                      color: color == "1"
+                                          ? Colors.white70
+                                          : Colors.black45,
                                       fontSize: 13,
                                       fontFamily: 'Oswald',
                                       fontWeight: FontWeight.w300),

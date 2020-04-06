@@ -54,9 +54,12 @@ class ChattingPageState extends State<ChattingPage> {
     return new Scaffold(
       //backgroundColor: Colors.white,
       appBar: AppBar(
-        iconTheme: IconThemeData(color: Colors.white),
+        iconTheme:
+            IconThemeData(color: color == "1" ? Colors.white : Colors.black54),
         //automaticallyImplyLeading: false,
-        backgroundColor: Colors.black.withOpacity(0.5),
+        backgroundColor: color == "1"
+            ? Colors.black.withOpacity(0.5)
+            : Colors.white.withOpacity(0.7),
         title: Container(
           margin: EdgeInsets.only(top: 0),
           child: Row(
@@ -108,7 +111,7 @@ class ChattingPageState extends State<ChattingPage> {
                       child: Text(
                         "Simon Paul",
                         style: TextStyle(
-                            color: Colors.white,
+                            color: color == "1" ? Colors.white : Colors.black54,
                             fontSize: 16,
                             fontFamily: 'Oswald',
                             fontWeight: FontWeight.normal),
@@ -126,31 +129,37 @@ class ChattingPageState extends State<ChattingPage> {
             width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: theme == "1" || theme == null
-                    ? AssetImage("assets/images/f4.jpg")
-                    : theme == "2"
-                        ? AssetImage("assets/images/f.jpg")
-                        : theme == "3"
-                            ? AssetImage("assets/images/f6.jpg")
-                            : theme == "4"
-                                ? AssetImage("assets/images/f5.jpg")
-                                : theme == "5"
-                                    ? AssetImage("assets/images/friend8.jpg")
-                                    : theme == "6"
-                                        ? AssetImage("assets/images/f2.jpg")
-                                        : theme == "7"
-                                            ? AssetImage("assets/images/f9.jpg")
-                                            : theme == "8"
+                image: background == "1"
+                    ? color == "1"
+                        ? AssetImage("assets/images/black.jpg")
+                        : AssetImage("assets/images/white.jpg")
+                    : theme == "1" || theme == null
+                        ? AssetImage("assets/images/f4.jpg")
+                        : theme == "2"
+                            ? AssetImage("assets/images/f.jpg")
+                            : theme == "3"
+                                ? AssetImage("assets/images/f6.jpg")
+                                : theme == "4"
+                                    ? AssetImage("assets/images/f5.jpg")
+                                    : theme == "5"
+                                        ? AssetImage(
+                                            "assets/images/friend8.jpg")
+                                        : theme == "6"
+                                            ? AssetImage("assets/images/f2.jpg")
+                                            : theme == "7"
                                                 ? AssetImage(
-                                                    "assets/images/f10.png")
-                                                : theme == "9"
+                                                    "assets/images/f9.jpg")
+                                                : theme == "8"
                                                     ? AssetImage(
-                                                        "assets/images/pattern1.jpg")
-                                                    : theme == "10"
+                                                        "assets/images/f10.png")
+                                                    : theme == "9"
                                                         ? AssetImage(
-                                                            "assets/images/pattern2.jpg")
-                                                        : AssetImage(
-                                                            "assets/images/white.jpg"),
+                                                            "assets/images/pattern1.jpg")
+                                                        : theme == "10"
+                                                            ? AssetImage(
+                                                                "assets/images/pattern2.jpg")
+                                                            : AssetImage(
+                                                                "assets/images/white.jpg"),
                 fit: BoxFit.cover,
               ),
             ),
@@ -171,7 +180,9 @@ class ChattingPageState extends State<ChattingPage> {
                     Expanded(
                       child: Container(
                         decoration: BoxDecoration(
-                            color: Colors.black.withOpacity(0.3),
+                            color: color == "1"
+                                ? Colors.black.withOpacity(0.3)
+                                : Colors.white.withOpacity(0.7),
                             borderRadius: BorderRadius.only(
                                 topLeft: Radius.circular(0),
                                 topRight: Radius.circular(0))),
@@ -219,7 +230,9 @@ class ChattingPageState extends State<ChattingPage> {
                     //   ),
                     // ),
                     Container(
-                      color: Colors.black.withOpacity(0.5),
+                      color: color == "1"
+                          ? Colors.black.withOpacity(0.5)
+                          : Colors.white.withOpacity(0.9),
                       child: Row(
                         children: <Widget>[
                           // Container(
@@ -243,7 +256,9 @@ class ChattingPageState extends State<ChattingPage> {
                                       topRight: Radius.circular(20.0),
                                       bottomLeft: Radius.circular(20.0),
                                       bottomRight: Radius.circular(20.0)),
-                                  color: Colors.black.withOpacity(0.4),
+                                  color: color == "1"
+                                      ? Colors.black.withOpacity(0.4)
+                                      : Colors.white70,
                                   border: Border.all(
                                       width: 0.5,
                                       color: Colors.black.withOpacity(0.4))),
@@ -268,7 +283,9 @@ class ChattingPageState extends State<ChattingPage> {
                                           decoration: InputDecoration(
                                             hintText: "Type a message here...",
                                             hintStyle: TextStyle(
-                                                color: Colors.white70,
+                                                color: color == "1"
+                                                    ? Colors.white70
+                                                    : Colors.black54,
                                                 fontSize: 15,
                                                 fontFamily: 'Oswald',
                                                 fontWeight: FontWeight.w300),
